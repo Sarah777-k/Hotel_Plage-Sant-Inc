@@ -51,11 +51,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDB56Projet1SNGDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmGestionUtilisateurs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmGestionUtilisateurs.Designer.cs">
+      <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -65,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmGestionUtilisateurs.resx">
+      <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
