@@ -66,17 +66,72 @@ namespace Projet1SNG
             SqlConnection maConnexion = new SqlConnection(maChaineDeConnexion);
             maConnexion.Open(); //Ouverture de la connexion
 
-            String requete1= "SELECT COUNT(*) " +
-                             "FROM utilisateur " +
-                             "WHERE nomUtilisateur = @nom;";
+            String requete1= "SELECT COUNT(*) FROM utilisateur " +
+                             "WHERE nomUtil = @nom;";
 
             SqlCommand commande1 = new SqlCommand(requete1, maConnexion);
 
-            String nomUtilisateur = txtNomUtilisateur.Text.Trim(); //on recupere le nom util
-            SqlParameter parametre1 = new SqlParameter("@nom", nomUtilisateur);
-            commande1.Parameters.Add(parametre1);
-            
+            //on recupere les infos des input et du combobox
+            String nomUtilisateur = txtNomUtilisateur.Text.Trim(); 
+            String mdp = txtMdp.Text.Trim();
+            object typeUtilisateur = cmbTypeUtilisateur.SelectedValue;
 
+            SqlParameter parametre1 = new SqlParameter("@nom", nomUtilisateur);
+            commande1.Parameters.Add(parametre1); // on l'ajoute en parametre pour la requete
+
+            // On verifie si le nom existe deja:
+            object compte = commande1.ExecuteScalar();
+            int nbCompte = Convert.ToInt32(compte);
+            // si on trouve que ca exisye deja on afffche un message
+            if (nbCompte != 0)
+            {
+                MessageBox.Show("Ce nom d'utilisateur est deja existant.");
+                txtNomUtilisateur.Focus();
+                maConnexion.Close();
+                return;
+            }
+
+            SqlTransaction maTransaction = maConnexion.BeginTransaction();
+            String requete2 = "INSERT INTO utilisateur (id_util, nomUtil, motDePasse, typeUtil) " +
+                              "VALUES (@idUtil, @nom, @mdp, @typeUtil);";
+
+            try
+            {
+                //On attribue le bon id ()
+                String requete3 = "SELECT MAX(id_util) FROM utilisateur;";
+                SqlCommand commande2 = new SqlCommand(requete3, maConnexion);
+                commande2.Transaction = maTransaction;
+                object max = commande2.ExecuteScalar();
+                int idUtilisateur;
+                if (max == DBNull.Value)
+                {
+                    idUtilisateur = 1;
+                }
+                else idUtilisateur = Convert.ToInt32(max)+1;
+
+                // ajout du user a la transaction:
+                SqlCommand commande3 = new SqlCommand(requete2, maConnexion);
+                commande3.Transaction = maTransaction;
+                commande3.Parameters.Add(new SqlParameter("@idUtil", idUtilisateur));
+                commande3.Parameters.Add(new SqlParameter("@nom", nomUtilisateur));
+                commande3.Parameters.Add(new SqlParameter("@mdp", mdp));
+                commande3.Parameters.Add(new SqlParameter("@typeUtil", typeUtilisateur));
+
+                commande3.ExecuteNonQuery();
+
+                maTransaction.Commit();
+                MessageBox.Show("Utilisateur créée avec succès.");
+
+            }
+            catch
+            {
+                maTransaction.Rollback();
+                MessageBox.Show("Erreur: transaction annulée.");
+            }
+
+            utilisateurTableAdapter.Fill(bDB56Projet1SNGDataSet.utilisateur);
+            txtNomUtilisateur.Clear();
+            txtMdp.Clear();
 
             maConnexion.Close(); //Ferneture de la connexion
         }
