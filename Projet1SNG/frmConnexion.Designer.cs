@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblErreur = new System.Windows.Forms.Label();
+            this.txtUtilisateur = new System.Windows.Forms.TextBox();
+            this.txtMotDePasse = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -65,39 +65,40 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Connexion";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
+            // lblErreur
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 197);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(287, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Entrez votre utilisateur et mot de passe\r\n";
+            this.lblErreur.AutoSize = true;
+            this.lblErreur.Font = new System.Drawing.Font("MS Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErreur.Location = new System.Drawing.Point(53, 197);
+            this.lblErreur.Name = "lblErreur";
+            this.lblErreur.Size = new System.Drawing.Size(287, 13);
+            this.lblErreur.TabIndex = 3;
+            this.lblErreur.Text = "Entrez votre utilisateur et mot de passe\r\n";
             // 
-            // textBox1
+            // txtUtilisateur
             // 
-            this.textBox1.Location = new System.Drawing.Point(228, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtUtilisateur.Location = new System.Drawing.Point(228, 55);
+            this.txtUtilisateur.Name = "txtUtilisateur";
+            this.txtUtilisateur.Size = new System.Drawing.Size(296, 20);
+            this.txtUtilisateur.TabIndex = 4;
             // 
-            // textBox2
+            // txtMotDePasse
             // 
-            this.textBox2.Location = new System.Drawing.Point(228, 140);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(296, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtMotDePasse.Location = new System.Drawing.Point(228, 140);
+            this.txtMotDePasse.Name = "txtMotDePasse";
+            this.txtMotDePasse.Size = new System.Drawing.Size(296, 20);
+            this.txtMotDePasse.TabIndex = 5;
             // 
             // frmConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 322);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtMotDePasse);
+            this.Controls.Add(this.txtUtilisateur);
+            this.Controls.Add(this.lblErreur);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -113,9 +114,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblErreur;
+        private System.Windows.Forms.TextBox txtUtilisateur;
+        private System.Windows.Forms.TextBox txtMotDePasse;
     }
 }
 
