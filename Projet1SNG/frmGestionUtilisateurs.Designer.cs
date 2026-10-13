@@ -48,10 +48,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.utilisateurBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dgvUtilisateurs = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.btnSupprimer = new System.Windows.Forms.Button();
@@ -59,12 +55,16 @@
             this.txtNomUtilisateur = new System.Windows.Forms.TextBox();
             this.txtMdp = new System.Windows.Forms.TextBox();
             this.cmbTypeUtilisateur = new System.Windows.Forms.ComboBox();
+            this.typeUtilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeUtilisateurBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.typeUtilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typeUtilisateurTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.typeUtilisateurTableAdapter();
-            this.typeUtilisateurBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvIdUtil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNomUtil = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMotDePasse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTypeUtil = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingNavigator)).BeginInit();
@@ -232,42 +232,23 @@
             // 
             // dgvUtilisateurs
             // 
+            this.dgvUtilisateurs.AllowUserToAddRows = false;
+            this.dgvUtilisateurs.AllowUserToDeleteRows = false;
             this.dgvUtilisateurs.AutoGenerateColumns = false;
             this.dgvUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dgvIdUtil,
+            this.dgvNomUtil,
+            this.dgvMotDePasse,
+            this.dgvTypeUtil});
             this.dgvUtilisateurs.DataSource = this.utilisateurBindingSource;
             this.dgvUtilisateurs.Location = new System.Drawing.Point(50, 140);
+            this.dgvUtilisateurs.MultiSelect = false;
             this.dgvUtilisateurs.Name = "dgvUtilisateurs";
+            this.dgvUtilisateurs.ReadOnly = true;
+            this.dgvUtilisateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUtilisateurs.Size = new System.Drawing.Size(692, 272);
             this.dgvUtilisateurs.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_util";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_util";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "nomUtil";
-            this.dataGridViewTextBoxColumn2.HeaderText = "nomUtil";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "motDePasse";
-            this.dataGridViewTextBoxColumn3.HeaderText = "motDePasse";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "typeUtil";
-            this.dataGridViewTextBoxColumn4.HeaderText = "typeUtil";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // btnAjouter
             // 
@@ -310,7 +291,6 @@
             // 
             this.txtMdp.Location = new System.Drawing.Point(165, 64);
             this.txtMdp.Name = "txtMdp";
-            this.txtMdp.PasswordChar = '*';
             this.txtMdp.Size = new System.Drawing.Size(100, 20);
             this.txtMdp.TabIndex = 7;
             // 
@@ -325,6 +305,16 @@
             this.cmbTypeUtilisateur.Size = new System.Drawing.Size(121, 21);
             this.cmbTypeUtilisateur.TabIndex = 8;
             this.cmbTypeUtilisateur.ValueMember = "id_typeUtil";
+            // 
+            // typeUtilisateurBindingSource
+            // 
+            this.typeUtilisateurBindingSource.DataMember = "typeUtilisateur";
+            this.typeUtilisateurBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            // 
+            // typeUtilisateurBindingSource1
+            // 
+            this.typeUtilisateurBindingSource1.DataMember = "typeUtilisateur";
+            this.typeUtilisateurBindingSource1.DataSource = this.bDB56Projet1SNGDataSet;
             // 
             // label1
             // 
@@ -353,19 +343,37 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Type d\'utilisateur :";
             // 
-            // typeUtilisateurBindingSource
-            // 
-            this.typeUtilisateurBindingSource.DataMember = "typeUtilisateur";
-            this.typeUtilisateurBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
             // typeUtilisateurTableAdapter
             // 
             this.typeUtilisateurTableAdapter.ClearBeforeFill = true;
             // 
-            // typeUtilisateurBindingSource1
+            // dgvIdUtil
             // 
-            this.typeUtilisateurBindingSource1.DataMember = "typeUtilisateur";
-            this.typeUtilisateurBindingSource1.DataSource = this.bDB56Projet1SNGDataSet;
+            this.dgvIdUtil.DataPropertyName = "id_util";
+            this.dgvIdUtil.HeaderText = "Identifiant utilisateur";
+            this.dgvIdUtil.Name = "dgvIdUtil";
+            this.dgvIdUtil.ReadOnly = true;
+            // 
+            // dgvNomUtil
+            // 
+            this.dgvNomUtil.DataPropertyName = "nomUtil";
+            this.dgvNomUtil.HeaderText = "Nom d\'utilisateur";
+            this.dgvNomUtil.Name = "dgvNomUtil";
+            this.dgvNomUtil.ReadOnly = true;
+            // 
+            // dgvMotDePasse
+            // 
+            this.dgvMotDePasse.DataPropertyName = "motDePasse";
+            this.dgvMotDePasse.HeaderText = "Mot de passe";
+            this.dgvMotDePasse.Name = "dgvMotDePasse";
+            this.dgvMotDePasse.ReadOnly = true;
+            // 
+            // dgvTypeUtil
+            // 
+            this.dgvTypeUtil.DataPropertyName = "typeUtil";
+            this.dgvTypeUtil.HeaderText = "Type d\'utilisateur";
+            this.dgvTypeUtil.Name = "dgvTypeUtil";
+            this.dgvTypeUtil.ReadOnly = true;
             // 
             // frmGestionUtilisateurs
             // 
@@ -419,10 +427,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton utilisateurBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView dgvUtilisateurs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.Button btnSupprimer;
@@ -436,6 +440,10 @@
         private System.Windows.Forms.BindingSource typeUtilisateurBindingSource;
         private BDB56Projet1SNGDataSetTableAdapters.typeUtilisateurTableAdapter typeUtilisateurTableAdapter;
         private System.Windows.Forms.BindingSource typeUtilisateurBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvIdUtil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvNomUtil;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMotDePasse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTypeUtil;
     }
 }
 
