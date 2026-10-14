@@ -34,6 +34,7 @@
             this.lblErreur = new System.Windows.Forms.Label();
             this.txtUtilisateur = new System.Windows.Forms.TextBox();
             this.txtMotDePasse = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -88,20 +89,35 @@
             // 
             this.txtMotDePasse.Location = new System.Drawing.Point(228, 140);
             this.txtMotDePasse.Name = "txtMotDePasse";
+            this.txtMotDePasse.PasswordChar = '*';
             this.txtMotDePasse.Size = new System.Drawing.Size(296, 20);
             this.txtMotDePasse.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(404, 293);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(109, 22);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Quitter";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmConnexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 322);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtMotDePasse);
             this.Controls.Add(this.txtUtilisateur);
             this.Controls.Add(this.lblErreur);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConnexion";
             this.Text = "Connexion d\'un utilisateur";
             this.ResumeLayout(false);
@@ -117,6 +133,7 @@
         private System.Windows.Forms.Label lblErreur;
         private System.Windows.Forms.TextBox txtUtilisateur;
         private System.Windows.Forms.TextBox txtMotDePasse;
+        private System.Windows.Forms.Button button2;
     }
 }
 

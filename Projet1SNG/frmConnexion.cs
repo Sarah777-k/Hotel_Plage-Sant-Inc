@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace Projet1SNG
 {
@@ -26,6 +27,8 @@ namespace Projet1SNG
 
             try
             {
+
+                //fait une connection direct à la base de données
                 maConnexion.Open();
 
 
@@ -37,16 +40,40 @@ namespace Projet1SNG
 
                 int resultat = (int)maCommande.ExecuteScalar();
 
+                //si l'utilisateur existe
                 if (resultat > 0)
                 {
+                    
                     lblErreur.Text = "Connexion réussie !";
 
-                    Menu principal = new Menu();
-                    principal.Show();
-                    this.Hide();
+                    //cherche le type d'utilisateur
+                    string maRequeteSQL2 = "SELECT typeUtil FROM typeUtilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
+                    int resultat2 = (int)maCommande.ExecuteScalar();
+
+                    //Connecte vers l'admin
+                    if (resultat2 == 1)
+                    {
+                        string maRequeteSQL3 = "SELECT id_util FROM typeUtilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
+                        int idAdmin = (int)maCommande.ExecuteScalar();
+                        menuAdmin mAdmin = new menuAdmin();
+                        mAdmin.noAdmin = idAdmin.ToString();
+                        mAdmin.Show();
+                        this.Hide();
+                    }
+                    else //Connecte vers l'employe
+                    {
+                        string maRequeteSQL4 = "SELECT id_util FROM typeUtilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
+                        int idEmploye = (int)maCommande.ExecuteScalar();
+                        menuEmploye principal = new menuEmploye();
+                        principal.noEmploye = idEmploye.ToString();
+                        principal.Show();
+                        this.Hide();
+                    }
+
                 }
                 else
                 {
+                    //si l'utilisateur il affiche:
                     lblErreur.Text = "Connexion échouée : Utilisateur ou mot de passe incorrect.";
                 }
             }
@@ -62,6 +89,11 @@ namespace Projet1SNG
                     maConnexion.Close();
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
