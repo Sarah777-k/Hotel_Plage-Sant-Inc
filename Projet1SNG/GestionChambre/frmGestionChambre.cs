@@ -34,6 +34,26 @@ namespace Projet1SNG.GestionChambre
 
         }
 
-   
+        private void btnSupType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModifierType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjouterType_Click(object sender, EventArgs e)
+        {
+            
+         }
+
+        private void btnAjouterChambre_Click(object sender, EventArgs e)
+        {
+            frmAjouterChambre fAC = new frmAjouterChambre();
+            fAC.Location = this.Location;
+            fAC.ShowDialog();
+        }
     }
 }
