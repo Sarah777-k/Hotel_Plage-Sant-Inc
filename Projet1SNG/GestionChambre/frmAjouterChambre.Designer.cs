@@ -36,24 +36,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAjouterChambre));
             this.label1 = new System.Windows.Forms.Label();
             this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
-            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chambreTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.chambreTableAdapter();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
+            this.chambreTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.chambreTableAdapter();
             this.type_chambreTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.type_chambreTableAdapter();
-            this.chambreBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.chambreBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.id_chambreTextBox = new System.Windows.Forms.TextBox();
+            this.txtIdChambre = new System.Windows.Forms.TextBox();
             this.txtEmplacement = new System.Windows.Forms.TextBox();
             this.txtDecoration = new System.Windows.Forms.TextBox();
             this.cboTypeChambre = new System.Windows.Forms.ComboBox();
@@ -61,16 +47,30 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.chambreBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.chambreBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.chambreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             id_chambreLabel = new System.Windows.Forms.Label();
             emplacementLabel = new System.Windows.Forms.Label();
             decorationLabel = new System.Windows.Forms.Label();
             id_typeChambreLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingNavigator)).BeginInit();
-            this.chambreBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.type_chambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingNavigator)).BeginInit();
+            this.chambreBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // id_chambreLabel
@@ -124,15 +124,6 @@
             this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
             this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // chambreBindingSource
-            // 
-            this.chambreBindingSource.DataMember = "chambre";
-            this.chambreBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
-            // chambreTableAdapter
-            // 
-            this.chambreTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.assistant_soinTableAdapter = null;
@@ -150,148 +141,24 @@
             this.tableAdapterManager.UpdateOrder = Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
+            // chambreTableAdapter
+            // 
+            this.chambreTableAdapter.ClearBeforeFill = true;
+            // 
             // type_chambreTableAdapter
             // 
             this.type_chambreTableAdapter.ClearBeforeFill = true;
             // 
-            // chambreBindingNavigator
+            // txtIdChambre
             // 
-            this.chambreBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.chambreBindingNavigator.BindingSource = this.chambreBindingSource;
-            this.chambreBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.chambreBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.chambreBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.chambreBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.chambreBindingNavigatorSaveItem});
-            this.chambreBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.chambreBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.chambreBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.chambreBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.chambreBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.chambreBindingNavigator.Name = "chambreBindingNavigator";
-            this.chambreBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.chambreBindingNavigator.Size = new System.Drawing.Size(686, 27);
-            this.chambreBindingNavigator.TabIndex = 1;
-            this.chambreBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Supprimer";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Placer en premier";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Déplacer vers le bas";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Placer en dernier";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // chambreBindingNavigatorSaveItem
-            // 
-            this.chambreBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.chambreBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("chambreBindingNavigatorSaveItem.Image")));
-            this.chambreBindingNavigatorSaveItem.Name = "chambreBindingNavigatorSaveItem";
-            this.chambreBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
-            this.chambreBindingNavigatorSaveItem.Text = "Enregistrer les données";
-            this.chambreBindingNavigatorSaveItem.Click += new System.EventHandler(this.chambreBindingNavigatorSaveItem_Click);
-            // 
-            // id_chambreTextBox
-            // 
-            this.id_chambreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.chambreBindingSource, "id_chambre", true));
-            this.id_chambreTextBox.Location = new System.Drawing.Point(302, 124);
-            this.id_chambreTextBox.Name = "id_chambreTextBox";
-            this.id_chambreTextBox.ReadOnly = true;
-            this.id_chambreTextBox.Size = new System.Drawing.Size(185, 22);
-            this.id_chambreTextBox.TabIndex = 3;
+            this.txtIdChambre.Location = new System.Drawing.Point(302, 124);
+            this.txtIdChambre.Name = "txtIdChambre";
+            this.txtIdChambre.ReadOnly = true;
+            this.txtIdChambre.Size = new System.Drawing.Size(185, 22);
+            this.txtIdChambre.TabIndex = 3;
             // 
             // txtEmplacement
             // 
-            this.txtEmplacement.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.chambreBindingSource, "emplacement", true));
             this.txtEmplacement.Location = new System.Drawing.Point(302, 166);
             this.txtEmplacement.Name = "txtEmplacement";
             this.txtEmplacement.Size = new System.Drawing.Size(185, 22);
@@ -299,7 +166,6 @@
             // 
             // txtDecoration
             // 
-            this.txtDecoration.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.chambreBindingSource, "decoration", true));
             this.txtDecoration.Location = new System.Drawing.Point(302, 211);
             this.txtDecoration.Name = "txtDecoration";
             this.txtDecoration.Size = new System.Drawing.Size(185, 22);
@@ -347,6 +213,136 @@
             // 
             this.errMessage.ContainerControl = this;
             // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Text = "Placer en premier";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Text = "Déplacer vers le bas";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Text = "Placer en dernier";
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Text = "Supprimer";
+            // 
+            // chambreBindingNavigatorSaveItem
+            // 
+            this.chambreBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.chambreBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("chambreBindingNavigatorSaveItem.Image")));
+            this.chambreBindingNavigatorSaveItem.Name = "chambreBindingNavigatorSaveItem";
+            this.chambreBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this.chambreBindingNavigatorSaveItem.Text = "Enregistrer les données";
+            // 
+            // chambreBindingNavigator
+            // 
+            this.chambreBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.chambreBindingNavigator.BindingSource = this.chambreBindingSource;
+            this.chambreBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.chambreBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.chambreBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.chambreBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.chambreBindingNavigatorSaveItem});
+            this.chambreBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.chambreBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.chambreBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.chambreBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.chambreBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.chambreBindingNavigator.Name = "chambreBindingNavigator";
+            this.chambreBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.chambreBindingNavigator.Size = new System.Drawing.Size(686, 31);
+            this.chambreBindingNavigator.TabIndex = 1;
+            this.chambreBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // chambreBindingSource
+            // 
+            this.chambreBindingSource.DataMember = "chambre";
+            this.chambreBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            // 
             // frmAjouterChambre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,7 +352,7 @@
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.cboTypeChambre);
             this.Controls.Add(id_chambreLabel);
-            this.Controls.Add(this.id_chambreTextBox);
+            this.Controls.Add(this.txtIdChambre);
             this.Controls.Add(emplacementLabel);
             this.Controls.Add(this.txtEmplacement);
             this.Controls.Add(decorationLabel);
@@ -368,12 +364,12 @@
             this.Text = "Ajouter Chambre";
             this.Load += new System.EventHandler(this.frmAjouterChambre_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.type_chambreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingNavigator)).EndInit();
             this.chambreBindingNavigator.ResumeLayout(false);
             this.chambreBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.type_chambreBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,11 +379,20 @@
 
         private System.Windows.Forms.Label label1;
         private BDB56Projet1SNGDataSet bDB56Projet1SNGDataSet;
-        private System.Windows.Forms.BindingSource chambreBindingSource;
-        private BDB56Projet1SNGDataSetTableAdapters.chambreTableAdapter chambreTableAdapter;
         private BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private BDB56Projet1SNGDataSetTableAdapters.type_chambreTableAdapter type_chambreTableAdapter;
+        private System.Windows.Forms.TextBox txtIdChambre;
+        private System.Windows.Forms.TextBox txtEmplacement;
+        private System.Windows.Forms.TextBox txtDecoration;
+        private System.Windows.Forms.ComboBox cboTypeChambre;
+        private System.Windows.Forms.BindingSource type_chambreBindingSource;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.Button btnFermer;
+        private System.Windows.Forms.ErrorProvider errMessage;
+        private BDB56Projet1SNGDataSetTableAdapters.chambreTableAdapter chambreTableAdapter;
         private System.Windows.Forms.BindingNavigator chambreBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.BindingSource chambreBindingSource;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
@@ -399,14 +404,5 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton chambreBindingNavigatorSaveItem;
-        private BDB56Projet1SNGDataSetTableAdapters.type_chambreTableAdapter type_chambreTableAdapter;
-        private System.Windows.Forms.TextBox id_chambreTextBox;
-        private System.Windows.Forms.TextBox txtEmplacement;
-        private System.Windows.Forms.TextBox txtDecoration;
-        private System.Windows.Forms.ComboBox cboTypeChambre;
-        private System.Windows.Forms.BindingSource type_chambreBindingSource;
-        private System.Windows.Forms.Button btnAjouter;
-        private System.Windows.Forms.Button btnFermer;
-        private System.Windows.Forms.ErrorProvider errMessage;
     }
 }

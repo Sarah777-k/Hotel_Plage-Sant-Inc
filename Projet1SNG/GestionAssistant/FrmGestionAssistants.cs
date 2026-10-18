@@ -14,7 +14,7 @@ namespace Projet1SNG
 {
     public partial class FrmGestionAssistants : Form
     {
-        // TableAdapter utilisé pour vérifier si un assistant possède des planifications.
+        // TableAdapter utilise pour verifier si un assistant possede des planifications.
         private BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter planifSoinTableAdapter = new BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter();
         public FrmGestionAssistants()
         {
@@ -41,7 +41,7 @@ namespace Projet1SNG
             this.assistantTableAdapter.Fill(this.bDB56Projet1SNGDataSet.assistant);
             if (assistantBindingSource.Position < 0)
             {
-                MessageBox.Show("Aucun assistant sélectionné.");
+                MessageBox.Show("Aucun assistant selectionne.");
                 return;
             }
 
@@ -49,11 +49,11 @@ namespace Projet1SNG
 
         private void btnAjouterAssistant_Click(object sender, EventArgs e)
         {
-            // Créer une nouvelle ligne en mémoire.
+            // Creer une nouvelle ligne en memoire
             BDB56Projet1SNGDataSet.assistantRow unAssistant =
                 bDB56Projet1SNGDataSet.assistant.NewassistantRow();
 
-            // Trouver le plus grand numéro existant.
+            // Trouver le plus grand numero existant
             int idMax = 0;
 
             foreach (BDB56Projet1SNGDataSet.assistantRow ligne
@@ -65,7 +65,7 @@ namespace Projet1SNG
                 }
             }
 
-            // Générer automatiquement le prochain numéro.
+            // Generer automatiquement le prochain numero
             unAssistant.id_assistant = idMax + 1;
 
             // Ouvrir le formulaire d'ajout.
@@ -76,19 +76,19 @@ namespace Projet1SNG
 
             frmAjouter.ShowDialog();
 
-            // Ajouter réellement la ligne seulement
-            // si l'utilisateur a cliqué sur Enregistrer.
+            // Ajouter reellement la ligne seulement
+            // si l'utilisateur a clique sur Enregistrer
             if (frmAjouter.ajoutConfirme)
             {
                 try
                 {
-                    // Ajouter l'assistant dans le DataSet.
+                    // Ajouter l'assistant dans le DataSet
                     bDB56Projet1SNGDataSet.assistant
                         .AddassistantRow(unAssistant);
 
                     assistantBindingSource.EndEdit();
 
-                    // Enregistrer immédiatement dans SQL Server.
+                    // Enregistrer immediatement dans SQL Server
                     assistantTableAdapter.Update(
                         bDB56Projet1SNGDataSet.assistant
                     );
@@ -98,7 +98,7 @@ namespace Projet1SNG
                     MessageBox.Show(
                         "L'assistant " +
                         unAssistant.id_assistant +
-                        " a été ajouté.",
+                        " a ete ajoute.",
                         "Ajout d'un assistant",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
@@ -118,12 +118,12 @@ namespace Projet1SNG
         }
 
         private void btnModifierAssistant_Click(object sender, EventArgs e)
-        {
-            // Vérifier qu'un assistant est sélectionné.
+        {  
+            // Verifier qu'un assistant est selectionne
             if (assistantBindingSource.Current == null)
             {
                 MessageBox.Show(
-                    "Aucun assistant sélectionné.",
+                    "Aucun assistant selectionne.",
                     "Modification",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -133,7 +133,7 @@ namespace Projet1SNG
             }
 
 
-            // Récupérer la ligne sélectionnée.
+            // Recuperer la ligne selectionnee
             DataRowView ligneSelectionnee =
                 (DataRowView)assistantBindingSource.Current;
 
@@ -142,7 +142,7 @@ namespace Projet1SNG
                 ligneSelectionnee.Row;
 
 
-            // Ouvrir le formulaire de modification.
+            // Ouvrir le formulaire de modification
             frmGestionAssistantModifier frmModifier =
                 new frmGestionAssistantModifier();
 
@@ -150,8 +150,7 @@ namespace Projet1SNG
 
             frmModifier.ShowDialog();
 
-            // Si l'utilisateur a confirmé,
-            // actualiser l'affichage.
+            // Si l'utilisateur a confirme actualiser l'affichage
             if (frmModifier.modificationConfirmee)
             {
                 assistantBindingSource.ResetCurrentItem();
@@ -165,11 +164,11 @@ namespace Projet1SNG
 
         private void btnSupAssistant_Click(object sender, EventArgs e)
         {
-            // Vérifier qu'un assistant est sélectionné.
+            // Verifier qu'un assistant est selectionne
             if (assistantBindingSource.Current == null)
             {
                 MessageBox.Show(
-                    "Veuillez sélectionner un assistant.",
+                    "Veuillez selectionner un assistant.",
                     "Suppression",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -179,7 +178,7 @@ namespace Projet1SNG
             }
 
 
-            // Récupérer l'assistant sélectionné.
+            // Recuperer l'assistant selectionne
             DataRowView ligneSelectionnee =
                 (DataRowView)assistantBindingSource.Current;
 
@@ -190,19 +189,16 @@ namespace Projet1SNG
             int idAssistant = unAssistant.id_assistant;
 
 
-            //=========================================================
-            // Vérifier si l'assistant possède une planification
-            //=========================================================
 
-            // Vérifier si l'assistant possède une planification
+            // Verifier si l'assistant possede une planification
             BDB56Projet1SNGDataSet.planif_soinDataTable planifications =
                 planifSoinTableAdapter.GetByNbPlanifByAssistant(idAssistant);
 
             if (planifications.Rows.Count > 0)
             {
                 MessageBox.Show(
-                    "Cet assistant ne peut pas être supprimé " +
-                    "car des soins lui sont assignés dans une planification.",
+                    "Cet assistant ne peut pas être supprime " +
+                    "car des soins lui sont assignes dans une planification.",
                     "Suppression impossible",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -251,9 +247,7 @@ namespace Projet1SNG
                     ligne.Delete();
                 }
 
-                // IMPORTANT :
-                // enregistrer les suppressions de assistant_soin
-                // AVANT de supprimer l'assistant.
+                // !!enregistrer les suppressions de assistant_soin avany de supprimer l'assistant
                 assistant_soinTableAdapter.Update(
                     bDB56Projet1SNGDataSet.assistant_soin
                 );
@@ -271,7 +265,7 @@ namespace Projet1SNG
 
 
                 //=====================================================
-                // 3. Actualiser les données
+                // 3. Actualiser les donnees
                 //=====================================================
 
                 assistantTableAdapter.Fill(
@@ -288,7 +282,7 @@ namespace Projet1SNG
 
 
                 MessageBox.Show(
-                    "L'assistant a été supprimé.",
+                    "L'assistant a ete supprime.",
                     "Suppression",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information
@@ -312,11 +306,11 @@ namespace Projet1SNG
 
         private void btnAjouterSoin_Click(object sender, EventArgs e)
         {
-            // Vérifier qu'un assistant est sélectionné.
+            // Verifier qu'un assistant est selectionne
             if (assistantBindingSource.Current == null)
             {
                 MessageBox.Show(
-                    "Veuillez sélectionner un assistant.",
+                    "Veuillez selectionner un assistant.",
                     "Ajout d'un soin",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -326,7 +320,7 @@ namespace Projet1SNG
             }
 
 
-            // Récupérer l'assistant sélectionné.
+            // Recuperer l'assistant selectionne
             DataRowView ligneSelectionnee =
                 (DataRowView)assistantBindingSource.Current;
 
@@ -338,13 +332,13 @@ namespace Projet1SNG
                 unAssistant.id_assistant;
 
 
-            // Créer une nouvelle association assistant-soin.
+            // Creer une nouvelle association assistant-soin
             BDB56Projet1SNGDataSet.assistant_soinRow unAssistantSoin =
                 bDB56Projet1SNGDataSet.assistant_soin
                 .Newassistant_soinRow();
 
 
-            // Ouvrir le formulaire d'ajout de soin.
+            // Ouvrir le formulaire d'ajout de soin
             frmAjouterSoinAssistant frmAjouter =
                 new frmAjouterSoinAssistant();
 
@@ -357,7 +351,7 @@ namespace Projet1SNG
             frmAjouter.ShowDialog();
 
 
-            // Ajouter seulement si l'utilisateur confirme.
+            // Ajouter seulement si l'utilisateur confirme
             if (frmAjouter.ajoutConfirme)
             {
                 try
@@ -366,7 +360,7 @@ namespace Projet1SNG
                         unAssistantSoin.id_soin;
 
 
-                    // Vérifier que l'assistant n'offre pas déjà ce soin.
+                    // Verifier que l'assistant n'offre pas deja ce soin
                     DataRow[] lignesExistantes =
                         bDB56Projet1SNGDataSet.assistant_soin.Select(
                             "id_assistant = " + idAssistant +
@@ -376,7 +370,7 @@ namespace Projet1SNG
                     if (lignesExistantes.Length > 0)
                     {
                         MessageBox.Show(
-                            "Cet assistant offre déjà ce soin.",
+                            "Cet assistant offre dejà ce soin.",
                             "Ajout impossible",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning
@@ -386,7 +380,7 @@ namespace Projet1SNG
                     }
 
 
-                    // Ajouter l'association dans assistant_soin.
+                    // Ajouter l'association dans assistant_soi
                     bDB56Projet1SNGDataSet.assistant_soin
                         .Addassistant_soinRow(unAssistantSoin);
 
@@ -399,14 +393,14 @@ namespace Projet1SNG
                     );
 
 
-                    // Actualiser la table utilisée par la grille des soins.
+                    // Actualiser la table utilisee par la grille des soins
                     dataTableAssistantSoinTableAdapter.Fill(
                         bDB56Projet1SNGDataSet.DataTableAssistantSoin
                     );
 
 
                     MessageBox.Show(
-                        "Le soin a été ajouté à l'assistant.",
+                        "Le soin a ete ajoute à l'assistant.",
                         "Ajout d'un soin",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
@@ -427,11 +421,11 @@ namespace Projet1SNG
 
         private void btnSupprimerSoin_Click(object sender, EventArgs e)
         {
-            // Vérifier qu'un assistant est sélectionné.
+            // Verifier qu'un assistant est selectionne
             if (assistantBindingSource.Current == null)
             {
                 MessageBox.Show(
-                    "Veuillez sélectionner un assistant.",
+                    "Veuillez selectionner un assistant.",
                     "Suppression",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -441,11 +435,11 @@ namespace Projet1SNG
             }
 
 
-            // Vérifier qu'un soin est sélectionné.
+            // Verifier qu'un soin est selectionne
             if (dataTableAssistantSoinBindingSource.Current == null)
             {
                 MessageBox.Show(
-                    "Veuillez sélectionner un soin.",
+                    "Veuillez selectionner un soin.",
                     "Suppression",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -456,7 +450,7 @@ namespace Projet1SNG
 
 
             //=========================================================
-            // Récupérer l'assistant sélectionné
+            // Recuperer l'assistant selectionne
             //=========================================================
 
             DataRowView ligneAssistant =
@@ -471,7 +465,7 @@ namespace Projet1SNG
 
 
             //=========================================================
-            // Récupérer le soin sélectionné
+            // Recuperer le soin selectionne
             //=========================================================
 
             DataRowView ligneSoin =
@@ -484,7 +478,7 @@ namespace Projet1SNG
 
 
             //=========================================================
-            // Vérifier si ce soin est planifié pour cet assistant
+            // Verifier si ce soin est planifie pour cet assistant
             //=========================================================
 
             BDB56Projet1SNGDataSet.planif_soinDataTable planifications =
@@ -497,8 +491,8 @@ namespace Projet1SNG
             if (planifications.Rows.Count > 0)
             {
                 MessageBox.Show(
-                    "Ce soin ne peut pas être retiré de l'assistant " +
-                    "car il est présent dans une planification.",
+                    "Ce soin ne peut pas être retire de l'assistant " +
+                    "car il est present dans une planification.",
                     "Suppression impossible",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning
@@ -570,7 +564,7 @@ namespace Projet1SNG
 
 
             MessageBox.Show(
-                "Le soin a été retiré de l'assistant.",
+                "Le soin a ete retire de l'assistant.",
                 "Suppression",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
@@ -584,7 +578,7 @@ namespace Projet1SNG
             Close();
         }
         //=========================================================
-        //enregistrées dans SQL Server cas securité
+        //enregistrees dans SQL Server cas securite
         //=========================================================
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
@@ -598,7 +592,7 @@ namespace Projet1SNG
                 );
 
                 MessageBox.Show(
-                    "Les modifications ont été enregistrées.",
+                    "Les modifications ont ete enregistrees.",
                     "Enregistrement",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information

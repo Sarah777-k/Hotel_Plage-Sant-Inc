@@ -93,11 +93,29 @@
     <Compile Include="GestionChambre\frmAjouterChambre.Designer.cs">
       <DependentUpon>frmAjouterChambre.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionChambre\frmAjouterTypeChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionChambre\frmAjouterTypeChambre.Designer.cs">
+      <DependentUpon>frmAjouterTypeChambre.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionChambre\frmGestionChambre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GestionChambre\frmGestionChambre.Designer.cs">
       <DependentUpon>frmGestionChambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionChambre\frmModifierChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionChambre\frmModifierChambre.Designer.cs">
+      <DependentUpon>frmModifierChambre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionChambre\frmModifierTypeChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionChambre\frmModifierTypeChambre.Designer.cs">
+      <DependentUpon>frmModifierTypeChambre.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -125,8 +143,17 @@
     <EmbeddedResource Include="GestionChambre\frmAjouterChambre.resx">
       <DependentUpon>frmAjouterChambre.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestionChambre\frmAjouterTypeChambre.resx">
+      <DependentUpon>frmAjouterTypeChambre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionChambre\frmGestionChambre.resx">
       <DependentUpon>frmGestionChambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionChambre\frmModifierChambre.resx">
+      <DependentUpon>frmModifierChambre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionChambre\frmModifierTypeChambre.resx">
+      <DependentUpon>frmModifierTypeChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
