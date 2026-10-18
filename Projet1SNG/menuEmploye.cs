@@ -36,6 +36,11 @@ namespace Projet1SNG
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
             frmConnexion frmCo = new frmConnexion();
             frmCo.Show();
             this.Hide();

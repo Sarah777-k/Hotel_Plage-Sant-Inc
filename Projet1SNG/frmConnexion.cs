@@ -27,59 +27,68 @@ namespace Projet1SNG
 
             try
             {
-
-                //fait une connection direct à la base de données
                 maConnexion.Open();
 
-
+                // 1. Vérifier si l'utilisateur existe
                 string maRequeteSQL = "SELECT COUNT(*) FROM utilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
                 SqlCommand maCommande = new SqlCommand(maRequeteSQL, maConnexion);
-
                 maCommande.Parameters.AddWithValue("@utilisateur", txtUtilisateur.Text.Trim());
                 maCommande.Parameters.AddWithValue("@mdp", txtMotDePasse.Text.Trim());
 
                 int resultat = (int)maCommande.ExecuteScalar();
 
-                //si l'utilisateur existe
+                // Si l'utilisateur existe
                 if (resultat > 0)
                 {
-                    
                     lblErreur.Text = "Connexion réussie !";
 
-                    //cherche le type d'utilisateur
-                    string maRequeteSQL2 = "SELECT typeUtil FROM typeUtilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
-                    int resultat2 = (int)maCommande.ExecuteScalar();
+                    // 2. Chercher le type d'utilisateur
+                    string maRequeteSQL2 = "SELECT typeUtil FROM utilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
+                    SqlCommand maCommande2 = new SqlCommand(maRequeteSQL2, maConnexion);
+                    maCommande2.Parameters.AddWithValue("@utilisateur", txtUtilisateur.Text.Trim());
+                    maCommande2.Parameters.AddWithValue("@mdp", txtMotDePasse.Text.Trim());
 
-                    //Connecte vers l'admin
+                    // Utilisation de Convert.ToInt32 pour éviter les erreurs de cast direct
+                    int resultat2 = Convert.ToInt32(maCommande2.ExecuteScalar());
+
+                    // Connecter vers l'admin
                     if (resultat2 == 1)
                     {
-                        string maRequeteSQL3 = "SELECT id_util FROM typeUtilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
-                        int idAdmin = (int)maCommande.ExecuteScalar();
+                        string maRequeteSQL3 = "SELECT id_util FROM utilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
+                        SqlCommand maCommande3 = new SqlCommand(maRequeteSQL3, maConnexion);
+                        maCommande3.Parameters.AddWithValue("@utilisateur", txtUtilisateur.Text.Trim());
+                        maCommande3.Parameters.AddWithValue("@mdp", txtMotDePasse.Text.Trim());
+
+                        // Utilisation de .ToString() pour l'ID (évite le plantage peu importe le type numérique SQL)
+                        string idAdmin = maCommande3.ExecuteScalar().ToString();
+
                         menuAdmin mAdmin = new menuAdmin();
-                        mAdmin.noAdmin = idAdmin.ToString();
+                        mAdmin.noAdmin = idAdmin;
                         mAdmin.Show();
                         this.Hide();
                     }
-                    else //Connecte vers l'employe
+                    else // Connecter vers l'employé
                     {
-                        string maRequeteSQL4 = "SELECT id_util FROM typeUtilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
-                        int idEmploye = (int)maCommande.ExecuteScalar();
+                        string maRequeteSQL4 = "SELECT id_util FROM utilisateur WHERE nomUtil = @utilisateur AND motDePasse = @mdp";
+                        SqlCommand maCommande4 = new SqlCommand(maRequeteSQL4, maConnexion);
+                        maCommande4.Parameters.AddWithValue("@utilisateur", txtUtilisateur.Text.Trim());
+                        maCommande4.Parameters.AddWithValue("@mdp", txtMotDePasse.Text.Trim());
+
+                        string idEmploye = maCommande4.ExecuteScalar().ToString();
+
                         menuEmploye principal = new menuEmploye();
-                        principal.noEmploye = idEmploye.ToString();
+                        principal.noEmploye = idEmploye;
                         principal.Show();
                         this.Hide();
                     }
-
                 }
                 else
                 {
-                    //si l'utilisateur il affiche:
                     lblErreur.Text = "Connexion échouée : Utilisateur ou mot de passe incorrect.";
                 }
             }
             catch (Exception ex)
             {
-
                 lblErreur.Text = "Erreur : " + ex.Message;
             }
             finally

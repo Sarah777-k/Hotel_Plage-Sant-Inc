@@ -229,7 +229,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.dgUtilisateurs.DataSource = this.utilisateurBindingSource;
-            this.dgUtilisateurs.Location = new System.Drawing.Point(49, 152);
+            this.dgUtilisateurs.Location = new System.Drawing.Point(61, 147);
             this.dgUtilisateurs.MultiSelect = false;
             this.dgUtilisateurs.Name = "dgUtilisateurs";
             this.dgUtilisateurs.ReadOnly = true;
@@ -267,7 +267,7 @@
             // 
             // btnAjout
             // 
-            this.btnAjout.Location = new System.Drawing.Point(634, 163);
+            this.btnAjout.Location = new System.Drawing.Point(653, 147);
             this.btnAjout.Name = "btnAjout";
             this.btnAjout.Size = new System.Drawing.Size(85, 38);
             this.btnAjout.TabIndex = 2;
@@ -276,7 +276,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(634, 207);
+            this.btnModifier.Location = new System.Drawing.Point(653, 268);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(85, 38);
             this.btnModifier.TabIndex = 3;
@@ -285,7 +285,7 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(634, 251);
+            this.btnSupprimer.Location = new System.Drawing.Point(653, 390);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(85, 38);
             this.btnSupprimer.TabIndex = 4;

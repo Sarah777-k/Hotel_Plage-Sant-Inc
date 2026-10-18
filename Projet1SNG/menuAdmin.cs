@@ -29,5 +29,10 @@ namespace Projet1SNG
         {
             lblIdAdmin.Text = "Numéros d'employé: " + noAdmin;
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
