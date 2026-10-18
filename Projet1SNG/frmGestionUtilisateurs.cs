@@ -20,13 +20,13 @@ namespace Projet1SNG
             InitializeComponent();
         }
 
-        private void utilisateurBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.utilisateurBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bDB56Projet1SNGDataSet);
+        //private void utilisateurBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        //{
+        //    this.Validate();
+        //    this.utilisateurBindingSource.EndEdit();
+        //    this.tableAdapterManager.UpdateAll(this.bDB56Projet1SNGDataSet);
 
-        }
+        //}
 
         private void frmGestionUtilisateurs_Load(object sender, EventArgs e)
         {
@@ -34,9 +34,6 @@ namespace Projet1SNG
             this.typeUtilisateurTableAdapter.Fill(this.bDB56Projet1SNGDataSet.typeUtilisateur);
             // TODO: cette ligne de code charge les données dans la table 'bDB56Projet1SNGDataSet.utilisateur'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.utilisateurTableAdapter.Fill(this.bDB56Projet1SNGDataSet.utilisateur);
-
-            // Ajout du gestionnaire d'événements
-            utilisateurTableAdapter.Adapter.RowUpdated += new System.Data.SqlClient.SqlRowUpdatedEventHandler(utilisateurTableAdapter_RowUpdated);
 
         }
 
@@ -142,7 +139,72 @@ namespace Projet1SNG
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            if (utilisateurBindingSource.Current == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un utilisateur pour le modifier.");
+                return;
+            }
 
+            // Utilisateur selectionné
+            int idUtilisateur = Convert.ToInt32(dgvUtilisateurs.CurrentRow.Cells["dgvIdUtil"].Value);
+            String nomUtilisateur = dgvUtilisateurs.CurrentRow.Cells["dgvNomUtil"].Value.ToString();
+            int ancienType = Convert.ToInt32(dgvUtilisateurs.CurrentRow.Cells["dgvTypeUtil"].Value);
+
+            // New valeurs
+            String mdp = txtMdp.Text.Trim();
+            object nouveauType = cmbTypeUtilisateur.SelectedValue;
+
+            // Validations
+            if (mdp == "")
+            {
+                MessageBox.Show("Vous devez entrer un mot de passe.");
+                txtMdp.Focus();
+                return;
+            }
+            if (nouveauType == null)
+            {
+                MessageBox.Show("Vous devez sélectionner le type d'utilisateur.");
+                cmbTypeUtilisateur.Focus();
+                return;
+            }
+
+            // On ne peut pas modifier son propre type
+            if (nomUtilisateur == nomUtilisateurConnecte && Convert.ToInt32(nouveauType) != ancienType)
+            {
+                MessageBox.Show("Vous ne pouvez pas modifier votre propre type d'utilisateur.");
+                return;
+            }
+
+            // Connexion et transaction
+            String maChaineDeConnexion = Projet1SNG.Properties.Settings.Default.BDB56Projet1SNGConnectionString;
+            SqlConnection maConnexion = new SqlConnection(maChaineDeConnexion);
+            maConnexion.Open();
+            SqlTransaction maTransaction = maConnexion.BeginTransaction();
+
+            String requete = "UPDATE utilisateur " +
+                             "SET motDePasse = @mdp, typeUtil = @typeUtil " +
+                             "WHERE id_util = @idUtil;";
+
+            try
+            {
+                SqlCommand commande = new SqlCommand(requete, maConnexion);
+                commande.Transaction = maTransaction;
+                commande.Parameters.Add(new SqlParameter("@mdp", mdp));
+                commande.Parameters.Add(new SqlParameter("@typeUtil", nouveauType));
+                commande.Parameters.Add(new SqlParameter("@idUtil", idUtilisateur));
+                commande.ExecuteNonQuery();
+
+                maTransaction.Commit();
+                MessageBox.Show("Utilisateur modifié avec succès.");
+            }
+            catch
+            {
+                maTransaction.Rollback();
+                MessageBox.Show("Erreur : la modification a échoué, transaction annulée.");
+            }
+
+            utilisateurTableAdapter.Fill(bDB56Projet1SNGDataSet.utilisateur);
+            maConnexion.Close();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -162,7 +224,7 @@ namespace Projet1SNG
             int idUtilisateur = Convert.ToInt32(dgvUtilisateurs.CurrentRow.Cells["dgvIdUtil"].Value);
             String nomUtilisateur = dgvUtilisateurs.CurrentRow.Cells["dgvNomUtil"].Value.ToString();
 
-            // Empêcher la suppression de l'administrateur principal et de l'utilisateur actuel:
+            // Empêcher la suppression de l'administrateur principal et de l'utilisateur actuel
             if(idUtilisateur == 1)
             {
                 MessageBox.Show("L'administtrateur principal ne peut pas être supprimé.");
@@ -170,9 +232,17 @@ namespace Projet1SNG
             }
             if (nomUtilisateur == nomUtilisateurConnecte)
             {
-                MessageBox.Show("Impossible de supprimer votre compte.");
+                MessageBox.Show("Impossible de supprimer votre propre compte.");
                 return;
             }
+
+            // Confirmation de suppression (oui ou non)
+            DialogResult rep = MessageBox.Show("Êtes-vous sûr de vouloir supprimer cet utilisateur ?", "Confirmation de suppression", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (rep == DialogResult.No)
+            {
+                return;
+            }
+
             // Ouverture de la connexion et début de la transaction
             maConnexion.Open();
             SqlTransaction maTransaction = maConnexion.BeginTransaction();
@@ -200,18 +270,5 @@ namespace Projet1SNG
             maConnexion.Close();
         }
 
-        private void utilisateurTableAdapter_RowUpdated(object sender, System.Data.SqlClient.SqlRowUpdatedEventArgs e){
-
-            // 
-            //if (typeUtilisateurBindingSource.Current == null)
-            //{
-            //    MessageBox.Show("Vous devez selectionner un utilisateur pour pouvoir le modifier.");
-            //}
-
-            //// 
-            //int idUtilisateur = Convert.ToInt32(dgvUtilisateurs.CurrentRow.Cells[0].Value);
-            //String nom = dgvUtilisateurs.CurrentRow.Cells[1].Value.ToString();
-
-        }
     }
 }
