@@ -95,6 +95,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Soins\frmGestionSoins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Soins\frmGestionSoins.Designer.cs">
+      <DependentUpon>frmGestionSoins.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GestionAssistant\frmAjouterAssistant.resx">
       <DependentUpon>frmAjouterAssistant.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +128,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Soins\frmGestionSoins.resx">
+      <DependentUpon>frmGestionSoins.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BDB56Projet1SNGDataSet.xsc">
       <DependentUpon>BDB56Projet1SNGDataSet.xsd</DependentUpon>
     </None>
