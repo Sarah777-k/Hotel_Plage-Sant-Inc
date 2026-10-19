@@ -53,7 +53,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(933, 487);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 28);
             this.button1.TabIndex = 1;
@@ -134,17 +134,18 @@
             // btnReserverChambre
             // 
             this.btnReserverChambre.Location = new System.Drawing.Point(369, 541);
-            this.btnReserverChambre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReserverChambre.Margin = new System.Windows.Forms.Padding(4);
             this.btnReserverChambre.Name = "btnReserverChambre";
             this.btnReserverChambre.Size = new System.Drawing.Size(152, 28);
             this.btnReserverChambre.TabIndex = 21;
             this.btnReserverChambre.Text = "Réserver";
             this.btnReserverChambre.UseVisualStyleBackColor = true;
+            this.btnReserverChambre.Click += new System.EventHandler(this.btnReserverChambre_Click);
             // 
             // btnPlanifSoins
             // 
             this.btnPlanifSoins.Location = new System.Drawing.Point(369, 468);
-            this.btnPlanifSoins.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPlanifSoins.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlanifSoins.Name = "btnPlanifSoins";
             this.btnPlanifSoins.Size = new System.Drawing.Size(152, 28);
             this.btnPlanifSoins.TabIndex = 20;
@@ -154,7 +155,7 @@
             // btnGestionSoins
             // 
             this.btnGestionSoins.Location = new System.Drawing.Point(369, 351);
-            this.btnGestionSoins.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionSoins.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionSoins.Name = "btnGestionSoins";
             this.btnGestionSoins.Size = new System.Drawing.Size(152, 28);
             this.btnGestionSoins.TabIndex = 19;
@@ -164,7 +165,7 @@
             // btnAssistantSoins
             // 
             this.btnAssistantSoins.Location = new System.Drawing.Point(369, 281);
-            this.btnAssistantSoins.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAssistantSoins.Margin = new System.Windows.Forms.Padding(4);
             this.btnAssistantSoins.Name = "btnAssistantSoins";
             this.btnAssistantSoins.Size = new System.Drawing.Size(152, 28);
             this.btnAssistantSoins.TabIndex = 18;
@@ -175,7 +176,7 @@
             // btnGestionClientInvites
             // 
             this.btnGestionClientInvites.Location = new System.Drawing.Point(369, 209);
-            this.btnGestionClientInvites.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionClientInvites.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionClientInvites.Name = "btnGestionClientInvites";
             this.btnGestionClientInvites.Size = new System.Drawing.Size(152, 28);
             this.btnGestionClientInvites.TabIndex = 17;
@@ -185,7 +186,7 @@
             // btnGestionUtilisateur
             // 
             this.btnGestionUtilisateur.Location = new System.Drawing.Point(369, 135);
-            this.btnGestionUtilisateur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGestionUtilisateur.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionUtilisateur.Name = "btnGestionUtilisateur";
             this.btnGestionUtilisateur.Size = new System.Drawing.Size(152, 28);
             this.btnGestionUtilisateur.TabIndex = 16;
@@ -196,7 +197,7 @@
             // button8
             // 
             this.button8.Location = new System.Drawing.Point(933, 523);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(117, 28);
             this.button8.TabIndex = 28;
@@ -217,7 +218,7 @@
             // btnVisualiserRapports
             // 
             this.btnVisualiserRapports.Location = new System.Drawing.Point(899, 135);
-            this.btnVisualiserRapports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVisualiserRapports.Margin = new System.Windows.Forms.Padding(4);
             this.btnVisualiserRapports.Name = "btnVisualiserRapports";
             this.btnVisualiserRapports.Size = new System.Drawing.Size(152, 28);
             this.btnVisualiserRapports.TabIndex = 29;
@@ -237,7 +238,7 @@
             // btnChambreType
             // 
             this.btnChambreType.Location = new System.Drawing.Point(369, 614);
-            this.btnChambreType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChambreType.Margin = new System.Windows.Forms.Padding(4);
             this.btnChambreType.Name = "btnChambreType";
             this.btnChambreType.Size = new System.Drawing.Size(152, 28);
             this.btnChambreType.TabIndex = 31;
@@ -294,7 +295,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
             this.Name = "menuAdmin";
             this.Text = "Menu";
