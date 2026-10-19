@@ -87,6 +87,18 @@
     <Compile Include="frmGestionUtilisateurs.Designer.cs">
       <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionReservation\frmAjouterReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionReservation\frmAjouterReservation.Designer.cs">
+      <DependentUpon>frmAjouterReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionReservation\frmGestionReservationChambre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionReservation\frmGestionReservationChambre.Designer.cs">
+      <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionChambre\frmAjouterChambre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +161,13 @@
     <EmbeddedResource Include="frmGestionUtilisateurs.resx">
       <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GestionReservation\frmAjouterReservation.resx">
+      <DependentUpon>frmAjouterReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionReservation\frmGestionReservationChambre.resx">
+      <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
+    </EmbeddedResource>
+ 
     <EmbeddedResource Include="GestionChambre\frmAjouterChambre.resx">
       <DependentUpon>frmAjouterChambre.cs</DependentUpon>
     </EmbeddedResource>

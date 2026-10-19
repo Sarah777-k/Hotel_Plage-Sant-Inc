@@ -805,6 +805,49 @@ ORDER BY soin.description</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ReservationTypeChambreTableAdapter" GeneratorDataComponentClassName="ReservationTypeChambreTableAdapter" Name="ReservationTypeChambre" UserDataComponentName="ReservationTypeChambreTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDB56Projet1SNGConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT chambre.id_chambre, chambre.emplacement, chambre.decoration, type_chambre.prixHaut AS [Prix saison haut], type_chambre.prixMoyen AS [Prix saison Moyen], type_chambre.prixBas AS [Prix saison bas]
+FROM     type_chambre INNER JOIN
+                  chambre ON type_chambre.id_typeChambre = chambre.id_typeChambre
+ORDER BY chambre.id_chambre</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id_chambre" DataSetColumn="id_chambre" />
+              <Mapping SourceColumn="emplacement" DataSetColumn="emplacement" />
+              <Mapping SourceColumn="decoration" DataSetColumn="decoration" />
+              <Mapping SourceColumn="Prix saison haut" DataSetColumn="Prix saison haut" />
+              <Mapping SourceColumn="Prix saison Moyen" DataSetColumn="Prix saison Moyen" />
+              <Mapping SourceColumn="Prix saison bas" DataSetColumn="Prix saison bas" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InfoClientReservationTableAdapter" GeneratorDataComponentClassName="InfoClientReservationTableAdapter" Name="InfoClientReservation" UserDataComponentName="InfoClientReservationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDB56Projet1SNGConnectionString (Settings)" DbObjectName="BDB56Projet1SNG.dbo.client" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT id_client, '(' + CAST(id_client AS Varchar(5)) + ') ' + nom + ' ' + prenom AS 'Nom Complet'
+FROM     client
+ORDER BY id_client</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nom Complet" DataSetColumn="Nom Complet" />
+              <Mapping SourceColumn="id_client" DataSetColumn="id_client" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1079,6 +1122,44 @@ ORDER BY soin.description</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="ReservationTypeChambre" msprop:Generator_RowEvHandlerName="ReservationTypeChambreRowChangeEventHandler" msprop:Generator_RowDeletedName="ReservationTypeChambreRowDeleted" msprop:Generator_RowDeletingName="ReservationTypeChambreRowDeleting" msprop:Generator_RowEvArgName="ReservationTypeChambreRowChangeEvent" msprop:Generator_TablePropName="ReservationTypeChambre" msprop:Generator_RowChangedName="ReservationTypeChambreRowChanged" msprop:Generator_RowChangingName="ReservationTypeChambreRowChanging" msprop:Generator_TableClassName="ReservationTypeChambreDataTable" msprop:Generator_RowClassName="ReservationTypeChambreRow" msprop:Generator_TableVarName="tableReservationTypeChambre" msprop:Generator_UserTableName="ReservationTypeChambre">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_chambre" msprop:Generator_ColumnPropNameInRow="id_chambre" msprop:Generator_ColumnPropNameInTable="id_chambreColumn" msprop:Generator_ColumnVarNameInTable="columnid_chambre" msprop:Generator_UserColumnName="id_chambre" type="xs:int" />
+              <xs:element name="emplacement" msprop:Generator_ColumnPropNameInRow="emplacement" msprop:Generator_ColumnPropNameInTable="emplacementColumn" msprop:Generator_ColumnVarNameInTable="columnemplacement" msprop:Generator_UserColumnName="emplacement">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="decoration" msprop:Generator_ColumnPropNameInRow="decoration" msprop:Generator_ColumnPropNameInTable="decorationColumn" msprop:Generator_ColumnVarNameInTable="columndecoration" msprop:Generator_UserColumnName="decoration">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prix_x0020_saison_x0020_haut" msprop:Generator_ColumnPropNameInRow="Prix_saison_haut" msprop:Generator_ColumnPropNameInTable="Prix_saison_hautColumn" msprop:Generator_ColumnVarNameInTable="columnPrix_saison_haut" msprop:Generator_UserColumnName="Prix saison haut" type="xs:decimal" />
+              <xs:element name="Prix_x0020_saison_x0020_Moyen" msprop:Generator_ColumnPropNameInRow="Prix_saison_Moyen" msprop:Generator_ColumnPropNameInTable="Prix_saison_MoyenColumn" msprop:Generator_ColumnVarNameInTable="columnPrix_saison_Moyen" msprop:Generator_UserColumnName="Prix saison Moyen" type="xs:decimal" />
+              <xs:element name="Prix_x0020_saison_x0020_bas" msprop:Generator_ColumnPropNameInRow="Prix_saison_bas" msprop:Generator_ColumnPropNameInTable="Prix_saison_basColumn" msprop:Generator_ColumnVarNameInTable="columnPrix_saison_bas" msprop:Generator_UserColumnName="Prix saison bas" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="InfoClientReservation" msprop:Generator_RowEvHandlerName="InfoClientReservationRowChangeEventHandler" msprop:Generator_RowDeletedName="InfoClientReservationRowDeleted" msprop:Generator_RowDeletingName="InfoClientReservationRowDeleting" msprop:Generator_RowEvArgName="InfoClientReservationRowChangeEvent" msprop:Generator_TablePropName="InfoClientReservation" msprop:Generator_RowChangedName="InfoClientReservationRowChanged" msprop:Generator_RowChangingName="InfoClientReservationRowChanging" msprop:Generator_TableClassName="InfoClientReservationDataTable" msprop:Generator_RowClassName="InfoClientReservationRow" msprop:Generator_TableVarName="tableInfoClientReservation" msprop:Generator_UserTableName="InfoClientReservation">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nom_x0020_Complet" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Nom_Complet" msprop:Generator_ColumnPropNameInTable="Nom_CompletColumn" msprop:Generator_ColumnVarNameInTable="columnNom_Complet" msprop:Generator_UserColumnName="Nom Complet" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="54" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_client" msprop:Generator_ColumnPropNameInRow="id_client" msprop:Generator_ColumnPropNameInTable="id_clientColumn" msprop:Generator_ColumnVarNameInTable="columnid_client" msprop:Generator_UserColumnName="id_client" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1137,6 +1218,14 @@ ORDER BY soin.description</CommandText>
       <xs:field xpath="mstns:id_assistant" />
       <xs:field xpath="mstns:id_soin" />
     </xs:unique>
+    <xs:unique name="ReservationTypeChambre_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ReservationTypeChambre" />
+      <xs:field xpath="mstns:id_chambre" />
+    </xs:unique>
+    <xs:unique name="InfoClientReservation_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:InfoClientReservation" />
+      <xs:field xpath="mstns:id_client" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
@@ -1153,6 +1242,9 @@ ORDER BY soin.description</CommandText>
       <msdata:Relationship name="fk_assistantSoin1" msdata:parent="soin" msdata:child="DataTableAssistantSoin" msdata:parentkey="id_soin" msdata:childkey="id_soin" msprop:Generator_UserParentTable="soin" msprop:Generator_UserChildTable="DataTableAssistantSoin" msprop:Generator_RelationVarName="relationfk_assistantSoin1" msprop:Generator_ChildPropName="GetDataTableAssistantSoinRows" msprop:Generator_ParentPropName="soinRow" msprop:Generator_UserRelationName="fk_assistantSoin1" />
       <msdata:Relationship name="fk_planif_assistant_soin1" msdata:parent="DataTableAssistantSoin" msdata:child="planif_soin" msdata:parentkey="id_assistant id_soin" msdata:childkey="id_assistant id_soin" msprop:Generator_UserParentTable="DataTableAssistantSoin" msprop:Generator_UserChildTable="planif_soin" msprop:Generator_RelationVarName="relationfk_planif_assistant_soin1" msprop:Generator_ChildPropName="Getplanif_soinRows" msprop:Generator_UserRelationName="fk_planif_assistant_soin1" msprop:Generator_ParentPropName="DataTableAssistantSoinRowParent" />
       <msdata:Relationship name="fk_assistant1" msdata:parent="assistant" msdata:child="DataTableAssistantSoin" msdata:parentkey="id_assistant" msdata:childkey="id_assistant" msprop:Generator_UserParentTable="assistant" msprop:Generator_UserChildTable="DataTableAssistantSoin" msprop:Generator_RelationVarName="relationfk_assistant1" msprop:Generator_ChildPropName="GetDataTableAssistantSoinRows" msprop:Generator_ParentPropName="assistantRow" msprop:Generator_UserRelationName="fk_assistant1" />
+      <msdata:Relationship name="fk_reservation_chambre1" msdata:parent="ReservationTypeChambre" msdata:child="reservation" msdata:parentkey="id_chambre" msdata:childkey="id_chambre" msprop:Generator_UserParentTable="ReservationTypeChambre" msprop:Generator_UserChildTable="reservation" msprop:Generator_RelationVarName="relationfk_reservation_chambre1" msprop:Generator_UserRelationName="fk_reservation_chambre1" msprop:Generator_ChildPropName="GetreservationRows" msprop:Generator_ParentPropName="ReservationTypeChambreRow" />
+      <msdata:Relationship name="fk_invite_client1" msdata:parent="InfoClientReservation" msdata:child="invite" msdata:parentkey="id_client" msdata:childkey="id_client" msprop:Generator_UserParentTable="InfoClientReservation" msprop:Generator_UserChildTable="invite" msprop:Generator_RelationVarName="relationfk_invite_client1" msprop:Generator_UserRelationName="fk_invite_client1" msprop:Generator_ChildPropName="GetinviteRows" msprop:Generator_ParentPropName="InfoClientReservationRow" />
+      <msdata:Relationship name="fk_reservation_client1" msdata:parent="InfoClientReservation" msdata:child="reservation" msdata:parentkey="id_client" msdata:childkey="id_client" msprop:Generator_UserParentTable="InfoClientReservation" msprop:Generator_UserChildTable="reservation" msprop:Generator_RelationVarName="relationfk_reservation_client1" msprop:Generator_UserRelationName="fk_reservation_client1" msprop:Generator_ChildPropName="GetreservationRows" msprop:Generator_ParentPropName="InfoClientReservationRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
