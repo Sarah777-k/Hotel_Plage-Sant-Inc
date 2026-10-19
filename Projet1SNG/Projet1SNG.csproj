@@ -117,7 +117,7 @@
     <Compile Include="GestionChambre\frmModifierTypeChambre.Designer.cs">
       <DependentUpon>frmModifierTypeChambre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+
     <Compile Include="menuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,8 +165,8 @@
     <EmbeddedResource Include="GestionChambre\frmModifierTypeChambre.resx">
       <DependentUpon>frmModifierTypeChambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+
+
     <EmbeddedResource Include="menuAdmin.resx">
       <DependentUpon>menuAdmin.cs</DependentUpon>
     </EmbeddedResource>
