@@ -29,41 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionReservationChambre));
             this.label1 = new System.Windows.Forms.Label();
             this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
             this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reservationTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.reservationTableAdapter();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
-            this.reservationBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.reservationBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dgvReservation = new System.Windows.Forms.DataGridView();
-            this.btnAjouter = new System.Windows.Forms.Button();
-            this.btnSup = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.btnSup = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.btnActualiser = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingNavigator)).BeginInit();
-            this.reservationBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -109,134 +93,10 @@
             this.tableAdapterManager.UpdateOrder = Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
-            // reservationBindingNavigator
-            // 
-            this.reservationBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.reservationBindingNavigator.BindingSource = this.reservationBindingSource;
-            this.reservationBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.reservationBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.reservationBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.reservationBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.reservationBindingNavigatorSaveItem});
-            this.reservationBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.reservationBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.reservationBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.reservationBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.reservationBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.reservationBindingNavigator.Name = "reservationBindingNavigator";
-            this.reservationBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.reservationBindingNavigator.Size = new System.Drawing.Size(818, 27);
-            this.reservationBindingNavigator.TabIndex = 1;
-            this.reservationBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Placer en premier";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Déplacer vers le haut";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Déplacer vers le bas";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Placer en dernier";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Supprimer";
-            // 
-            // reservationBindingNavigatorSaveItem
-            // 
-            this.reservationBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.reservationBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("reservationBindingNavigatorSaveItem.Image")));
-            this.reservationBindingNavigatorSaveItem.Name = "reservationBindingNavigatorSaveItem";
-            this.reservationBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
-            this.reservationBindingNavigatorSaveItem.Text = "Enregistrer les données";
-            this.reservationBindingNavigatorSaveItem.Click += new System.EventHandler(this.reservationBindingNavigatorSaveItem_Click);
-            // 
             // dgvReservation
             // 
+            this.dgvReservation.AllowUserToAddRows = false;
+            this.dgvReservation.AllowUserToDeleteRows = false;
             this.dgvReservation.AutoGenerateColumns = false;
             this.dgvReservation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvReservation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -257,26 +117,6 @@
             this.dgvReservation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvReservation.Size = new System.Drawing.Size(693, 264);
             this.dgvReservation.TabIndex = 2;
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.Location = new System.Drawing.Point(642, 297);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(87, 34);
-            this.btnAjouter.TabIndex = 3;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.UseVisualStyleBackColor = true;
-            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            // 
-            // btnSup
-            // 
-            this.btnSup.Location = new System.Drawing.Point(36, 297);
-            this.btnSup.Name = "btnSup";
-            this.btnSup.Size = new System.Drawing.Size(87, 34);
-            this.btnSup.TabIndex = 4;
-            this.btnSup.Text = "Supprimer";
-            this.btnSup.UseVisualStyleBackColor = true;
-            this.btnSup.Click += new System.EventHandler(this.btnSup_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -332,6 +172,26 @@
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 156;
             // 
+            // btnAjouter
+            // 
+            this.btnAjouter.Location = new System.Drawing.Point(642, 297);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(87, 34);
+            this.btnAjouter.TabIndex = 3;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
+            // btnSup
+            // 
+            this.btnSup.Location = new System.Drawing.Point(36, 297);
+            this.btnSup.Name = "btnSup";
+            this.btnSup.Size = new System.Drawing.Size(87, 34);
+            this.btnSup.TabIndex = 4;
+            this.btnSup.Text = "Supprimer";
+            this.btnSup.UseVisualStyleBackColor = true;
+            this.btnSup.Click += new System.EventHandler(this.btnSup_Click);
+            // 
             // btnFermer
             // 
             this.btnFermer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -376,7 +236,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnActualiser);
             this.Controls.Add(this.btnFermer);
-            this.Controls.Add(this.reservationBindingNavigator);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmGestionReservationChambre";
@@ -384,9 +243,6 @@
             this.Load += new System.EventHandler(this.frmGestionReservationChambre_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingNavigator)).EndInit();
-            this.reservationBindingNavigator.ResumeLayout(false);
-            this.reservationBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservation)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -401,19 +257,6 @@
         private System.Windows.Forms.BindingSource reservationBindingSource;
         private BDB56Projet1SNGDataSetTableAdapters.reservationTableAdapter reservationTableAdapter;
         private BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator reservationBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton reservationBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView dgvReservation;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.Button btnSup;

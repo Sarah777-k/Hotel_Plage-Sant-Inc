@@ -35,15 +35,13 @@
             System.Windows.Forms.Label dateArriveeLabel;
             System.Windows.Forms.Label dateDepartLabel;
             System.Windows.Forms.Label id_chambreLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.cboClient = new System.Windows.Forms.ComboBox();
-            this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
-            this.infoClientReservationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.infoClientReservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtReservation = new System.Windows.Forms.TextBox();
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
@@ -67,22 +65,22 @@
             this.type_chambreTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.type_chambreTableAdapter();
             this.reservationTypeChambreTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.ReservationTypeChambreTableAdapter();
             this.infoClientReservationTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.InfoClientReservationTableAdapter();
+            this.infoClientReservationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             id_clientLabel = new System.Windows.Forms.Label();
             id_reservationLabel = new System.Windows.Forms.Label();
             nbPersonnesLabel = new System.Windows.Forms.Label();
             dateArriveeLabel = new System.Windows.Forms.Label();
             dateDepartLabel = new System.Windows.Forms.Label();
             id_chambreLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoClientReservationBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoClientReservationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbPersonne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationChambre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationTypeChambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typechambreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoClientReservationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // id_clientLabel
@@ -151,8 +149,7 @@
             // 
             // cboClient
             // 
-            this.cboClient.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.reservationBindingSource, "id_client", true));
-            this.cboClient.DataSource = this.infoClientReservationBindingSource1;
+            this.cboClient.DataSource = this.infoClientReservationBindingSource;
             this.cboClient.DisplayMember = "Nom Complet";
             this.cboClient.FormattingEnabled = true;
             this.cboClient.Location = new System.Drawing.Point(151, 405);
@@ -161,25 +158,15 @@
             this.cboClient.TabIndex = 5;
             this.cboClient.ValueMember = "id_client";
             // 
-            // reservationBindingSource
-            // 
-            this.reservationBindingSource.DataMember = "reservation";
-            this.reservationBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
             // bDB56Projet1SNGDataSet
             // 
             this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
             this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // infoClientReservationBindingSource1
+            // reservationBindingSource
             // 
-            this.infoClientReservationBindingSource1.DataMember = "InfoClientReservation";
-            this.infoClientReservationBindingSource1.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
-            // infoClientReservationBindingSource
-            // 
-            this.infoClientReservationBindingSource.DataMember = "InfoClientReservation";
-            this.infoClientReservationBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            this.reservationBindingSource.DataMember = "reservation";
+            this.reservationBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
             // 
             // txtReservation
             // 
@@ -232,9 +219,24 @@
             // nbPersonne
             // 
             this.nbPersonne.Location = new System.Drawing.Point(665, 406);
+            this.nbPersonne.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.nbPersonne.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nbPersonne.Name = "nbPersonne";
             this.nbPersonne.Size = new System.Drawing.Size(200, 22);
             this.nbPersonne.TabIndex = 16;
+            this.nbPersonne.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // dgvReservationChambre
             // 
@@ -243,14 +245,14 @@
             this.dgvReservationChambre.AutoGenerateColumns = false;
             this.dgvReservationChambre.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvReservationChambre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReservationChambre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReservationChambre.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvReservationChambre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservationChambre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -260,25 +262,25 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.dgvReservationChambre.DataSource = this.reservationTypeChambreBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvReservationChambre.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvReservationChambre.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvReservationChambre.Location = new System.Drawing.Point(149, 150);
             this.dgvReservationChambre.Name = "dgvReservationChambre";
             this.dgvReservationChambre.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReservationChambre.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReservationChambre.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvReservationChambre.RowHeadersWidth = 21;
             this.dgvReservationChambre.RowTemplate.Height = 24;
             this.dgvReservationChambre.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -391,6 +393,11 @@
             // 
             this.infoClientReservationTableAdapter.ClearBeforeFill = true;
             // 
+            // infoClientReservationBindingSource
+            // 
+            this.infoClientReservationBindingSource.DataMember = "InfoClientReservation";
+            this.infoClientReservationBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            // 
             // frmAjouterReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -415,16 +422,15 @@
             this.Name = "frmAjouterReservation";
             this.Text = "Ajouter Réservation";
             this.Load += new System.EventHandler(this.frmAjouterReservation_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoClientReservationBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoClientReservationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reservationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbPersonne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservationChambre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reservationTypeChambreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typechambreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chambreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoClientReservationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,8 +464,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.BindingSource infoClientReservationBindingSource;
         private BDB56Projet1SNGDataSetTableAdapters.InfoClientReservationTableAdapter infoClientReservationTableAdapter;
-        private System.Windows.Forms.BindingSource infoClientReservationBindingSource1;
+        private System.Windows.Forms.BindingSource infoClientReservationBindingSource;
     }
 }
