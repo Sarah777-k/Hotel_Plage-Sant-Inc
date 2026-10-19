@@ -29,19 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionAssistants));
-            this.assistantBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.assistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvAssistants = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,48 +51,23 @@
             this.btnSupprimerSoin = new System.Windows.Forms.Button();
             this.btnAjouterSoin = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
-            this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.btnActualiser = new System.Windows.Forms.Button();
             this.assistantTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.assistantTableAdapter();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
             this.assistant_soinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.assistant_soinTableAdapter();
             this.dataTableAssistantSoinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.DataTableAssistantSoinTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingNavigator)).BeginInit();
-            this.assistantBindingNavigator.SuspendLayout();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssistants)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistant_soinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableAssistantSoinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoinsOfferts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // assistantBindingNavigator
-            // 
-            this.assistantBindingNavigator.AddNewItem = null;
-            this.assistantBindingNavigator.BindingSource = this.assistantBindingSource;
-            this.assistantBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.assistantBindingNavigator.DeleteItem = null;
-            this.assistantBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.assistantBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2});
-            this.assistantBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.assistantBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.assistantBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.assistantBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.assistantBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.assistantBindingNavigator.Name = "assistantBindingNavigator";
-            this.assistantBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.assistantBindingNavigator.Size = new System.Drawing.Size(1081, 27);
-            this.assistantBindingNavigator.TabIndex = 0;
-            this.assistantBindingNavigator.Text = "bindingNavigator1";
             // 
             // assistantBindingSource
             // 
@@ -115,76 +79,10 @@
             this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
             this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
             // dgvAssistants
             // 
+            this.dgvAssistants.AllowUserToAddRows = false;
+            this.dgvAssistants.AllowUserToDeleteRows = false;
             this.dgvAssistants.AutoGenerateColumns = false;
             this.dgvAssistants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAssistants.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -196,13 +94,13 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.dgvAssistants.DataSource = this.assistantBindingSource;
-            this.dgvAssistants.Location = new System.Drawing.Point(17, 165);
+            this.dgvAssistants.Location = new System.Drawing.Point(12, 53);
             this.dgvAssistants.Name = "dgvAssistants";
             this.dgvAssistants.ReadOnly = true;
-            this.dgvAssistants.RowHeadersWidth = 21;
+            this.dgvAssistants.RowHeadersWidth = 17;
             this.dgvAssistants.RowTemplate.Height = 24;
             this.dgvAssistants.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAssistants.Size = new System.Drawing.Size(542, 327);
+            this.dgvAssistants.Size = new System.Drawing.Size(545, 327);
             this.dgvAssistants.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -261,6 +159,8 @@
             // 
             // dgvSoinsOfferts
             // 
+            this.dgvSoinsOfferts.AllowUserToAddRows = false;
+            this.dgvSoinsOfferts.AllowUserToDeleteRows = false;
             this.dgvSoinsOfferts.AutoGenerateColumns = false;
             this.dgvSoinsOfferts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSoinsOfferts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -269,13 +169,13 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dgvSoinsOfferts.DataSource = this.dataTableAssistantSoinBindingSource;
-            this.dgvSoinsOfferts.Location = new System.Drawing.Point(621, 165);
+            this.dgvSoinsOfferts.Location = new System.Drawing.Point(44, 53);
             this.dgvSoinsOfferts.Name = "dgvSoinsOfferts";
             this.dgvSoinsOfferts.ReadOnly = true;
             this.dgvSoinsOfferts.RowHeadersWidth = 24;
             this.dgvSoinsOfferts.RowTemplate.Height = 24;
             this.dgvSoinsOfferts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoinsOfferts.Size = new System.Drawing.Size(426, 327);
+            this.dgvSoinsOfferts.Size = new System.Drawing.Size(343, 327);
             this.dgvSoinsOfferts.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn8
@@ -298,16 +198,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Menu;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(251, 46);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(365, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(544, 36);
+            this.label1.Size = new System.Drawing.Size(370, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Gestion des assistants et leurs soins ";
             // 
             // btnAjouterAssistant
             // 
-            this.btnAjouterAssistant.Location = new System.Drawing.Point(67, 511);
+            this.btnAjouterAssistant.Location = new System.Drawing.Point(56, 397);
             this.btnAjouterAssistant.Name = "btnAjouterAssistant";
             this.btnAjouterAssistant.Size = new System.Drawing.Size(92, 36);
             this.btnAjouterAssistant.TabIndex = 5;
@@ -317,7 +217,7 @@
             // 
             // btnModifierAssistant
             // 
-            this.btnModifierAssistant.Location = new System.Drawing.Point(219, 511);
+            this.btnModifierAssistant.Location = new System.Drawing.Point(208, 397);
             this.btnModifierAssistant.Name = "btnModifierAssistant";
             this.btnModifierAssistant.Size = new System.Drawing.Size(94, 36);
             this.btnModifierAssistant.TabIndex = 6;
@@ -328,7 +228,7 @@
             // btnSupAssistant
             // 
             this.btnSupAssistant.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSupAssistant.Location = new System.Drawing.Point(367, 511);
+            this.btnSupAssistant.Location = new System.Drawing.Point(356, 397);
             this.btnSupAssistant.Name = "btnSupAssistant";
             this.btnSupAssistant.Size = new System.Drawing.Size(92, 36);
             this.btnSupAssistant.TabIndex = 7;
@@ -339,27 +239,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(181, 124);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(188, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 29);
+            this.label2.Size = new System.Drawing.Size(102, 25);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Assistants :";
+            this.label2.Text = "Assistants";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(751, 124);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(173, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 29);
+            this.label3.Size = new System.Drawing.Size(120, 25);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Soins offerts :";
+            this.label3.Text = "Soins offerts";
             // 
             // btnSupprimerSoin
             // 
             this.btnSupprimerSoin.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSupprimerSoin.Location = new System.Drawing.Point(823, 511);
+            this.btnSupprimerSoin.Location = new System.Drawing.Point(249, 397);
             this.btnSupprimerSoin.Name = "btnSupprimerSoin";
             this.btnSupprimerSoin.Size = new System.Drawing.Size(92, 36);
             this.btnSupprimerSoin.TabIndex = 12;
@@ -369,7 +269,7 @@
             // 
             // btnAjouterSoin
             // 
-            this.btnAjouterSoin.Location = new System.Drawing.Point(690, 511);
+            this.btnAjouterSoin.Location = new System.Drawing.Point(134, 397);
             this.btnAjouterSoin.Name = "btnAjouterSoin";
             this.btnAjouterSoin.Size = new System.Drawing.Size(92, 36);
             this.btnAjouterSoin.TabIndex = 10;
@@ -381,7 +281,7 @@
             // 
             this.btnFermer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFermer.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnFermer.Location = new System.Drawing.Point(450, 585);
+            this.btnFermer.Location = new System.Drawing.Point(490, 575);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(97, 32);
             this.btnFermer.TabIndex = 13;
@@ -389,17 +289,17 @@
             this.btnFermer.UseVisualStyleBackColor = false;
             this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
-            // btnEnregistrer
+            // btnActualiser
             // 
-            this.btnEnregistrer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnEnregistrer.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnEnregistrer.Location = new System.Drawing.Point(566, 585);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(97, 32);
-            this.btnEnregistrer.TabIndex = 14;
-            this.btnEnregistrer.Text = "Enregistrer";
-            this.btnEnregistrer.UseVisualStyleBackColor = false;
-            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
+            this.btnActualiser.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnActualiser.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnActualiser.Location = new System.Drawing.Point(612, 575);
+            this.btnActualiser.Name = "btnActualiser";
+            this.btnActualiser.Size = new System.Drawing.Size(97, 32);
+            this.btnActualiser.TabIndex = 14;
+            this.btnActualiser.Text = "Actualiser";
+            this.btnActualiser.UseVisualStyleBackColor = false;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // assistantTableAdapter
             // 
@@ -430,36 +330,56 @@
             // 
             this.dataTableAssistantSoinTableAdapter.ClearBeforeFill = true;
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.Menu;
+            this.splitContainer1.Location = new System.Drawing.Point(24, 104);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.splitContainer1.Panel1.Controls.Add(this.dgvAssistants);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.btnAjouterAssistant);
+            this.splitContainer1.Panel1.Controls.Add(this.btnModifierAssistant);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSupAssistant);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.splitContainer1.Panel2.Controls.Add(this.dgvSoinsOfferts);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAjouterSoin);
+            this.splitContainer1.Panel2.Controls.Add(this.btnSupprimerSoin);
+            this.splitContainer1.Size = new System.Drawing.Size(1014, 456);
+            this.splitContainer1.SplitterDistance = 572;
+            this.splitContainer1.TabIndex = 15;
+            // 
             // FrmGestionAssistants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 629);
-            this.Controls.Add(this.btnEnregistrer);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.btnActualiser);
             this.Controls.Add(this.btnFermer);
-            this.Controls.Add(this.btnSupprimerSoin);
-            this.Controls.Add(this.btnAjouterSoin);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSupAssistant);
-            this.Controls.Add(this.btnModifierAssistant);
-            this.Controls.Add(this.btnAjouterAssistant);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvSoinsOfferts);
-            this.Controls.Add(this.dgvAssistants);
-            this.Controls.Add(this.assistantBindingNavigator);
             this.Name = "FrmGestionAssistants";
             this.Text = "Gestion Assistants";
             this.Load += new System.EventHandler(this.FrmGestionAssistants_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingNavigator)).EndInit();
-            this.assistantBindingNavigator.ResumeLayout(false);
-            this.assistantBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssistants)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assistant_soinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTableAssistantSoinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoinsOfferts)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -471,16 +391,6 @@
         private System.Windows.Forms.BindingSource assistantBindingSource;
         private BDB56Projet1SNGDataSetTableAdapters.assistantTableAdapter assistantTableAdapter;
         private BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator assistantBindingNavigator;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView dgvAssistants;
         private System.Windows.Forms.BindingSource assistant_soinBindingSource;
         private BDB56Projet1SNGDataSetTableAdapters.assistant_soinTableAdapter assistant_soinTableAdapter;
@@ -503,6 +413,7 @@
         private System.Windows.Forms.Button btnSupprimerSoin;
         private System.Windows.Forms.Button btnAjouterSoin;
         private System.Windows.Forms.Button btnFermer;
-        private System.Windows.Forms.Button btnEnregistrer;
+        private System.Windows.Forms.Button btnActualiser;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }

@@ -49,7 +49,7 @@
             // id_soinLabel1
             // 
             id_soinLabel1.AutoSize = true;
-            id_soinLabel1.Location = new System.Drawing.Point(113, 158);
+            id_soinLabel1.Location = new System.Drawing.Point(75, 135);
             id_soinLabel1.Name = "id_soinLabel1";
             id_soinLabel1.Size = new System.Drawing.Size(40, 16);
             id_soinLabel1.TabIndex = 7;
@@ -85,7 +85,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(147, 98);
+            this.label1.Location = new System.Drawing.Point(45, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 25);
             this.label1.TabIndex = 9;
@@ -93,7 +93,7 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(277, 217);
+            this.btnAjouter.Location = new System.Drawing.Point(213, 229);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(76, 35);
             this.btnAjouter.TabIndex = 11;
@@ -105,7 +105,7 @@
             // 
             this.btnFermer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFermer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFermer.Location = new System.Drawing.Point(152, 217);
+            this.btnFermer.Location = new System.Drawing.Point(114, 229);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(76, 35);
             this.btnFermer.TabIndex = 12;
@@ -118,7 +118,7 @@
             this.cboSoin.DataSource = this.soinBindingSource;
             this.cboSoin.DisplayMember = "description";
             this.cboSoin.FormattingEnabled = true;
-            this.cboSoin.Location = new System.Drawing.Point(177, 155);
+            this.cboSoin.Location = new System.Drawing.Point(122, 132);
             this.cboSoin.Name = "cboSoin";
             this.cboSoin.Size = new System.Drawing.Size(210, 24);
             this.cboSoin.TabIndex = 13;
@@ -137,7 +137,7 @@
             // 
             this.lblAssistant.AutoSize = true;
             this.lblAssistant.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssistant.Location = new System.Drawing.Point(343, 98);
+            this.lblAssistant.Location = new System.Drawing.Point(227, 60);
             this.lblAssistant.Name = "lblAssistant";
             this.lblAssistant.Size = new System.Drawing.Size(0, 25);
             this.lblAssistant.TabIndex = 14;
@@ -146,13 +146,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 413);
+            this.ClientSize = new System.Drawing.Size(401, 336);
             this.Controls.Add(this.lblAssistant);
             this.Controls.Add(this.cboSoin);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.label1);
             this.Controls.Add(id_soinLabel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmAjouterSoinAssistant";
             this.Text = "Ajouter Soin Assistant";
             this.Load += new System.EventHandler(this.frmAjouterSoinAssistant_Load);
