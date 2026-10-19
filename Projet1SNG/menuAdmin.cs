@@ -39,12 +39,29 @@ namespace Projet1SNG
         {
             FrmGestionAssistants frmGestionAssistants = new FrmGestionAssistants();
             frmGestionAssistants.Show();
+
+            
+        }
+
+        private void btnChambreType_Click(object sender, EventArgs e)
+        {
+            GestionChambre.frmGestionChambre frmGestionChambre = new GestionChambre.frmGestionChambre();
+            frmGestionChambre.Show();
+           
+
         }
 
         private void btnGestionUtilisateur_Click(object sender, EventArgs e)
         {
             frmGestionUtilisateurs fGestionUtilisateurs = new frmGestionUtilisateurs();
             fGestionUtilisateurs.Show();
+
+        }
+
+        private void btnChambre_Click(object sender, EventArgs e)
+        {
+            GestionChambre.frmGestionChambre frmGestionChambre = new GestionChambre.frmGestionChambre();
+            frmGestionChambre.Show();
         }
     }
 }
