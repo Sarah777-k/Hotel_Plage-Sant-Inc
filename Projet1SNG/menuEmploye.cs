@@ -45,5 +45,17 @@ namespace Projet1SNG
             frmCo.Show();
             this.Hide();
         }
+
+        private void btnReserverChambre_Click(object sender, EventArgs e)
+        {
+            GestionReservation.frmGestionReservationChambre frmGestionReservationChambre = new GestionReservation.frmGestionReservationChambre();
+            frmGestionReservationChambre.Show();
+        }
+
+        private void btnUtilisateur_Click(object sender, EventArgs e)
+        {
+           GestionClientInvites.frmGestionClientInvites frmGestionClientInvites = new GestionClientInvites.frmGestionClientInvites();
+            frmGestionClientInvites.Show();
+        }
     }
 }

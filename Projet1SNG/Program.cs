@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet1SNG.GestionClientInvites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,9 +19,7 @@ namespace Projet1SNG
             Application.SetCompatibleTextRenderingDefault(false);
             
             Application.Run(new frmConnexion());
-            //Application.Run(new frmGestionUtilisateurs());
-            //Application.Run(new FrmGestionAssistants());
-            //Application.Run(new Form1());
+            
         }
     }
 }
