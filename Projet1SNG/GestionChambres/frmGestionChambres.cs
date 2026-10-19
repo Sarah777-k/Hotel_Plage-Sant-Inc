@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projet1SNG
+namespace Projet1SNG.GestionChambres
 {
-    public partial class Form1 : Form
+    public partial class frmGestionChambres : Form
     {
-        public Form1()
+        public frmGestionChambres()
         {
             InitializeComponent();
         }
