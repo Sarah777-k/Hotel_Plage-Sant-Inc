@@ -33,21 +33,16 @@
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
             this.planif_soinBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.planif_soinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter();
-            this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
-            this.dgvPlanifSoins = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbPersonne = new System.Windows.Forms.ComboBox();
+            this.nosEtNomsPersonnesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbSoin = new System.Windows.Forms.ComboBox();
+            this.soinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.cmbAssistant = new System.Windows.Forms.ComboBox();
+            this.assistantsParSoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
@@ -55,15 +50,33 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSupprimer = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
+            this.planif_soinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter();
+            this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
+            this.nosEtNomsPersonnesTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.nosEtNomsPersonnesTableAdapter();
+            this.assistantsParSoinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.assistantsParSoinTableAdapter();
+            this.soinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.soinTableAdapter();
+            this.dgvPlanifSoins = new System.Windows.Forms.DataGridView();
+            this.nosEtNomsAssistantsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nosEtNomsAssistantsTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.nosEtNomsAssistantsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnAnnuler = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.planif_soinBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanifSoins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsPersonnesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantsParSoinBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanifSoins)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsAssistantsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPlanifier
             // 
-            this.btnPlanifier.Location = new System.Drawing.Point(586, 143);
+            this.btnPlanifier.Location = new System.Drawing.Point(592, 119);
             this.btnPlanifier.Name = "btnPlanifier";
             this.btnPlanifier.Size = new System.Drawing.Size(75, 23);
             this.btnPlanifier.TabIndex = 0;
@@ -73,7 +86,7 @@
             // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Location = new System.Drawing.Point(673, 24);
+            this.btnEnregistrer.Location = new System.Drawing.Point(640, 24);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.btnEnregistrer.TabIndex = 1;
@@ -83,7 +96,7 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(673, 456);
+            this.btnQuitter.Location = new System.Drawing.Point(728, 507);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(75, 23);
             this.btnQuitter.TabIndex = 2;
@@ -101,92 +114,15 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Planification des soins";
             // 
-            // bDB56Projet1SNGDataSet
-            // 
-            this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
-            this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // planif_soinBindingSource
             // 
             this.planif_soinBindingSource.DataMember = "planif_soin";
             this.planif_soinBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
             // 
-            // planif_soinTableAdapter
+            // bDB56Projet1SNGDataSet
             // 
-            this.planif_soinTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.assistant_soinTableAdapter = null;
-            this.tableAdapterManager.assistantTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.chambreTableAdapter = null;
-            this.tableAdapterManager.clientTableAdapter = null;
-            this.tableAdapterManager.inviteTableAdapter = null;
-            this.tableAdapterManager.planif_soinTableAdapter = this.planif_soinTableAdapter;
-            this.tableAdapterManager.reservationTableAdapter = null;
-            this.tableAdapterManager.soinTableAdapter = null;
-            this.tableAdapterManager.type_chambreTableAdapter = null;
-            this.tableAdapterManager.type_soinTableAdapter = null;
-            this.tableAdapterManager.typeUtilisateurTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.utilisateurTableAdapter = null;
-            // 
-            // dgvPlanifSoins
-            // 
-            this.dgvPlanifSoins.AllowUserToAddRows = false;
-            this.dgvPlanifSoins.AllowUserToDeleteRows = false;
-            this.dgvPlanifSoins.AutoGenerateColumns = false;
-            this.dgvPlanifSoins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlanifSoins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewCheckBoxColumn1});
-            this.dgvPlanifSoins.DataSource = this.planif_soinBindingSource;
-            this.dgvPlanifSoins.Location = new System.Drawing.Point(83, 231);
-            this.dgvPlanifSoins.MultiSelect = false;
-            this.dgvPlanifSoins.Name = "dgvPlanifSoins";
-            this.dgvPlanifSoins.ReadOnly = true;
-            this.dgvPlanifSoins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlanifSoins.Size = new System.Drawing.Size(552, 220);
-            this.dgvPlanifSoins.TabIndex = 5;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_personne";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id_personne";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_assistant";
-            this.dataGridViewTextBoxColumn2.HeaderText = "id_assistant";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "dateHeure";
-            this.dataGridViewTextBoxColumn3.HeaderText = "dateHeure";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "id_soin";
-            this.dataGridViewTextBoxColumn4.HeaderText = "id_soin";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "fait";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "fait";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
+            this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label2
             // 
@@ -199,21 +135,38 @@
             // 
             // cmbPersonne
             // 
+            this.cmbPersonne.DataSource = this.nosEtNomsPersonnesBindingSource;
+            this.cmbPersonne.DisplayMember = "nomComplet";
             this.cmbPersonne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPersonne.FormattingEnabled = true;
             this.cmbPersonne.Location = new System.Drawing.Point(83, 119);
             this.cmbPersonne.Name = "cmbPersonne";
             this.cmbPersonne.Size = new System.Drawing.Size(121, 21);
             this.cmbPersonne.TabIndex = 7;
+            this.cmbPersonne.ValueMember = "id_personne";
+            // 
+            // nosEtNomsPersonnesBindingSource
+            // 
+            this.nosEtNomsPersonnesBindingSource.DataMember = "nosEtNomsPersonnes";
+            this.nosEtNomsPersonnesBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
             // 
             // cmbSoin
             // 
+            this.cmbSoin.DataSource = this.soinBindingSource;
+            this.cmbSoin.DisplayMember = "description";
             this.cmbSoin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSoin.FormattingEnabled = true;
             this.cmbSoin.Location = new System.Drawing.Point(421, 119);
             this.cmbSoin.Name = "cmbSoin";
             this.cmbSoin.Size = new System.Drawing.Size(121, 21);
             this.cmbSoin.TabIndex = 9;
+            this.cmbSoin.ValueMember = "id_soin";
+            this.cmbSoin.SelectedIndexChanged += new System.EventHandler(this.cmbSoin_SelectedIndexChanged);
+            // 
+            // soinBindingSource
+            // 
+            this.soinBindingSource.DataMember = "soin";
+            this.soinBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
             // 
             // label3
             // 
@@ -226,12 +179,20 @@
             // 
             // cmbAssistant
             // 
+            this.cmbAssistant.DataSource = this.assistantsParSoinBindingSource;
+            this.cmbAssistant.DisplayMember = "nomAssistant";
             this.cmbAssistant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAssistant.FormattingEnabled = true;
             this.cmbAssistant.Location = new System.Drawing.Point(260, 119);
             this.cmbAssistant.Name = "cmbAssistant";
             this.cmbAssistant.Size = new System.Drawing.Size(121, 21);
             this.cmbAssistant.TabIndex = 11;
+            this.cmbAssistant.ValueMember = "id_assistant";
+            // 
+            // assistantsParSoinBindingSource
+            // 
+            this.assistantsParSoinBindingSource.DataMember = "assistantsParSoin";
+            this.assistantsParSoinBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
             // 
             // label4
             // 
@@ -283,7 +244,7 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(573, 24);
+            this.btnSupprimer.Location = new System.Drawing.Point(693, 202);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 16;
@@ -291,11 +252,137 @@
             this.btnSupprimer.UseVisualStyleBackColor = true;
             this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
+            // planif_soinTableAdapter
+            // 
+            this.planif_soinTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.assistant_soinTableAdapter = null;
+            this.tableAdapterManager.assistantTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.chambreTableAdapter = null;
+            this.tableAdapterManager.clientTableAdapter = null;
+            this.tableAdapterManager.inviteTableAdapter = null;
+            this.tableAdapterManager.nosEtNomsAssistantsTableAdapter = null;
+            this.tableAdapterManager.planif_soinTableAdapter = this.planif_soinTableAdapter;
+            this.tableAdapterManager.reservationTableAdapter = null;
+            this.tableAdapterManager.soinTableAdapter = null;
+            this.tableAdapterManager.type_chambreTableAdapter = null;
+            this.tableAdapterManager.type_soinTableAdapter = null;
+            this.tableAdapterManager.typeUtilisateurTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.utilisateurTableAdapter = null;
+            // 
+            // nosEtNomsPersonnesTableAdapter
+            // 
+            this.nosEtNomsPersonnesTableAdapter.ClearBeforeFill = true;
+            // 
+            // assistantsParSoinTableAdapter
+            // 
+            this.assistantsParSoinTableAdapter.ClearBeforeFill = true;
+            // 
+            // soinTableAdapter
+            // 
+            this.soinTableAdapter.ClearBeforeFill = true;
+            // 
+            // dgvPlanifSoins
+            // 
+            this.dgvPlanifSoins.AllowUserToAddRows = false;
+            this.dgvPlanifSoins.AllowUserToDeleteRows = false;
+            this.dgvPlanifSoins.AutoGenerateColumns = false;
+            this.dgvPlanifSoins.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPlanifSoins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPlanifSoins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewCheckBoxColumn1});
+            this.dgvPlanifSoins.DataSource = this.planif_soinBindingSource;
+            this.dgvPlanifSoins.Location = new System.Drawing.Point(31, 231);
+            this.dgvPlanifSoins.MultiSelect = false;
+            this.dgvPlanifSoins.Name = "dgvPlanifSoins";
+            this.dgvPlanifSoins.ReadOnly = true;
+            this.dgvPlanifSoins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPlanifSoins.Size = new System.Drawing.Size(747, 220);
+            this.dgvPlanifSoins.TabIndex = 5;
+            // 
+            // nosEtNomsAssistantsBindingSource
+            // 
+            this.nosEtNomsAssistantsBindingSource.DataMember = "nosEtNomsAssistants";
+            this.nosEtNomsAssistantsBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            // 
+            // nosEtNomsAssistantsTableAdapter
+            // 
+            this.nosEtNomsAssistantsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_personne";
+            this.dataGridViewTextBoxColumn1.DataSource = this.nosEtNomsPersonnesBindingSource;
+            this.dataGridViewTextBoxColumn1.DisplayMember = "nomComplet";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Client ou invité";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn1.ValueMember = "id_personne";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "id_assistant";
+            this.dataGridViewTextBoxColumn2.DataSource = this.nosEtNomsAssistantsBindingSource;
+            this.dataGridViewTextBoxColumn2.DisplayMember = "nomAssistant";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Assistant";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn2.ValueMember = "id_assistant";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "dateHeure";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Date et heure";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "id_soin";
+            this.dataGridViewTextBoxColumn4.DataSource = this.soinBindingSource;
+            this.dataGridViewTextBoxColumn4.DisplayMember = "description";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Soin";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn4.ValueMember = "id_soin";
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "fait";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Effectué?";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.ReadOnly = true;
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.Location = new System.Drawing.Point(728, 24);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnuler.TabIndex = 17;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
             // frmPlanifSoins
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 491);
+            this.ClientSize = new System.Drawing.Size(815, 542);
+            this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnSupprimer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -315,10 +402,14 @@
             this.Name = "frmPlanifSoins";
             this.Text = "Planification des soins";
             this.Load += new System.EventHandler(this.frmPlanifSoins_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.planif_soinBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanifSoins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsPersonnesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soinBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assistantsParSoinBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanifSoins)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsAssistantsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,12 +425,6 @@
         private System.Windows.Forms.BindingSource planif_soinBindingSource;
         private BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter planif_soinTableAdapter;
         private BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridView dgvPlanifSoins;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbPersonne;
         private System.Windows.Forms.ComboBox cmbSoin;
@@ -352,5 +437,20 @@
         private System.Windows.Forms.DateTimePicker dtpHeure;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Button btnSupprimer;
+        private System.Windows.Forms.BindingSource nosEtNomsPersonnesBindingSource;
+        private BDB56Projet1SNGDataSetTableAdapters.nosEtNomsPersonnesTableAdapter nosEtNomsPersonnesTableAdapter;
+        private System.Windows.Forms.BindingSource assistantsParSoinBindingSource;
+        private BDB56Projet1SNGDataSetTableAdapters.assistantsParSoinTableAdapter assistantsParSoinTableAdapter;
+        private System.Windows.Forms.BindingSource soinBindingSource;
+        private BDB56Projet1SNGDataSetTableAdapters.soinTableAdapter soinTableAdapter;
+        private System.Windows.Forms.DataGridView dgvPlanifSoins;
+        private System.Windows.Forms.BindingSource nosEtNomsAssistantsBindingSource;
+        private BDB56Projet1SNGDataSetTableAdapters.nosEtNomsAssistantsTableAdapter nosEtNomsAssistantsTableAdapter;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.Button btnAnnuler;
     }
 }

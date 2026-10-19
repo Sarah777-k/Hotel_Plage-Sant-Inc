@@ -57,5 +57,11 @@ namespace Projet1SNG
            GestionClientInvites.frmGestionClientInvites frmGestionClientInvites = new GestionClientInvites.frmGestionClientInvites();
             frmGestionClientInvites.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frmPlanifSoins frmPlanifSoins = new frmPlanifSoins();
+            frmPlanifSoins.Show();
+        }
     }
 }

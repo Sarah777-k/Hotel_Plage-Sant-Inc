@@ -82,19 +82,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS PGothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(429, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(322, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 27);
+            this.label1.Size = new System.Drawing.Size(150, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Menu Employé";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(933, 511);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(700, 415);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 28);
+            this.button1.Size = new System.Drawing.Size(88, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Quitter";
             this.button1.UseVisualStyleBackColor = true;
@@ -103,19 +101,17 @@
             // txtIdNumber
             // 
             this.txtIdNumber.AutoSize = true;
-            this.txtIdNumber.Location = new System.Drawing.Point(452, 54);
-            this.txtIdNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtIdNumber.Location = new System.Drawing.Point(339, 44);
             this.txtIdNumber.Name = "txtIdNumber";
-            this.txtIdNumber.Size = new System.Drawing.Size(135, 16);
+            this.txtIdNumber.Size = new System.Drawing.Size(105, 13);
             this.txtIdNumber.TabIndex = 3;
             this.txtIdNumber.Text = "Numéros d\'employé: ";
             // 
             // btnUtilisateur
             // 
-            this.btnUtilisateur.Location = new System.Drawing.Point(620, 198);
-            this.btnUtilisateur.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUtilisateur.Location = new System.Drawing.Point(465, 161);
             this.btnUtilisateur.Name = "btnUtilisateur";
-            this.btnUtilisateur.Size = new System.Drawing.Size(152, 28);
+            this.btnUtilisateur.Size = new System.Drawing.Size(114, 23);
             this.btnUtilisateur.TabIndex = 4;
             this.btnUtilisateur.Text = "Gérer";
             this.btnUtilisateur.UseVisualStyleBackColor = true;
@@ -123,20 +119,19 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(620, 272);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(465, 221);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 28);
+            this.button3.Size = new System.Drawing.Size(114, 23);
             this.button3.TabIndex = 5;
             this.button3.Text = "Planifier";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnReserverChambre
             // 
-            this.btnReserverChambre.Location = new System.Drawing.Point(620, 343);
-            this.btnReserverChambre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReserverChambre.Location = new System.Drawing.Point(465, 279);
             this.btnReserverChambre.Name = "btnReserverChambre";
-            this.btnReserverChambre.Size = new System.Drawing.Size(152, 28);
+            this.btnReserverChambre.Size = new System.Drawing.Size(114, 23);
             this.btnReserverChambre.TabIndex = 6;
             this.btnReserverChambre.Text = "Réserver";
             this.btnReserverChambre.UseVisualStyleBackColor = true;
@@ -145,39 +140,35 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(239, 204);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(179, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 16);
+            this.label2.Size = new System.Drawing.Size(155, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Gérer les clients et leurs invités ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(239, 278);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(179, 226);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(295, 16);
+            this.label3.Size = new System.Drawing.Size(234, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Planifier des soins pour les clients et leurs invités";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(239, 350);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(179, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(152, 16);
+            this.label5.Size = new System.Drawing.Size(119, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Réserver des chambres";
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(933, 474);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Location = new System.Drawing.Point(700, 385);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(117, 28);
+            this.button8.Size = new System.Drawing.Size(88, 23);
             this.button8.TabIndex = 16;
             this.button8.Text = "Deconnexion";
             this.button8.UseVisualStyleBackColor = true;
@@ -185,9 +176,9 @@
             // 
             // menuEmploye
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -199,7 +190,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "menuEmploye";
             this.Text = "Menu";
