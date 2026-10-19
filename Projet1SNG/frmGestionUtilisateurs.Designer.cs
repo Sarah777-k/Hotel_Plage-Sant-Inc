@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.typeUtilisateurTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.typeUtilisateurTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUtilisateurs)).BeginInit();
@@ -245,11 +246,22 @@
             // 
             this.typeUtilisateurTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(686, 440);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 31);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Quitter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmGestionUtilisateurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 483);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -297,6 +309,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvNomUtil;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMotDePasse;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTypeUtil;
+        private System.Windows.Forms.Button button1;
     }
 }
 

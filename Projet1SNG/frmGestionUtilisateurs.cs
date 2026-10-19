@@ -15,6 +15,7 @@ namespace Projet1SNG
     public partial class frmGestionUtilisateurs : Form
     {
         public string nomUtilisateurConnecte = "nes";
+
         public frmGestionUtilisateurs()
         {
             InitializeComponent();
@@ -262,5 +263,9 @@ namespace Projet1SNG
             maConnexion.Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
