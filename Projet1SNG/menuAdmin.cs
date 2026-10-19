@@ -92,5 +92,15 @@ namespace Projet1SNG
             );
             frmRapportReservationsChambres.Show();
         }
+
+        private void btnPlanifSoins_Click(object sender, EventArgs e)
+        {
+            frmPlanifSoins frmPlanifSoins = new frmPlanifSoins();
+            frmPlanifSoins.Location = new Point(
+                this.Location.X + (this.Width - frmPlanifSoins.Width) / 2,
+                this.Location.Y + (this.Height - frmPlanifSoins.Height) / 2
+            );
+            frmPlanifSoins.Show();
+        }
     }
 }

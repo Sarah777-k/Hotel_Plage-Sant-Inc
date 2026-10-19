@@ -36,7 +36,12 @@
             this.soinTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.soinTableAdapter();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
             this.dgvSoins = new System.Windows.Forms.DataGridView();
+            this.dgvIdSoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDuree = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTypeSoin = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.typesoinBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvPrix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.tbDuree = new System.Windows.Forms.TextBox();
             this.tbPrix = new System.Windows.Forms.TextBox();
@@ -52,11 +57,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnQuitter = new System.Windows.Forms.Button();
-            this.dgvIdSoin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvDuree = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTypeSoin = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dgvPrix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
@@ -73,10 +73,9 @@
             // btnAjouter
             // 
             this.btnAjouter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouter.Location = new System.Drawing.Point(849, 114);
-            this.btnAjouter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAjouter.Location = new System.Drawing.Point(637, 93);
             this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(100, 28);
+            this.btnAjouter.Size = new System.Drawing.Size(75, 23);
             this.btnAjouter.TabIndex = 0;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.UseVisualStyleBackColor = true;
@@ -85,10 +84,9 @@
             // btnSupprimer
             // 
             this.btnSupprimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupprimer.Location = new System.Drawing.Point(849, 33);
-            this.btnSupprimer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSupprimer.Location = new System.Drawing.Point(637, 27);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(100, 28);
+            this.btnSupprimer.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimer.TabIndex = 2;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
@@ -116,6 +114,8 @@
             this.tableAdapterManager.chambreTableAdapter = null;
             this.tableAdapterManager.clientTableAdapter = null;
             this.tableAdapterManager.inviteTableAdapter = null;
+            this.tableAdapterManager.ListeChambresRapportTableAdapter = null;
+            this.tableAdapterManager.nosEtNomsAssistantsTableAdapter = null;
             this.tableAdapterManager.planif_soinTableAdapter = null;
             this.tableAdapterManager.reservationTableAdapter = null;
             this.tableAdapterManager.soinTableAdapter = this.soinTableAdapter;
@@ -138,168 +138,14 @@
             this.dgvTypeSoin,
             this.dgvPrix});
             this.dgvSoins.DataSource = this.soinBindingSource;
-            this.dgvSoins.Location = new System.Drawing.Point(41, 88);
-            this.dgvSoins.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSoins.Location = new System.Drawing.Point(31, 72);
             this.dgvSoins.MultiSelect = false;
             this.dgvSoins.Name = "dgvSoins";
             this.dgvSoins.RowHeadersWidth = 51;
             this.dgvSoins.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoins.Size = new System.Drawing.Size(908, 321);
+            this.dgvSoins.Size = new System.Drawing.Size(681, 261);
             this.dgvSoins.TabIndex = 4;
             this.dgvSoins.RowValidating += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvSoins_RowValidating);
-            // 
-            // typesoinBindingSource
-            // 
-            this.typesoinBindingSource.DataMember = "type_soin";
-            this.typesoinBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
-            // tbDescription
-            // 
-            this.tbDescription.Location = new System.Drawing.Point(41, 84);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(188, 22);
-            this.tbDescription.TabIndex = 5;
-            // 
-            // tbDuree
-            // 
-            this.tbDuree.Location = new System.Drawing.Point(41, 138);
-            this.tbDuree.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbDuree.Name = "tbDuree";
-            this.tbDuree.ReadOnly = true;
-            this.tbDuree.Size = new System.Drawing.Size(188, 22);
-            this.tbDuree.TabIndex = 6;
-            this.tbDuree.Text = "60";
-            // 
-            // tbPrix
-            // 
-            this.tbPrix.Location = new System.Drawing.Point(322, 147);
-            this.tbPrix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tbPrix.Name = "tbPrix";
-            this.tbPrix.Size = new System.Drawing.Size(189, 22);
-            this.tbPrix.TabIndex = 8;
-            this.tbPrix.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrix_Validating);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 64);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Description :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 121);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Durée :";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(318, 70);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 16);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Identifiant du type de soin :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(318, 127);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 16);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Prix : ";
-            // 
-            // cmbTypeSoin
-            // 
-            this.cmbTypeSoin.DataSource = this.typesoinBindingSource;
-            this.cmbTypeSoin.DisplayMember = "description";
-            this.cmbTypeSoin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTypeSoin.FormattingEnabled = true;
-            this.cmbTypeSoin.Location = new System.Drawing.Point(322, 89);
-            this.cmbTypeSoin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbTypeSoin.Name = "cmbTypeSoin";
-            this.cmbTypeSoin.Size = new System.Drawing.Size(189, 24);
-            this.cmbTypeSoin.TabIndex = 13;
-            this.cmbTypeSoin.ValueMember = "id_typeSoin";
-            // 
-            // type_soinTableAdapter
-            // 
-            this.type_soinTableAdapter.ClearBeforeFill = true;
-            // 
-            // errMessage
-            // 
-            this.errMessage.ContainerControl = this;
-            // 
-            // btnEnregistrer
-            // 
-            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnregistrer.Location = new System.Drawing.Point(605, 682);
-            this.btnEnregistrer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(125, 28);
-            this.btnEnregistrer.TabIndex = 14;
-            this.btnEnregistrer.Text = "Enregistrer";
-            this.btnEnregistrer.UseVisualStyleBackColor = true;
-            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
-            // 
-            // btnAnnuler
-            // 
-            this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnnuler.Location = new System.Drawing.Point(480, 684);
-            this.btnAnnuler.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(100, 28);
-            this.btnAnnuler.TabIndex = 15;
-            this.btnAnnuler.Text = "Annuler";
-            this.btnAnnuler.UseVisualStyleBackColor = true;
-            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(36, 16);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(146, 25);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Ajout de soins: ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(36, 33);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(337, 25);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Modification et suppression de soins: ";
-            // 
-            // btnQuitter
-            // 
-            this.btnQuitter.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitter.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQuitter.Location = new System.Drawing.Point(350, 684);
-            this.btnQuitter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(100, 28);
-            this.btnQuitter.TabIndex = 18;
-            this.btnQuitter.Text = "Quitter";
-            this.btnQuitter.UseVisualStyleBackColor = false;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // dgvIdSoin
             // 
@@ -341,6 +187,11 @@
             this.dgvTypeSoin.ValueMember = "id_typeSoin";
             this.dgvTypeSoin.Width = 125;
             // 
+            // typesoinBindingSource
+            // 
+            this.typesoinBindingSource.DataMember = "type_soin";
+            this.typesoinBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            // 
             // dgvPrix
             // 
             this.dgvPrix.DataPropertyName = "prix";
@@ -349,19 +200,157 @@
             this.dgvPrix.Name = "dgvPrix";
             this.dgvPrix.Width = 125;
             // 
+            // tbDescription
+            // 
+            this.tbDescription.Location = new System.Drawing.Point(31, 68);
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(142, 20);
+            this.tbDescription.TabIndex = 5;
+            // 
+            // tbDuree
+            // 
+            this.tbDuree.Location = new System.Drawing.Point(31, 112);
+            this.tbDuree.Name = "tbDuree";
+            this.tbDuree.ReadOnly = true;
+            this.tbDuree.Size = new System.Drawing.Size(142, 20);
+            this.tbDuree.TabIndex = 6;
+            this.tbDuree.Text = "60";
+            // 
+            // tbPrix
+            // 
+            this.tbPrix.Location = new System.Drawing.Point(242, 119);
+            this.tbPrix.Name = "tbPrix";
+            this.tbPrix.Size = new System.Drawing.Size(143, 20);
+            this.tbPrix.TabIndex = 8;
+            this.tbPrix.Validating += new System.ComponentModel.CancelEventHandler(this.tbPrix_Validating);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Description :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Durée :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(238, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Identifiant du type de soin :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(238, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Prix : ";
+            // 
+            // cmbTypeSoin
+            // 
+            this.cmbTypeSoin.DataSource = this.typesoinBindingSource;
+            this.cmbTypeSoin.DisplayMember = "description";
+            this.cmbTypeSoin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTypeSoin.FormattingEnabled = true;
+            this.cmbTypeSoin.Location = new System.Drawing.Point(242, 72);
+            this.cmbTypeSoin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbTypeSoin.Name = "cmbTypeSoin";
+            this.cmbTypeSoin.Size = new System.Drawing.Size(143, 21);
+            this.cmbTypeSoin.TabIndex = 13;
+            this.cmbTypeSoin.ValueMember = "id_typeSoin";
+            // 
+            // type_soinTableAdapter
+            // 
+            this.type_soinTableAdapter.ClearBeforeFill = true;
+            // 
+            // errMessage
+            // 
+            this.errMessage.ContainerControl = this;
+            // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.Location = new System.Drawing.Point(454, 554);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(94, 23);
+            this.btnEnregistrer.TabIndex = 14;
+            this.btnEnregistrer.Text = "Enregistrer";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
+            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
+            // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnnuler.Location = new System.Drawing.Point(360, 556);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
+            this.btnAnnuler.TabIndex = 15;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(27, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 20);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Ajout de soins: ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(27, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(273, 20);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Modification et suppression de soins: ";
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitter.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnQuitter.Location = new System.Drawing.Point(262, 556);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(75, 23);
+            this.btnQuitter.TabIndex = 18;
+            this.btnQuitter.Text = "Fermer";
+            this.btnQuitter.UseVisualStyleBackColor = false;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(422, 24);
+            this.label7.Location = new System.Drawing.Point(316, 20);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 25);
+            this.label7.Size = new System.Drawing.Size(153, 20);
             this.label7.TabIndex = 19;
             this.label7.Text = "Gestion des soins";
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 63);
+            this.splitContainer1.Location = new System.Drawing.Point(9, 51);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -385,21 +374,21 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnSupprimer);
             this.splitContainer1.Panel2.Controls.Add(this.dgvSoins);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
-            this.splitContainer1.Size = new System.Drawing.Size(989, 614);
-            this.splitContainer1.SplitterDistance = 185;
+            this.splitContainer1.Size = new System.Drawing.Size(742, 499);
+            this.splitContainer1.SplitterDistance = 150;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 20;
             // 
             // frmGestionSoins
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 725);
+            this.ClientSize = new System.Drawing.Size(760, 589);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnEnregistrer);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmGestionSoins";
             this.Text = "Gestion des soins";
             this.Load += new System.EventHandler(this.frmGestionSoins_Load);

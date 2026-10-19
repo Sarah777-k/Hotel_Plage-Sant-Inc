@@ -88,22 +88,24 @@
             // 
             // btnCreer
             // 
-            this.btnCreer.Location = new System.Drawing.Point(104, 184);
+            this.btnCreer.Location = new System.Drawing.Point(234, 184);
             this.btnCreer.Name = "btnCreer";
             this.btnCreer.Size = new System.Drawing.Size(75, 23);
             this.btnCreer.TabIndex = 5;
-            this.btnCreer.Text = "Créer";
+            this.btnCreer.Text = "Ajouter";
             this.btnCreer.UseVisualStyleBackColor = true;
             this.btnCreer.Click += new System.EventHandler(this.btnCreer_Click);
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(234, 184);
+            this.btnAnnuler.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAnnuler.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAnnuler.Location = new System.Drawing.Point(104, 184);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 23);
             this.btnAnnuler.TabIndex = 6;
-            this.btnAnnuler.Text = "Annuler";
-            this.btnAnnuler.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Text = "Fermer";
+            this.btnAnnuler.UseVisualStyleBackColor = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // frmAjouterInvite
