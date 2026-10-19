@@ -54,8 +54,8 @@ namespace Projet1SNG
 
         private void btnUtilisateur_Click(object sender, EventArgs e)
         {
-            frmGestionUtilisateurs frmGestionUtilisateurs = new frmGestionUtilisateurs();
-            frmGestionUtilisateurs.Show();
+           GestionClientInvites.frmGestionClientInvites frmGestionClientInvites = new GestionClientInvites.frmGestionClientInvites();
+            frmGestionClientInvites.Show();
         }
     }
 }

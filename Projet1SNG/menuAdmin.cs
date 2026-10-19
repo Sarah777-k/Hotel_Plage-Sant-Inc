@@ -75,5 +75,11 @@ namespace Projet1SNG
             Soins.frmGestionSoins frmGestionSoins = new Soins.frmGestionSoins();
             frmGestionSoins.Show();
         }
+
+        private void btnGestionClientInvites_Click(object sender, EventArgs e)
+        {
+            GestionClientInvites.frmGestionClientInvites frmGestionClientInvites = new GestionClientInvites.frmGestionClientInvites();
+            frmGestionClientInvites.Show();
+        }
     }
 }

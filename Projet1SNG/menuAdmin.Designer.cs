@@ -181,6 +181,7 @@
             this.btnGestionClientInvites.TabIndex = 17;
             this.btnGestionClientInvites.Text = "Gérer";
             this.btnGestionClientInvites.UseVisualStyleBackColor = true;
+            this.btnGestionClientInvites.Click += new System.EventHandler(this.btnGestionClientInvites_Click);
             // 
             // btnGestionUtilisateur
             // 
