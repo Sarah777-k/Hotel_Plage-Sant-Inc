@@ -17,7 +17,6 @@ namespace Projet1SNG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
             Application.Run(new frmConnexion());
             
         }

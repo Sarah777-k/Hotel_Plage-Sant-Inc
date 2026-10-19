@@ -23,6 +23,7 @@ namespace Projet1SNG
         {
             frmConnexion frmCo = new frmConnexion();
             frmCo.Show();
+            this.Close();
         }
 
         private void menuAdmin_Load(object sender, EventArgs e)
@@ -80,6 +81,16 @@ namespace Projet1SNG
         {
             GestionClientInvites.frmGestionClientInvites frmGestionClientInvites = new GestionClientInvites.frmGestionClientInvites();
             frmGestionClientInvites.Show();
+        }
+
+        private void btnRapportReservation_Click(object sender, EventArgs e)
+        {
+            frmRapportReservationsChambres frmRapportReservationsChambres = new frmRapportReservationsChambres();
+            frmRapportReservationsChambres.Location = new Point(
+                this.Location.X + (this.Width - frmRapportReservationsChambres.Width) / 2,
+                this.Location.Y + (this.Height - frmRapportReservationsChambres.Height) / 2
+            );
+            frmRapportReservationsChambres.Show();
         }
     }
 }
