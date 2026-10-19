@@ -69,5 +69,11 @@ namespace Projet1SNG
             GestionReservation.frmGestionReservationChambre frmGestionReservationChambre = new GestionReservation.frmGestionReservationChambre();
             frmGestionReservationChambre.Show();
         }
+
+        private void btnGestionSoins_Click(object sender, EventArgs e)
+        {
+            Soins.frmGestionSoins frmGestionSoins = new Soins.frmGestionSoins();
+            frmGestionSoins.Show();
+        }
     }
 }
