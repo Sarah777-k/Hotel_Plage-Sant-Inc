@@ -19,10 +19,7 @@ namespace Projet1SNG
             Application.SetCompatibleTextRenderingDefault(false);
             
             Application.Run(new frmConnexion());
-            //Application.Run(new frmGestionUtilisateurs());
-            //Application.Run(new FrmGestionAssistants());
-            //Application.Run(new Form1());
-            Application.Run(new frmGestionClientInvites());
+            
         }
     }
 }
