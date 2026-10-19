@@ -11,7 +11,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateDepart;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNbPersonnes;
         private System.Windows.Forms.Label lblEtat;
-        private System.Windows.Forms.Button btnActualiser;
         private System.Windows.Forms.Button btnFermer;
 
         protected override void Dispose(bool disposing)
@@ -33,7 +32,6 @@
             this.listeChambresRapportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
             this.lblEtat = new System.Windows.Forms.Label();
-            this.btnActualiser = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.listeChambresRapportTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.ListeChambresRapportTableAdapter();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
@@ -44,6 +42,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listeChambresRapportBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historiqueReservationsChambreBindingSource)).BeginInit();
@@ -54,30 +53,33 @@
             // 
             this.lblTitre.AutoSize = true;
             this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitre.Location = new System.Drawing.Point(35, 43);
+            this.lblTitre.Location = new System.Drawing.Point(26, 35);
+            this.lblTitre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitre.Name = "lblTitre";
-            this.lblTitre.Size = new System.Drawing.Size(464, 29);
+            this.lblTitre.Size = new System.Drawing.Size(370, 24);
             this.lblTitre.TabIndex = 0;
             this.lblTitre.Text = "Rapport des réservations de chambres";
             // 
             // lblChambre
             // 
             this.lblChambre.AutoSize = true;
-            this.lblChambre.Location = new System.Drawing.Point(36, 100);
+            this.lblChambre.Location = new System.Drawing.Point(27, 81);
+            this.lblChambre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChambre.Name = "lblChambre";
-            this.lblChambre.Size = new System.Drawing.Size(68, 16);
+            this.lblChambre.Size = new System.Drawing.Size(55, 13);
             this.lblChambre.TabIndex = 1;
             this.lblChambre.Text = "Chambre :";
             // 
             // cboChambre
             // 
             this.cboChambre.DataSource = this.listeChambresRapportBindingSource;
-            this.cboChambre.DisplayMember = "chambreAffichage";
+            this.cboChambre.DisplayMember = "id_chambre";
             this.cboChambre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboChambre.FormattingEnabled = true;
-            this.cboChambre.Location = new System.Drawing.Point(117, 97);
+            this.cboChambre.Location = new System.Drawing.Point(88, 79);
+            this.cboChambre.Margin = new System.Windows.Forms.Padding(2);
             this.cboChambre.Name = "cboChambre";
-            this.cboChambre.Size = new System.Drawing.Size(385, 24);
+            this.cboChambre.Size = new System.Drawing.Size(290, 21);
             this.cboChambre.TabIndex = 0;
             this.cboChambre.ValueMember = "id_chambre";
             this.cboChambre.SelectedIndexChanged += new System.EventHandler(this.cboChambre_SelectedIndexChanged);
@@ -96,30 +98,21 @@
             // lblEtat
             // 
             this.lblEtat.AutoSize = true;
-            this.lblEtat.Location = new System.Drawing.Point(36, 139);
+            this.lblEtat.Location = new System.Drawing.Point(27, 113);
+            this.lblEtat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEtat.Name = "lblEtat";
-            this.lblEtat.Size = new System.Drawing.Size(0, 16);
+            this.lblEtat.Size = new System.Drawing.Size(0, 13);
             this.lblEtat.TabIndex = 2;
-            // 
-            // btnActualiser
-            // 
-            this.btnActualiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualiser.Location = new System.Drawing.Point(801, 92);
-            this.btnActualiser.Name = "btnActualiser";
-            this.btnActualiser.Size = new System.Drawing.Size(112, 32);
-            this.btnActualiser.TabIndex = 4;
-            this.btnActualiser.Text = "Actualiser";
-            this.btnActualiser.UseVisualStyleBackColor = true;
-            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
             // 
             // btnFermer
             // 
             this.btnFermer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFermer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFermer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFermer.Location = new System.Drawing.Point(807, 455);
+            this.btnFermer.Location = new System.Drawing.Point(605, 370);
+            this.btnFermer.Margin = new System.Windows.Forms.Padding(2);
             this.btnFermer.Name = "btnFermer";
-            this.btnFermer.Size = new System.Drawing.Size(106, 32);
+            this.btnFermer.Size = new System.Drawing.Size(80, 26);
             this.btnFermer.TabIndex = 5;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = false;
@@ -132,12 +125,14 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.assistant_soinTableAdapter = null;
+            this.tableAdapterManager.AssistantSoinsTableAdapter = null;
             this.tableAdapterManager.assistantTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.chambreTableAdapter = null;
             this.tableAdapterManager.clientTableAdapter = null;
             this.tableAdapterManager.inviteTableAdapter = null;
             this.tableAdapterManager.ListeChambresRapportTableAdapter = this.listeChambresRapportTableAdapter;
+            this.tableAdapterManager.nosEtNomsAssistantsTableAdapter = null;
             this.tableAdapterManager.planif_soinTableAdapter = null;
             this.tableAdapterManager.reservationTableAdapter = null;
             this.tableAdapterManager.soinTableAdapter = null;
@@ -169,13 +164,14 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.dgvRapportReservation.DataSource = this.historiqueReservationsChambreBindingSource;
-            this.dgvRapportReservation.Location = new System.Drawing.Point(40, 164);
+            this.dgvRapportReservation.Location = new System.Drawing.Point(30, 133);
+            this.dgvRapportReservation.Margin = new System.Windows.Forms.Padding(2);
             this.dgvRapportReservation.Name = "dgvRapportReservation";
             this.dgvRapportReservation.ReadOnly = true;
             this.dgvRapportReservation.RowHeadersWidth = 51;
             this.dgvRapportReservation.RowTemplate.Height = 24;
             this.dgvRapportReservation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRapportReservation.Size = new System.Drawing.Size(873, 268);
+            this.dgvRapportReservation.Size = new System.Drawing.Size(655, 218);
             this.dgvRapportReservation.TabIndex = 8;
             // 
             // dataGridViewTextBoxColumn1
@@ -210,11 +206,23 @@
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // btnActualiser
+            // 
+            this.btnActualiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualiser.Location = new System.Drawing.Point(601, 75);
+            this.btnActualiser.Margin = new System.Windows.Forms.Padding(2);
+            this.btnActualiser.Name = "btnActualiser";
+            this.btnActualiser.Size = new System.Drawing.Size(84, 26);
+            this.btnActualiser.TabIndex = 4;
+            this.btnActualiser.Text = "Actualiser";
+            this.btnActualiser.UseVisualStyleBackColor = true;
+            this.btnActualiser.Click += new System.EventHandler(this.btnActualiser_Click);
+            // 
             // frmRapportReservationsChambres
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 535);
+            this.ClientSize = new System.Drawing.Size(739, 435);
             this.Controls.Add(this.dgvRapportReservation);
             this.Controls.Add(this.lblTitre);
             this.Controls.Add(this.lblChambre);
@@ -223,7 +231,8 @@
             this.Controls.Add(this.btnActualiser);
             this.Controls.Add(this.btnFermer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MinimumSize = new System.Drawing.Size(800, 430);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MinimumSize = new System.Drawing.Size(605, 357);
             this.Name = "frmRapportReservationsChambres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Historique des réservations par chambre";
@@ -248,5 +257,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button btnActualiser;
     }
 }

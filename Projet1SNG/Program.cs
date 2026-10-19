@@ -1,4 +1,5 @@
 ﻿using Projet1SNG.GestionClientInvites;
+using Projet1SNG.Rapport;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDB56Projet1SNGDataSet.cs">
+      <DependentUpon>BDB56Projet1SNGDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BDB56Projet1SNGDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -179,6 +182,12 @@
     <Compile Include="Rapport\frmRapportReservationsChambres.Designer.cs">
       <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Rapport\frmRapportSoinsJournaliersAssistant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\frmRapportSoinsJournaliersAssistant.Designer.cs">
+      <DependentUpon>frmRapportSoinsJournaliersAssistant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Rapport\frmRapportSoinsOffertsClientsInvites.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +262,9 @@
     </Compile>
     <EmbeddedResource Include="Rapport\frmRapportReservationsChambres.resx">
       <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\frmRapportSoinsJournaliersAssistant.resx">
+      <DependentUpon>frmRapportSoinsJournaliersAssistant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rapport\frmRapportSoinsOffertsClientsInvites.resx">
       <DependentUpon>frmRapportSoinsOffertsClientsInvites.cs</DependentUpon>
