@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet1SNG.GestionClientInvites;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,10 +17,11 @@ namespace Projet1SNG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            Application.Run(new Menu());
+
+            //Application.Run(new Menu());
             //Application.Run(new FrmGestionAssistants());
             //Application.Run(new Form1());
+            Application.Run(new frmGestionClientInvites());
         }
     }
 }

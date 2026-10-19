@@ -87,6 +87,24 @@
     <Compile Include="frmGestionUtilisateurs.Designer.cs">
       <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionClientInvites\frmAjouterClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionClientInvites\frmAjouterClient.Designer.cs">
+      <DependentUpon>frmAjouterClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionClientInvites\frmAjouterInvite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionClientInvites\frmAjouterInvite.Designer.cs">
+      <DependentUpon>frmAjouterInvite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionClientInvites\frmGestionClientInvites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionClientInvites\frmGestionClientInvites.Designer.cs">
+      <DependentUpon>frmGestionClientInvites.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +127,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionUtilisateurs.resx">
       <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionClientInvites\frmAjouterClient.resx">
+      <DependentUpon>frmAjouterClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionClientInvites\frmAjouterInvite.resx">
+      <DependentUpon>frmAjouterInvite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionClientInvites\frmGestionClientInvites.resx">
+      <DependentUpon>frmGestionClientInvites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
