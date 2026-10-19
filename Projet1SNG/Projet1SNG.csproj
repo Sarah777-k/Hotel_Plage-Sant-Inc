@@ -57,6 +57,12 @@
     <Compile Include="frmConnexion.Designer.cs">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPlanifSoins.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlanifSoins.Designer.cs">
+      <DependentUpon>frmPlanifSoins.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionAssistant\frmAjouterAssistant.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPlanifSoins.resx">
+      <DependentUpon>frmPlanifSoins.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionAssistant\frmAjouterAssistant.resx">
       <DependentUpon>frmAjouterAssistant.cs</DependentUpon>
     </EmbeddedResource>
@@ -202,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
