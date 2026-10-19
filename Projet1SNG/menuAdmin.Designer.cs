@@ -31,29 +31,33 @@
             this.btnGestionClientInvites = new System.Windows.Forms.Button();
             this.btnGestionUtilisateur = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnVisualiserRapports = new System.Windows.Forms.Button();
+            this.btnRapportsSoinsClientInvites = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.btnChambre = new System.Windows.Forms.Button();
+            this.btnRapportReservation = new System.Windows.Forms.Button();
+            this.btnRapportSoinsAssistant = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS PGothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(409, 25);
+            this.label1.Location = new System.Drawing.Point(447, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(242, 27);
+            this.label1.Size = new System.Drawing.Size(162, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Menu Administratif";
+            this.label1.Text = "Menu Admin";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(933, 487);
+            this.button1.Location = new System.Drawing.Point(589, 546);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 28);
+            this.button1.Size = new System.Drawing.Size(117, 32);
             this.button1.TabIndex = 1;
             this.button1.Text = "Deconnexion";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,7 +66,7 @@
             // lblIdAdmin
             // 
             this.lblIdAdmin.AutoSize = true;
-            this.lblIdAdmin.Location = new System.Drawing.Point(460, 50);
+            this.lblIdAdmin.Location = new System.Drawing.Point(460, 60);
             this.lblIdAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdAdmin.Name = "lblIdAdmin";
             this.lblIdAdmin.Size = new System.Drawing.Size(135, 16);
@@ -72,7 +76,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 547);
+            this.label6.Location = new System.Drawing.Point(18, 311);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(152, 16);
@@ -82,7 +86,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 474);
+            this.label7.Location = new System.Drawing.Point(18, 270);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(295, 16);
@@ -92,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 364);
+            this.label4.Location = new System.Drawing.Point(18, 189);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 16);
@@ -102,7 +106,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 287);
+            this.label5.Location = new System.Drawing.Point(18, 157);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(268, 16);
@@ -112,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(33, 215);
+            this.label3.Location = new System.Drawing.Point(18, 118);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(190, 16);
@@ -122,7 +126,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 142);
+            this.label2.Location = new System.Drawing.Point(18, 77);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 16);
@@ -131,7 +135,7 @@
             // 
             // btnReserverChambre
             // 
-            this.btnReserverChambre.Location = new System.Drawing.Point(369, 541);
+            this.btnReserverChambre.Location = new System.Drawing.Point(354, 305);
             this.btnReserverChambre.Margin = new System.Windows.Forms.Padding(4);
             this.btnReserverChambre.Name = "btnReserverChambre";
             this.btnReserverChambre.Size = new System.Drawing.Size(152, 28);
@@ -142,7 +146,7 @@
             // 
             // btnPlanifSoins
             // 
-            this.btnPlanifSoins.Location = new System.Drawing.Point(369, 468);
+            this.btnPlanifSoins.Location = new System.Drawing.Point(354, 264);
             this.btnPlanifSoins.Margin = new System.Windows.Forms.Padding(4);
             this.btnPlanifSoins.Name = "btnPlanifSoins";
             this.btnPlanifSoins.Size = new System.Drawing.Size(152, 28);
@@ -152,7 +156,7 @@
             // 
             // btnGestionSoins
             // 
-            this.btnGestionSoins.Location = new System.Drawing.Point(369, 351);
+            this.btnGestionSoins.Location = new System.Drawing.Point(354, 183);
             this.btnGestionSoins.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionSoins.Name = "btnGestionSoins";
             this.btnGestionSoins.Size = new System.Drawing.Size(152, 28);
@@ -163,7 +167,7 @@
             // 
             // btnAssistantSoins
             // 
-            this.btnAssistantSoins.Location = new System.Drawing.Point(369, 281);
+            this.btnAssistantSoins.Location = new System.Drawing.Point(354, 145);
             this.btnAssistantSoins.Margin = new System.Windows.Forms.Padding(4);
             this.btnAssistantSoins.Name = "btnAssistantSoins";
             this.btnAssistantSoins.Size = new System.Drawing.Size(152, 28);
@@ -174,7 +178,7 @@
             // 
             // btnGestionClientInvites
             // 
-            this.btnGestionClientInvites.Location = new System.Drawing.Point(369, 209);
+            this.btnGestionClientInvites.Location = new System.Drawing.Point(354, 106);
             this.btnGestionClientInvites.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionClientInvites.Name = "btnGestionClientInvites";
             this.btnGestionClientInvites.Size = new System.Drawing.Size(152, 28);
@@ -185,7 +189,7 @@
             // 
             // btnGestionUtilisateur
             // 
-            this.btnGestionUtilisateur.Location = new System.Drawing.Point(369, 135);
+            this.btnGestionUtilisateur.Location = new System.Drawing.Point(354, 70);
             this.btnGestionUtilisateur.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionUtilisateur.Name = "btnGestionUtilisateur";
             this.btnGestionUtilisateur.Size = new System.Drawing.Size(152, 28);
@@ -196,39 +200,33 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(933, 523);
+            this.button8.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button8.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button8.Location = new System.Drawing.Point(425, 546);
             this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(117, 28);
+            this.button8.Size = new System.Drawing.Size(117, 32);
             this.button8.TabIndex = 28;
             this.button8.Text = "Quitter";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // label8
+            // btnRapportsSoinsClientInvites
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(563, 142);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(145, 16);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Visualiser des rapports";
-            // 
-            // btnVisualiserRapports
-            // 
-            this.btnVisualiserRapports.Location = new System.Drawing.Point(899, 135);
-            this.btnVisualiserRapports.Margin = new System.Windows.Forms.Padding(4);
-            this.btnVisualiserRapports.Name = "btnVisualiserRapports";
-            this.btnVisualiserRapports.Size = new System.Drawing.Size(152, 28);
-            this.btnVisualiserRapports.TabIndex = 29;
-            this.btnVisualiserRapports.Text = "Visualiser";
-            this.btnVisualiserRapports.UseVisualStyleBackColor = true;
+            this.btnRapportsSoinsClientInvites.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnRapportsSoinsClientInvites.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnRapportsSoinsClientInvites.Location = new System.Drawing.Point(598, 267);
+            this.btnRapportsSoinsClientInvites.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRapportsSoinsClientInvites.Name = "btnRapportsSoinsClientInvites";
+            this.btnRapportsSoinsClientInvites.Size = new System.Drawing.Size(346, 35);
+            this.btnRapportsSoinsClientInvites.TabIndex = 29;
+            this.btnRapportsSoinsClientInvites.Text = "Rapport des soins offerts aux clients et aux invités";
+            this.btnRapportsSoinsClientInvites.UseVisualStyleBackColor = false;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(33, 422);
+            this.label10.Location = new System.Drawing.Point(18, 231);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(207, 16);
@@ -237,7 +235,7 @@
             // 
             // btnChambre
             // 
-            this.btnChambre.Location = new System.Drawing.Point(369, 409);
+            this.btnChambre.Location = new System.Drawing.Point(354, 225);
             this.btnChambre.Margin = new System.Windows.Forms.Padding(4);
             this.btnChambre.Name = "btnChambre";
             this.btnChambre.Size = new System.Drawing.Size(152, 28);
@@ -246,28 +244,73 @@
             this.btnChambre.UseVisualStyleBackColor = true;
             this.btnChambre.Click += new System.EventHandler(this.btnChambre_Click);
             // 
+            // btnRapportReservation
+            // 
+            this.btnRapportReservation.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnRapportReservation.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnRapportReservation.Location = new System.Drawing.Point(598, 312);
+            this.btnRapportReservation.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRapportReservation.Name = "btnRapportReservation";
+            this.btnRapportReservation.Size = new System.Drawing.Size(346, 36);
+            this.btnRapportReservation.TabIndex = 35;
+            this.btnRapportReservation.Text = "Rapport des réservation de chambres";
+            this.btnRapportReservation.UseVisualStyleBackColor = false;
+            this.btnRapportReservation.Click += new System.EventHandler(this.btnRapportReservation_Click);
+            // 
+            // btnRapportSoinsAssistant
+            // 
+            this.btnRapportSoinsAssistant.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnRapportSoinsAssistant.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnRapportSoinsAssistant.Location = new System.Drawing.Point(598, 360);
+            this.btnRapportSoinsAssistant.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRapportSoinsAssistant.Name = "btnRapportSoinsAssistant";
+            this.btnRapportSoinsAssistant.Size = new System.Drawing.Size(346, 33);
+            this.btnRapportSoinsAssistant.TabIndex = 37;
+            this.btnRapportSoinsAssistant.Text = "Rapport des soins journalier des assistants";
+            this.btnRapportSoinsAssistant.UseVisualStyleBackColor = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(651, 194);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 16);
+            this.label11.TabIndex = 38;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.btnGestionUtilisateur);
+            this.panel1.Controls.Add(this.btnGestionClientInvites);
+            this.panel1.Controls.Add(this.btnAssistantSoins);
+            this.panel1.Controls.Add(this.btnGestionSoins);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.btnReserverChambre);
+            this.panel1.Controls.Add(this.btnChambre);
+            this.panel1.Controls.Add(this.btnPlanifSoins);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Location = new System.Drawing.Point(36, 124);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(521, 391);
+            this.panel1.TabIndex = 39;
+            // 
             // menuAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 620);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.btnChambre);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.btnVisualiserRapports);
+            this.ClientSize = new System.Drawing.Size(1024, 617);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.btnRapportSoinsAssistant);
+            this.Controls.Add(this.btnRapportReservation);
+            this.Controls.Add(this.btnRapportsSoinsClientInvites);
             this.Controls.Add(this.button8);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnReserverChambre);
-            this.Controls.Add(this.btnPlanifSoins);
-            this.Controls.Add(this.btnGestionSoins);
-            this.Controls.Add(this.btnAssistantSoins);
-            this.Controls.Add(this.btnGestionClientInvites);
-            this.Controls.Add(this.btnGestionUtilisateur);
             this.Controls.Add(this.lblIdAdmin);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -277,6 +320,8 @@
             this.Name = "menuAdmin";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.menuAdmin_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,9 +345,12 @@
         private System.Windows.Forms.Button btnGestionClientInvites;
         private System.Windows.Forms.Button btnGestionUtilisateur;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnVisualiserRapports;
+        private System.Windows.Forms.Button btnRapportsSoinsClientInvites;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnChambre;
+        private System.Windows.Forms.Button btnRapportReservation;
+        private System.Windows.Forms.Button btnRapportSoinsAssistant;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel1;
     }
 }

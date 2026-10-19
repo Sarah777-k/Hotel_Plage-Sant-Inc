@@ -164,6 +164,12 @@
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Rapport\frmRapportReservationsChambres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\frmRapportReservationsChambres.Designer.cs">
+      <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Soins\frmGestionSoins.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rapport\frmRapportReservationsChambres.resx">
+      <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Soins\frmGestionSoins.resx">
       <DependentUpon>frmGestionSoins.cs</DependentUpon>
     </EmbeddedResource>
@@ -257,8 +266,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Rapport\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
