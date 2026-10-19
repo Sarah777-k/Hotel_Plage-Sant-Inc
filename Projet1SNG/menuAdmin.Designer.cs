@@ -159,6 +159,7 @@
             this.btnGestionSoins.TabIndex = 19;
             this.btnGestionSoins.Text = "Gérer";
             this.btnGestionSoins.UseVisualStyleBackColor = true;
+            this.btnGestionSoins.Click += new System.EventHandler(this.btnGestionSoins_Click);
             // 
             // btnAssistantSoins
             // 
