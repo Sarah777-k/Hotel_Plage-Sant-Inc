@@ -206,6 +206,7 @@
             this.btnRapportsSoinsClientInvites.TabIndex = 29;
             this.btnRapportsSoinsClientInvites.Text = "Rapport des soins offerts aux clients et aux invités";
             this.btnRapportsSoinsClientInvites.UseVisualStyleBackColor = false;
+            this.btnRapportsSoinsClientInvites.Click += new System.EventHandler(this.btnRapportsSoinsClientInvites_Click);
             // 
             // label10
             // 
@@ -275,7 +276,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(27, 101);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(391, 318);
             this.panel1.TabIndex = 39;

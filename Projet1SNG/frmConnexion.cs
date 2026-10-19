@@ -64,6 +64,7 @@ namespace Projet1SNG
 
                         menuAdmin mAdmin = new menuAdmin();
                         mAdmin.noAdmin = idAdmin;
+                        mAdmin.nomUtilisateurConnecte = txtUtilisateur.Text.Trim();
                         mAdmin.Show();
                         this.Hide();
                     }
