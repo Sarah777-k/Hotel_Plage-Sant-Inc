@@ -99,7 +99,6 @@
     <Compile Include="GestionReservation\frmGestionReservationChambre.Designer.cs">
       <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
     <Compile Include="GestionChambre\frmAjouterChambre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,8 +167,7 @@
     <EmbeddedResource Include="GestionReservation\frmGestionReservationChambre.resx">
       <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
+ 
     <EmbeddedResource Include="GestionChambre\frmAjouterChambre.resx">
       <DependentUpon>frmAjouterChambre.cs</DependentUpon>
     </EmbeddedResource>
