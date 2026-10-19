@@ -34,5 +34,12 @@ namespace Projet1SNG
         {
             Application.Exit();
         }
+
+        private void btnAssistantSoins_Click(object sender, EventArgs e)
+        {
+            FrmGestionAssistants frmGestionAssistants = new FrmGestionAssistants();
+            frmGestionAssistants.Show();
+            this.Hide();
+        }
     }
 }
