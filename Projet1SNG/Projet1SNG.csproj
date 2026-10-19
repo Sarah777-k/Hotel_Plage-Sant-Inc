@@ -136,6 +136,8 @@
       <DependentUpon>menuAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="menuEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GestionClientInvites\frmAjouterClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,9 +155,6 @@
     </Compile>
     <Compile Include="GestionClientInvites\frmGestionClientInvites.Designer.cs">
       <DependentUpon>frmGestionClientInvites.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Menu.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="menuEmploye.Designer.cs">
       <DependentUpon>menuEmploye.cs</DependentUpon>
@@ -212,6 +211,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="menuEmploye.resx">
       <DependentUpon>menuEmploye.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionClientInvites\frmAjouterClient.resx">
       <DependentUpon>frmAjouterClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,9 +220,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GestionClientInvites\frmGestionClientInvites.resx">
       <DependentUpon>frmGestionClientInvites.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
