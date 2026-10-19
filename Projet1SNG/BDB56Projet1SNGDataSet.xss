@@ -110,16 +110,16 @@
     <Connector ID="DesignRelation:fk_reservation_chambre" ZOrder="15" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>1184</X>
+          <X>1052</X>
           <Y>251</Y>
         </Point>
         <Point>
-          <X>1184</X>
-          <Y>369</Y>
+          <X>1052</X>
+          <Y>395</Y>
         </Point>
         <Point>
-          <X>1271</X>
-          <Y>369</Y>
+          <X>1091</X>
+          <Y>395</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -127,11 +127,11 @@
       <RoutePoints>
         <Point>
           <X>1588</X>
-          <Y>457</Y>
+          <Y>483</Y>
         </Point>
         <Point>
-          <X>1518</X>
-          <Y>457</Y>
+          <X>1419</X>
+          <Y>483</Y>
         </Point>
       </RoutePoints>
     </Connector>

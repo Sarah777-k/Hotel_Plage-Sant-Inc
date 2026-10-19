@@ -17,8 +17,8 @@ namespace Projet1SNG
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            //Application.Run(new Menu());
-            Application.Run(new GestionReservation.frmGestionReservationChambre());
+            Application.Run(new frmConnexion());
+            //Application.Run(new frmGestionUtilisateurs());
             //Application.Run(new FrmGestionAssistants());
             //Application.Run(new Form1());
         }
