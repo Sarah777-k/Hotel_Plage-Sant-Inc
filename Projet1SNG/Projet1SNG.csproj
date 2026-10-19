@@ -93,6 +93,14 @@
     <Compile Include="frmGestionUtilisateurs.Designer.cs">
       <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionReservation\frmAjouterReservation.cs" />
+    <Compile Include="GestionReservation\frmAjouterReservation.Designer.cs">
+      <DependentUpon>frmAjouterReservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionReservation\frmGestionReservationChambre.cs" />
+    <Compile Include="GestionReservation\frmGestionReservationChambre.Designer.cs">
+      <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionChambre\frmAjouterChambre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +148,10 @@
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Soins\frmGestionSoins.cs" />
+    <Compile Include="Soins\frmGestionSoins.Designer.cs">
+      <DependentUpon>frmGestionSoins.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmPlanifSoins.resx">
       <DependentUpon>frmPlanifSoins.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +169,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionUtilisateurs.resx">
       <DependentUpon>frmGestionUtilisateurs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionReservation\frmAjouterReservation.resx">
+      <DependentUpon>frmAjouterReservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionReservation\frmGestionReservationChambre.resx">
+      <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GestionChambre\frmAjouterChambre.resx">
       <DependentUpon>frmAjouterChambre.cs</DependentUpon>
@@ -188,6 +206,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Soins\frmGestionSoins.resx">
+      <DependentUpon>frmGestionSoins.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BDB56Projet1SNGDataSet.xsc">
       <DependentUpon>BDB56Projet1SNGDataSet.xsd</DependentUpon>
     </None>
