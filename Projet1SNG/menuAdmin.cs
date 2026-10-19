@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Projet1SNG.Rapport;
 
 namespace Projet1SNG
 {
     public partial class menuAdmin : Form
     {
         public string noAdmin;
+        public string nomUtilisateurConnecte;
 
         public menuAdmin()
         {
@@ -55,6 +57,7 @@ namespace Projet1SNG
         private void btnGestionUtilisateur_Click(object sender, EventArgs e)
         {
             frmGestionUtilisateurs fGestionUtilisateurs = new frmGestionUtilisateurs();
+            fGestionUtilisateurs.nomUtilisateurConnecte = nomUtilisateurConnecte;
             fGestionUtilisateurs.Show();
 
         }
@@ -101,6 +104,16 @@ namespace Projet1SNG
                 this.Location.Y + (this.Height - frmPlanifSoins.Height) / 2
             );
             frmPlanifSoins.Show();
+        }
+
+        private void btnRapportsSoinsClientInvites_Click(object sender, EventArgs e)
+        {
+            frmRapportSoinsOffertsClientsInvites frmRapportSoins = new frmRapportSoinsOffertsClientsInvites();
+            frmRapportSoins.Location = new Point(
+                this.Location.X + (this.Width - frmRapportSoins.Width) / 2,
+                this.Location.Y + (this.Height - frmRapportSoins.Height) / 2
+            );
+            frmRapportSoins.Show();
         }
     }
 }

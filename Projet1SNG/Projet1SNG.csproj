@@ -57,7 +57,7 @@
     <Compile Include="frmConnexion.Designer.cs">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </Compile>
-	<Compile Include="frmPlanifSoins.cs">
+    <Compile Include="frmPlanifSoins.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPlanifSoins.Designer.cs">
@@ -170,7 +170,7 @@
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="frmPlanifSoins.resx">
+    <EmbeddedResource Include="frmPlanifSoins.resx">
       <DependentUpon>frmPlanifSoins.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Rapport\frmRapportReservationsChambres.cs">
@@ -178,6 +178,12 @@
     </Compile>
     <Compile Include="Rapport\frmRapportReservationsChambres.Designer.cs">
       <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rapport\frmRapportSoinsOffertsClientsInvites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\frmRapportSoinsOffertsClientsInvites.Designer.cs">
+      <DependentUpon>frmRapportSoinsOffertsClientsInvites.cs</DependentUpon>
     </Compile>
     <Compile Include="Soins\frmGestionSoins.cs">
       <SubType>Form</SubType>
@@ -247,6 +253,9 @@
     </Compile>
     <EmbeddedResource Include="Rapport\frmRapportReservationsChambres.resx">
       <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rapport\frmRapportSoinsOffertsClientsInvites.resx">
+      <DependentUpon>frmRapportSoinsOffertsClientsInvites.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Soins\frmGestionSoins.resx">
       <DependentUpon>frmGestionSoins.cs</DependentUpon>

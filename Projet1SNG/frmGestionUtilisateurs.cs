@@ -14,7 +14,7 @@ namespace Projet1SNG
 {
     public partial class frmGestionUtilisateurs : Form
     {
-        public string nomUtilisateurConnecte = "nes";
+        public string nomUtilisateurConnecte;
 
         public frmGestionUtilisateurs()
         {
