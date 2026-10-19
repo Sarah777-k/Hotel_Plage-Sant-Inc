@@ -13,6 +13,7 @@ namespace Projet1SNG
     public partial class menuAdmin : Form
     {
         public string noAdmin;
+
         public menuAdmin()
         {
             InitializeComponent();
@@ -22,7 +23,6 @@ namespace Projet1SNG
         {
             frmConnexion frmCo = new frmConnexion();
             frmCo.Show();
-            this.Hide();
         }
 
         private void menuAdmin_Load(object sender, EventArgs e)
@@ -39,7 +39,12 @@ namespace Projet1SNG
         {
             FrmGestionAssistants frmGestionAssistants = new FrmGestionAssistants();
             frmGestionAssistants.Show();
-            this.Hide();
+        }
+
+        private void btnGestionUtilisateur_Click(object sender, EventArgs e)
+        {
+            frmGestionUtilisateurs fGestionUtilisateurs = new frmGestionUtilisateurs();
+            fGestionUtilisateurs.Show();
         }
     }
 }
