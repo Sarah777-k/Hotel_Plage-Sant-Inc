@@ -34,21 +34,8 @@
             System.Windows.Forms.Label prenomLabel;
             System.Windows.Forms.Label specialiteLabel;
             System.Windows.Forms.Label remarqueLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionAssistantModifier));
             this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
-            this.assistantBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.assistantTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.assistantTableAdapter();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
-            this.assistantBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.txtIdAssistant = new System.Windows.Forms.TextBox();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtPrenom = new System.Windows.Forms.TextBox();
@@ -64,75 +51,62 @@
             specialiteLabel = new System.Windows.Forms.Label();
             remarqueLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingNavigator)).BeginInit();
-            this.assistantBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             this.SuspendLayout();
             // 
             // id_assistantLabel
             // 
             id_assistantLabel.AutoSize = true;
-            id_assistantLabel.Location = new System.Drawing.Point(228, 115);
+            id_assistantLabel.Location = new System.Drawing.Point(156, 116);
             id_assistantLabel.Name = "id_assistantLabel";
-            id_assistantLabel.Size = new System.Drawing.Size(77, 16);
+            id_assistantLabel.Size = new System.Drawing.Size(79, 16);
             id_assistantLabel.TabIndex = 1;
-            id_assistantLabel.Text = "id assistant:";
+            id_assistantLabel.Text = "ID assistant:";
             // 
             // nomLabel
             // 
             nomLabel.AutoSize = true;
-            nomLabel.Location = new System.Drawing.Point(228, 143);
+            nomLabel.Location = new System.Drawing.Point(156, 156);
             nomLabel.Name = "nomLabel";
-            nomLabel.Size = new System.Drawing.Size(36, 16);
+            nomLabel.Size = new System.Drawing.Size(39, 16);
             nomLabel.TabIndex = 3;
-            nomLabel.Text = "nom:";
+            nomLabel.Text = "Nom:";
             // 
             // prenomLabel
             // 
             prenomLabel.AutoSize = true;
-            prenomLabel.Location = new System.Drawing.Point(228, 171);
+            prenomLabel.Location = new System.Drawing.Point(156, 194);
             prenomLabel.Name = "prenomLabel";
-            prenomLabel.Size = new System.Drawing.Size(56, 16);
+            prenomLabel.Size = new System.Drawing.Size(57, 16);
             prenomLabel.TabIndex = 5;
-            prenomLabel.Text = "prenom:";
+            prenomLabel.Text = "Prénom:";
             // 
             // specialiteLabel
             // 
             specialiteLabel.AutoSize = true;
-            specialiteLabel.Location = new System.Drawing.Point(228, 199);
+            specialiteLabel.Location = new System.Drawing.Point(156, 237);
             specialiteLabel.Name = "specialiteLabel";
-            specialiteLabel.Size = new System.Drawing.Size(68, 16);
+            specialiteLabel.Size = new System.Drawing.Size(70, 16);
             specialiteLabel.TabIndex = 7;
-            specialiteLabel.Text = "specialite:";
+            specialiteLabel.Text = "Spécialité:";
             // 
             // remarqueLabel
             // 
             remarqueLabel.AutoSize = true;
-            remarqueLabel.Location = new System.Drawing.Point(228, 227);
+            remarqueLabel.Location = new System.Drawing.Point(155, 282);
             remarqueLabel.Name = "remarqueLabel";
-            remarqueLabel.Size = new System.Drawing.Size(68, 16);
+            remarqueLabel.Size = new System.Drawing.Size(74, 16);
             remarqueLabel.TabIndex = 9;
-            remarqueLabel.Text = "remarque:";
+            remarqueLabel.Text = "Remarque:";
             // 
             // bDB56Projet1SNGDataSet
             // 
             this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
             this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // assistantBindingSource
-            // 
-            this.assistantBindingSource.DataMember = "assistant";
-            this.assistantBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
-            // assistantTableAdapter
-            // 
-            this.assistantTableAdapter.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.assistant_soinTableAdapter = null;
-            this.tableAdapterManager.assistantTableAdapter = this.assistantTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.chambreTableAdapter = null;
             this.tableAdapterManager.clientTableAdapter = null;
@@ -146,148 +120,47 @@
             this.tableAdapterManager.UpdateOrder = Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
-            // assistantBindingNavigator
-            // 
-            this.assistantBindingNavigator.AddNewItem = null;
-            this.assistantBindingNavigator.BindingSource = this.assistantBindingSource;
-            this.assistantBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.assistantBindingNavigator.DeleteItem = null;
-            this.assistantBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.assistantBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2});
-            this.assistantBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.assistantBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.assistantBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.assistantBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.assistantBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.assistantBindingNavigator.Name = "assistantBindingNavigator";
-            this.assistantBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.assistantBindingNavigator.Size = new System.Drawing.Size(800, 27);
-            this.assistantBindingNavigator.TabIndex = 0;
-            this.assistantBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
             // txtIdAssistant
             // 
-            this.txtIdAssistant.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "id_assistant", true));
-            this.txtIdAssistant.Location = new System.Drawing.Point(311, 112);
+            this.txtIdAssistant.Location = new System.Drawing.Point(259, 113);
             this.txtIdAssistant.Name = "txtIdAssistant";
             this.txtIdAssistant.ReadOnly = true;
-            this.txtIdAssistant.Size = new System.Drawing.Size(100, 22);
+            this.txtIdAssistant.Size = new System.Drawing.Size(137, 22);
             this.txtIdAssistant.TabIndex = 2;
             // 
             // txtNom
             // 
-            this.txtNom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "nom", true));
-            this.txtNom.Location = new System.Drawing.Point(311, 140);
+            this.txtNom.Location = new System.Drawing.Point(259, 153);
             this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(100, 22);
+            this.txtNom.Size = new System.Drawing.Size(137, 22);
             this.txtNom.TabIndex = 4;
             // 
             // txtPrenom
             // 
-            this.txtPrenom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "prenom", true));
-            this.txtPrenom.Location = new System.Drawing.Point(311, 168);
+            this.txtPrenom.Location = new System.Drawing.Point(259, 191);
             this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(100, 22);
+            this.txtPrenom.Size = new System.Drawing.Size(137, 22);
             this.txtPrenom.TabIndex = 6;
             // 
             // txtSpecialite
             // 
-            this.txtSpecialite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "specialite", true));
-            this.txtSpecialite.Location = new System.Drawing.Point(311, 196);
+            this.txtSpecialite.Location = new System.Drawing.Point(259, 234);
             this.txtSpecialite.Name = "txtSpecialite";
-            this.txtSpecialite.Size = new System.Drawing.Size(100, 22);
+            this.txtSpecialite.Size = new System.Drawing.Size(137, 22);
             this.txtSpecialite.TabIndex = 8;
             // 
             // txtRemarque
             // 
-            this.txtRemarque.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.assistantBindingSource, "remarque", true));
-            this.txtRemarque.Location = new System.Drawing.Point(311, 224);
+            this.txtRemarque.Location = new System.Drawing.Point(258, 279);
             this.txtRemarque.Name = "txtRemarque";
-            this.txtRemarque.Size = new System.Drawing.Size(100, 22);
+            this.txtRemarque.Size = new System.Drawing.Size(211, 22);
             this.txtRemarque.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(230, 65);
+            this.label1.Location = new System.Drawing.Point(177, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 25);
             this.label1.TabIndex = 11;
@@ -295,7 +168,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(351, 313);
+            this.btnModifier.Location = new System.Drawing.Point(292, 347);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 30);
             this.btnModifier.TabIndex = 12;
@@ -307,7 +180,7 @@
             // 
             this.btnFermer.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnFermer.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFermer.Location = new System.Drawing.Point(230, 313);
+            this.btnFermer.Location = new System.Drawing.Point(182, 347);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(75, 30);
             this.btnFermer.TabIndex = 13;
@@ -323,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(525, 431);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.label1);
@@ -337,15 +210,11 @@
             this.Controls.Add(this.txtSpecialite);
             this.Controls.Add(remarqueLabel);
             this.Controls.Add(this.txtRemarque);
-            this.Controls.Add(this.assistantBindingNavigator);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmGestionAssistantModifier";
             this.Text = "Modifier Assistant";
             this.Load += new System.EventHandler(this.frmGestionAssistantModifier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assistantBindingNavigator)).EndInit();
-            this.assistantBindingNavigator.ResumeLayout(false);
-            this.assistantBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -355,19 +224,7 @@
         #endregion
 
         private BDB56Projet1SNGDataSet bDB56Projet1SNGDataSet;
-        private System.Windows.Forms.BindingSource assistantBindingSource;
-        private BDB56Projet1SNGDataSetTableAdapters.assistantTableAdapter assistantTableAdapter;
         private BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator assistantBindingNavigator;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.TextBox txtIdAssistant;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtPrenom;
