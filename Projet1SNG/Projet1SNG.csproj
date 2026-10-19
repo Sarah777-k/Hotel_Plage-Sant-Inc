@@ -51,11 +51,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDB56Projet1SNGDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmConnexion.Designer.cs">
+      <DependentUpon>frmConnexion.cs</DependentUpon>
     </Compile>
     <Compile Include="GestionAssistant\frmAjouterAssistant.cs">
       <SubType>Form</SubType>
@@ -118,13 +118,23 @@
       <DependentUpon>frmModifierTypeChambre.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
+    <Compile Include="menuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
-      <DependentUpon>Menu.cs</DependentUpon>
+    <Compile Include="menuAdmin.Designer.cs">
+      <DependentUpon>menuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menuEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="menuEmploye.Designer.cs">
+      <DependentUpon>menuEmploye.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmConnexion.resx">
+      <DependentUpon>frmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionAssistant\frmAjouterAssistant.resx">
       <DependentUpon>frmAjouterAssistant.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +167,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    <EmbeddedResource Include="menuAdmin.resx">
+      <DependentUpon>menuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menuEmploye.resx">
+      <DependentUpon>menuEmploye.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
