@@ -33,8 +33,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.btnVisualiserRapports = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnChambreType = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.btnChambre = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -225,27 +223,6 @@
             this.btnVisualiserRapports.Text = "Visualiser";
             this.btnVisualiserRapports.UseVisualStyleBackColor = true;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 621);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(207, 16);
-            this.label9.TabIndex = 32;
-            this.label9.Text = "Gérer les chambres et leurs types";
-            // 
-            // btnChambreType
-            // 
-            this.btnChambreType.Location = new System.Drawing.Point(369, 614);
-            this.btnChambreType.Margin = new System.Windows.Forms.Padding(4);
-            this.btnChambreType.Name = "btnChambreType";
-            this.btnChambreType.Size = new System.Drawing.Size(152, 28);
-            this.btnChambreType.TabIndex = 31;
-            this.btnChambreType.Text = "Gérer";
-            this.btnChambreType.UseVisualStyleBackColor = true;
-            this.btnChambreType.Click += new System.EventHandler(this.btnChambreType_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -271,11 +248,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 682);
+            this.ClientSize = new System.Drawing.Size(1067, 620);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnChambre);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.btnChambreType);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnVisualiserRapports);
             this.Controls.Add(this.button8);
@@ -325,8 +300,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnVisualiserRapports;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnChambreType;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnChambre;
     }

@@ -167,7 +167,6 @@
     <EmbeddedResource Include="GestionReservation\frmGestionReservationChambre.resx">
       <DependentUpon>frmGestionReservationChambre.cs</DependentUpon>
     </EmbeddedResource>
- 
     <EmbeddedResource Include="GestionChambre\frmAjouterChambre.resx">
       <DependentUpon>frmAjouterChambre.cs</DependentUpon>
     </EmbeddedResource>
