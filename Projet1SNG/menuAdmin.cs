@@ -57,5 +57,11 @@ namespace Projet1SNG
             fGestionUtilisateurs.Show();
 
         }
+
+        private void btnChambre_Click(object sender, EventArgs e)
+        {
+            GestionChambre.frmGestionChambre frmGestionChambre = new GestionChambre.frmGestionChambre();
+            frmGestionChambre.Show();
+        }
     }
 }
