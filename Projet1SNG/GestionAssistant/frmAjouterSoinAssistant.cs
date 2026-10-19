@@ -1,88 +1,137 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projet1SNG.GestionAssistant
 {
     public partial class frmAjouterSoinAssistant : Form
     {
-        // Numéro de l'assistant sélectionné.
         public int idAssistant;
-
-        // Nouvelle association assistant-soin.
         public BDB56Projet1SNGDataSet.assistant_soinRow unAssistantSoin;
-
-        // Permet de savoir si l'ajout est confirmé.
         public bool ajoutConfirme = false;
+
         public frmAjouterSoinAssistant()
         {
             InitializeComponent();
         }
 
-
+        //=========================================================
+        // charger seulement les soins non offerts par cet assistant
+        //=========================================================
         private void frmAjouterSoinAssistant_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bDB56Projet1SNGDataSet.soin' table. You can move, or remove it, as needed.
-            this.soinTableAdapter.Fill(this.bDB56Projet1SNGDataSet.soin);
-            // TODO: This line of code loads data into the 'bDB56Projet1SNGDataSet.DataTableAssistantSoin' table. You can move, or remove it, as needed.
-            lblAssistant.Text =
-             "a l'assistant " + idAssistant;
+            if (unAssistantSoin == null)
+            {
+                MessageBox.Show("Impossible de préparer le soin.", "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                return;
+            }
+
+            try
+            {
+                lblAssistant.Text = "à l'assistant " + idAssistant;
+                cboSoin.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                // creer un affichage avec le numero et la description du soin
+                bDB56Projet1SNGDataSet.soin.Columns.Add(
+                    "affichageSoin", typeof(string),
+                    "Convert(id_soin, 'System.String') + ' - ' + description");
+
+                soinTableAdapter.Fill(bDB56Projet1SNGDataSet.soin);
+                cboSoin.DisplayMember = "affichageSoin";
+                cboSoin.ValueMember = "id_soin";
+
+                // recuperer les associations actuelles dans sql server
+                BDB56Projet1SNGDataSetTableAdapters.assistant_soinTableAdapter
+                    adapter = new BDB56Projet1SNGDataSetTableAdapters.assistant_soinTableAdapter();
+
+                BDB56Projet1SNGDataSet.assistant_soinDataTable associations =
+                    adapter.GetData();
+
+                List<string> idsSoinsOfferts = new List<string>();
+
+                foreach (BDB56Projet1SNGDataSet.assistant_soinRow ligne
+                    in associations.Rows)
+                {
+                    if (ligne.id_assistant == idAssistant)
+                    {
+                        idsSoinsOfferts.Add(ligne.id_soin.ToString());
+                    }
+                }
+
+                // masquer les soins deja offerts par l'assistant
+                if (idsSoinsOfferts.Count > 0)
+                {
+                    soinBindingSource.Filter = "id_soin NOT IN (" +
+                        string.Join(",", idsSoinsOfferts) + ")";
+                }
+                else
+                {
+                    soinBindingSource.RemoveFilter();
+                }
+
+                cboSoin.SelectedIndex = -1;
+
+                if (soinBindingSource.Count == 0)
+                {
+                    btnAjouter.Enabled = false;
+                    MessageBox.Show(
+                        "Aucun soin supplémentaire n'est disponible pour cet assistant.",
+                        "Ajout impossible", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                btnAjouter.Enabled = false;
+                MessageBox.Show(
+                    "Impossible de charger les soins disponibles.\n\n" + ex.Message,
+                    "Erreur", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
+
         //=========================================================
-        // Validation
+        // validation du soin choisi
         //=========================================================
         private bool ValiderChamps()
         {
             errMessage.Clear();
 
-            if (cboSoin.SelectedIndex == -1)
+            if (cboSoin.SelectedIndex < 0 || cboSoin.SelectedValue == null)
             {
-                errMessage.SetError(
-                    cboSoin,
-                    "Veuillez sélectionner un soin."
-                );
-
+                errMessage.SetError(cboSoin, "Veuillez sélectionner un soin.");
+                cboSoin.Focus();
                 return false;
             }
 
             return true;
         }
 
-
+        //=========================================================
+        // confirmer l'ajout du soin
+        //=========================================================
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (!ValiderChamps())
-            {
-                return;
-            }
+            if (!ValiderChamps()) return;
 
-            int idSoin =
-                Convert.ToInt32(cboSoin.SelectedValue);
-
-            unAssistantSoin.id_assistant =
-                idAssistant;
-
-            unAssistantSoin.id_soin =
-                idSoin;
+            unAssistantSoin.id_assistant = idAssistant;
+            unAssistantSoin.id_soin = Convert.ToInt32(cboSoin.SelectedValue);
 
             ajoutConfirme = true;
-
             Close();
         }
 
+        //=========================================================
+        // fermer sans ajouter de soin
+        //=========================================================
         private void btnFermer_Click(object sender, EventArgs e)
         {
             ajoutConfirme = false;
             errMessage.Clear();
             Close();
         }
-
-       
     }
 }
