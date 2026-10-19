@@ -8560,8 +8560,8 @@ SELECT id_personne, id_assistant, dateHeure, id_soin, fait FROM planif_soin WHER
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_soin", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_soin", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT\n    id_personne,\n    id_assistant,\n    dateHeure,\n    id_soin,\n    fait\nFR" +
-                "OM planif_soin\nWHERE id_assistant = @id_assistant";
+            this._commandCollection[2].CommandText = "SELECT\r\n    id_personne,\r\n    id_assistant,\r\n    dateHeure,\r\n    id_soin,\r\n    fa" +
+                "it\r\nFROM planif_soin\r\nWHERE id_assistant = @id_assistant";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_assistant", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_assistant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

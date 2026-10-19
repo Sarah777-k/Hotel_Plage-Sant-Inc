@@ -1,619 +1,519 @@
 ﻿using Projet1SNG.BDB56Projet1SNGDataSetTableAdapters;
 using Projet1SNG.GestionAssistant;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Projet1SNG
 {
     public partial class FrmGestionAssistants : Form
     {
-        // TableAdapter utilisé pour vérifier si un assistant possède des planifications.
-        private BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter planifSoinTableAdapter = new BDB56Projet1SNGDataSetTableAdapters.planif_soinTableAdapter();
+        private planif_soinTableAdapter planifSoinTableAdapter =
+            new planif_soinTableAdapter();
+
+        private bool conflitAcces = false;
+        private bool operationMultipleEnCours = false;
+
         public FrmGestionAssistants()
         {
             InitializeComponent();
         }
 
-        private void assistantBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.assistantBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bDB56Projet1SNGDataSet);
-
-        }
-
+        //=========================================================
+        // chargement des donnees et gestion des conflits
+        //=========================================================
         private void FrmGestionAssistants_Load(object sender, EventArgs e)
         {
-            
-            this.assistant_soinTableAdapter.Fill(this.bDB56Projet1SNGDataSet.assistant_soin);
+            // afficher la nouvelle fonction du bouton
+            btnActualiser.Text = "Actualiser";
 
-            // TODO: This line of code loads data into the 'bDB56Projet1SNGDataSet.DataTableAssistantSoin' table. You can move, or remove it, as needed.
-            this.dataTableAssistantSoinTableAdapter.Fill(this.bDB56Projet1SNGDataSet.DataTableAssistantSoin);
+            // charger le parent avant les deux tables liees
+            assistantTableAdapter.Fill(bDB56Projet1SNGDataSet.assistant);
+            assistant_soinTableAdapter.Fill(bDB56Projet1SNGDataSet.assistant_soin);
+            dataTableAssistantSoinTableAdapter.Fill(
+                bDB56Projet1SNGDataSet.DataTableAssistantSoin);
 
-            // TODO: This line of code loads data into the 'bDB56Projet1SNGDataSet.assistant' table. You can move, or remove it, as needed.
-            this.assistantTableAdapter.Fill(this.bDB56Projet1SNGDataSet.assistant);
-            if (assistantBindingSource.Position < 0)
+            // relier les deux tables a la meme transaction pour updateall
+            tableAdapterManager.assistant_soinTableAdapter = assistant_soinTableAdapter;
+
+            // detecter les conflits comme dans le labo 6
+            assistantTableAdapter.Adapter.RowUpdated += TableAdapter_RowUpdated;
+            assistant_soinTableAdapter.Adapter.RowUpdated += TableAdapter_RowUpdated;
+        }
+        //=========================================================
+        // gestion des conflits d'acces concurrentiel
+        //=========================================================
+
+        private void TableAdapter_RowUpdated(object sender, SqlRowUpdatedEventArgs e)
+        {
+            if (e.RecordsAffected != 0 ||
+                (e.StatementType != StatementType.Update &&
+                 e.StatementType != StatementType.Delete) ||
+                (e.Errors != null && !(e.Errors is DBConcurrencyException)))
+                return;
+
+            conflitAcces = true;
+
+            string numero = Convert.ToString(
+                e.Row["id_assistant", DataRowVersion.Original]);
+            string element = "l'assistant " + numero;
+
+            if (e.Row.Table.TableName == "assistant_soin")
             {
-                MessageBox.Show("Aucun assistant sélectionné.");
+                string idSoin = Convert.ToString(
+                    e.Row["id_soin", DataRowVersion.Original]);
+                element = "le soin " + idSoin + " de l'assistant " + numero;
+            }
+
+            if (operationMultipleEnCours)
+            {
+                // interrompre updateall pour annuler toute la transaction
+                e.Errors = new DBConcurrencyException(
+                    "Conflit d'accès concurrentiel pour " + element + ".");
+                e.Status = UpdateStatus.ErrorsOccurred;
                 return;
             }
 
+            MessageBox.Show(
+                "Conflit d'accès concurrentiel pour " + element +
+                ". Cet enregistrement ne sera pas sauvegardé.",
+                "Conflit d'accès", MessageBoxButtons.OK,
+                MessageBoxIcon.Warning);
+
+            // continuer selon la methode du labo 6
+            e.Status = UpdateStatus.Continue;
         }
 
+        //=========================================================
+        // selection et enregistrement simple
+        //=========================================================
+        private BDB56Projet1SNGDataSet.assistantRow AssistantSelectionne()
+        {
+            if (dgvAssistants.CurrentRow == null ||
+                dgvAssistants.CurrentRow.IsNewRow ||
+                !dgvAssistants.CurrentRow.Selected)
+                return null;
+
+            DataRowView ligne =
+                dgvAssistants.CurrentRow.DataBoundItem as DataRowView;
+
+            return ligne == null ? null :
+                ligne.Row as BDB56Projet1SNGDataSet.assistantRow;
+        }
+
+        private bool Enregistrer(bool association)
+        {
+            conflitAcces = false;
+
+            try
+            {
+                if (association)
+                    assistant_soinTableAdapter.Update(
+                        bDB56Projet1SNGDataSet.assistant_soin);
+                else
+                    assistantTableAdapter.Update(
+                        bDB56Projet1SNGDataSet.assistant);
+
+                if (conflitAcces)
+                {
+                    // annuler les modifications locales refusees
+                    if (association)
+                        bDB56Projet1SNGDataSet.assistant_soin.RejectChanges();
+                    else
+                        bDB56Projet1SNGDataSet.assistant.RejectChanges();
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                if (association)
+                    bDB56Projet1SNGDataSet.assistant_soin.RejectChanges();
+                else
+                    bDB56Projet1SNGDataSet.assistant.RejectChanges();
+
+                if (!conflitAcces)
+                {
+                    MessageBox.Show(
+                        "Erreur lors de l'enregistrement.\n\n" + ex.Message,
+                        "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                return false;
+            }
+        }
+
+        //=========================================================
+        // ajouter un assistant
+        //=========================================================
         private void btnAjouterAssistant_Click(object sender, EventArgs e)
         {
-            // Créer une nouvelle ligne en mémoire.
             BDB56Projet1SNGDataSet.assistantRow unAssistant =
                 bDB56Projet1SNGDataSet.assistant.NewassistantRow();
 
-            // Trouver le plus grand numéro existant.
             int idMax = 0;
-
             foreach (BDB56Projet1SNGDataSet.assistantRow ligne
                 in bDB56Projet1SNGDataSet.assistant.Rows)
             {
-                if (ligne.id_assistant > idMax)
-                {
+                if (ligne.RowState != DataRowState.Deleted &&
+                    ligne.id_assistant > idMax)
                     idMax = ligne.id_assistant;
-                }
             }
 
-            // Générer automatiquement le prochain numéro.
             unAssistant.id_assistant = idMax + 1;
 
-            // Ouvrir le formulaire d'ajout.
-            frmAjouterAssistant frmAjouter =
-                new frmAjouterAssistant();
-
-            frmAjouter.unAssistant = unAssistant;
-
-            frmAjouter.ShowDialog();
-
-            // Ajouter réellement la ligne seulement
-            // si l'utilisateur a cliqué sur Enregistrer.
-            if (frmAjouter.ajoutConfirme)
+            using (frmAjouterAssistant frm = new frmAjouterAssistant())
             {
-                try
-                {
-                    // Ajouter l'assistant dans le DataSet.
-                    bDB56Projet1SNGDataSet.assistant
-                        .AddassistantRow(unAssistant);
+                frm.unAssistant = unAssistant;
+                frm.StartPosition = FormStartPosition.Manual;
+                frm.Location = this.Location;
+                frm.ShowDialog(this);
 
-                    assistantBindingSource.EndEdit();
+                if (!frm.ajoutConfirme) return;
 
-                    // Enregistrer immédiatement dans SQL Server.
-                    assistantTableAdapter.Update(
-                        bDB56Projet1SNGDataSet.assistant
-                    );
+                bDB56Projet1SNGDataSet.assistant.AddassistantRow(unAssistant);
+                if (!Enregistrer(false)) return;
 
-                    assistantBindingSource.MoveLast();
-
-                    MessageBox.Show(
-                        "L'assistant " +
-                        unAssistant.id_assistant +
-                        " a été ajouté.",
-                        "Ajout d'un assistant",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Erreur lors de l'ajout de l'assistant.\n\n" +
-                        ex.Message,
-                        "Erreur",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
-                }
+                assistantBindingSource.MoveLast();
+                MessageBox.Show(
+                    "L'assistant " + unAssistant.id_assistant + " a été ajouté.",
+                    "Ajout", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
+        //=========================================================
+        // modifier un assistant
+        //=========================================================
         private void btnModifierAssistant_Click(object sender, EventArgs e)
         {
-            // Vérifier qu'un assistant est sélectionné.
-            if (assistantBindingSource.Current == null)
-            {
-                MessageBox.Show(
-                    "Aucun assistant sélectionné.",
-                    "Modification",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            BDB56Projet1SNGDataSet.assistantRow unAssistant =
+                AssistantSelectionne();
 
+            if (unAssistant == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un assistant.",
+                    "Modification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-
-            // Récupérer la ligne sélectionnée.
-            DataRowView ligneSelectionnee =
-                (DataRowView)assistantBindingSource.Current;
-
-            BDB56Projet1SNGDataSet.assistantRow unAssistant =
-                (BDB56Projet1SNGDataSet.assistantRow)
-                ligneSelectionnee.Row;
-
-
-            // Ouvrir le formulaire de modification.
-            frmGestionAssistantModifier frmModifier =
-                new frmGestionAssistantModifier();
-
-            frmModifier.unAssistant = unAssistant;
-
-            frmModifier.ShowDialog();
-
-            // Si l'utilisateur a confirmé,
-            // actualiser l'affichage.
-            if (frmModifier.modificationConfirmee)
+            using (frmGestionAssistantModifier frm =
+                new frmGestionAssistantModifier())
             {
-                assistantBindingSource.ResetCurrentItem();
-                assistantBindingSource.EndEdit();
+                frm.unAssistant = unAssistant;
+                frm.StartPosition = FormStartPosition.Manual;
+                frm.Location = this.Location;
+                frm.ShowDialog(this);
 
-                assistantTableAdapter.Update(
-                    bDB56Projet1SNGDataSet.assistant
-                );
+                if (!frm.modificationConfirmee) return;
+
+                assistantBindingSource.EndEdit();
+                if (!Enregistrer(false)) return;
+
+                assistantBindingSource.ResetCurrentItem();
+                MessageBox.Show("L'assistant a été modifié.",
+                    "Modification", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
         }
 
+        //=========================================================
+        // supprimer un assistant et ses soins offerts
+        //=========================================================
         private void btnSupAssistant_Click(object sender, EventArgs e)
         {
-            // Vérifier qu'un assistant est sélectionné.
-            if (assistantBindingSource.Current == null)
-            {
-                MessageBox.Show(
-                    "Veuillez sélectionner un assistant.",
-                    "Suppression",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+            BDB56Projet1SNGDataSet.assistantRow unAssistant =
+                AssistantSelectionne();
 
+            if (unAssistant == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un assistant.",
+                    "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-
-            // Récupérer l'assistant sélectionné.
-            DataRowView ligneSelectionnee =
-                (DataRowView)assistantBindingSource.Current;
-
-            BDB56Projet1SNGDataSet.assistantRow unAssistant =
-                (BDB56Projet1SNGDataSet.assistantRow)
-                ligneSelectionnee.Row;
 
             int idAssistant = unAssistant.id_assistant;
 
-
-            //=========================================================
-            // Vérifier si l'assistant possède une planification
-            //=========================================================
-
-            // Vérifier si l'assistant possède une planification
-            BDB56Projet1SNGDataSet.planif_soinDataTable planifications =
-                planifSoinTableAdapter.GetByNbPlanifByAssistant(idAssistant);
-
-            if (planifications.Rows.Count > 0)
+            try
             {
-                MessageBox.Show(
-                    "Cet assistant ne peut pas être supprimé " +
-                    "car des soins lui sont assignés dans une planification.",
-                    "Suppression impossible",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                BDB56Projet1SNGDataSet.planif_soinDataTable planifications =
+                    planifSoinTableAdapter.GetByNbPlanifByAssistant(idAssistant);
 
+                if (planifications.Rows.Count > 0)
+                {
+                    MessageBox.Show(
+                        "Cet assistant ne peut pas être supprimé : " +
+                        "des soins sont présents dans une planification.",
+                        "Suppression impossible", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de vérifier les planifications.\n\n" +
+                    ex.Message, "Erreur", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
-
-            //=========================================================
-            // Confirmation
-            //=========================================================
-
-            DialogResult reponse = MessageBox.Show(
-                "Voulez-vous vraiment supprimer l'assistant " +
-                unAssistant.prenom + " " +
-                unAssistant.nom + " ?",
-                "Confirmation",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (reponse != DialogResult.Yes)
-            {
+            if (MessageBox.Show(
+                "Voulez-vous supprimer l'assistant " +
+                unAssistant.prenom + " " + unAssistant.nom + " ?",
+                "Confirmation", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
-            }
 
-
-            //=========================================================
-            // Suppression
-            //=========================================================
+            conflitAcces = false;
+            operationMultipleEnCours = true;
 
             try
             {
-                //=====================================================
-                // 1. Supprimer les soins offerts par l'assistant
-                //=====================================================
+                // retirer les lignes d'affichage avant le parent
+                bDB56Projet1SNGDataSet.DataTableAssistantSoin.Clear();
 
-                DataRow[] soinsAssistant =
+                // supprimer les associations en memoire
+                DataRow[] associations =
                     bDB56Projet1SNGDataSet.assistant_soin.Select(
-                        "id_assistant = " + idAssistant
-                    );
+                        "id_assistant = " + idAssistant);
 
-                foreach (DataRow ligne in soinsAssistant)
-                {
+                foreach (DataRow ligne in associations)
                     ligne.Delete();
-                }
-
-                // IMPORTANT :
-                // enregistrer les suppressions de assistant_soin
-                // AVANT de supprimer l'assistant.
-                assistant_soinTableAdapter.Update(
-                    bDB56Projet1SNGDataSet.assistant_soin
-                );
-
-
-                //=====================================================
-                // 2. Supprimer l'assistant
-                //=====================================================
 
                 unAssistant.Delete();
 
-                assistantTableAdapter.Update(
-                    bDB56Projet1SNGDataSet.assistant
-                );
-
-
-                //=====================================================
-                // 3. Actualiser les données
-                //=====================================================
-
-                assistantTableAdapter.Fill(
-                    bDB56Projet1SNGDataSet.assistant
-                );
-
-                assistant_soinTableAdapter.Fill(
-                    bDB56Projet1SNGDataSet.assistant_soin
-                );
+                // updateall utilise une transaction pour les deux tables
+                tableAdapterManager.UpdateAll(bDB56Projet1SNGDataSet);
 
                 dataTableAssistantSoinTableAdapter.Fill(
-                    bDB56Projet1SNGDataSet.DataTableAssistantSoin
-                );
+                    bDB56Projet1SNGDataSet.DataTableAssistantSoin);
 
+                MessageBox.Show("L'assistant a été supprimé.",
+                    "Suppression", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                // recharger les donnees apres l'annulation de la transaction
+                try
+                {
+                    bDB56Projet1SNGDataSet.assistant_soin.RejectChanges();
+                    bDB56Projet1SNGDataSet.assistant.RejectChanges();
+                    bDB56Projet1SNGDataSet.DataTableAssistantSoin.Clear();
+                    bDB56Projet1SNGDataSet.assistant_soin.Clear();
+                    bDB56Projet1SNGDataSet.assistant.Clear();
+                    assistantTableAdapter.Fill(bDB56Projet1SNGDataSet.assistant);
+                    assistant_soinTableAdapter.Fill(
+                        bDB56Projet1SNGDataSet.assistant_soin);
+                    dataTableAssistantSoinTableAdapter.Fill(
+                        bDB56Projet1SNGDataSet.DataTableAssistantSoin);
+                }
+                catch (Exception erreurChargement)
+                {
+                    MessageBox.Show("Erreur de rechargement : " +
+                        erreurChargement.Message, "Erreur");
+                }
 
                 MessageBox.Show(
-                    "L'assistant a été supprimé.",
-                    "Suppression",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
+                    conflitAcces ? "Conflit d'accès concurrentiel. " +
+                        "La suppression de l'assistant a été annulée." :
+                        "Erreur lors de la suppression.\n\n" + ex.Message,
+                    conflitAcces ? "Conflit d'accès" : "Erreur",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                operationMultipleEnCours = false;
+            }
+        }
+
+        //=========================================================
+        // ajouter un soin a un assistant
+        //=========================================================
+        private void btnAjouterSoin_Click(object sender, EventArgs e)
+        {
+            BDB56Projet1SNGDataSet.assistantRow unAssistant =
+                AssistantSelectionne();
+
+            if (unAssistant == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un assistant.",
+                    "Ajout d'un soin", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            BDB56Projet1SNGDataSet.assistant_soinRow association =
+                bDB56Projet1SNGDataSet.assistant_soin.Newassistant_soinRow();
+
+            using (frmAjouterSoinAssistant frm = new frmAjouterSoinAssistant())
+            {
+                frm.idAssistant = unAssistant.id_assistant;
+                frm.unAssistantSoin = association;
+                frm.StartPosition = FormStartPosition.Manual;
+                frm.Location = this.Location;
+                frm.ShowDialog(this);
+
+                if (!frm.ajoutConfirme) return;
+
+                DataRow[] existantes =
+                    bDB56Projet1SNGDataSet.assistant_soin.Select(
+                        "id_assistant = " + association.id_assistant +
+                        " AND id_soin = " + association.id_soin);
+
+                if (existantes.Length > 0)
+                {
+                    MessageBox.Show("Cet assistant offre déjà ce soin.",
+                        "Ajout impossible", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                bDB56Projet1SNGDataSet.assistant_soin
+                    .Addassistant_soinRow(association);
+
+                if (!Enregistrer(true)) return;
+
+                dataTableAssistantSoinTableAdapter.Fill(
+                    bDB56Projet1SNGDataSet.DataTableAssistantSoin);
+
+                MessageBox.Show("Le soin a été ajouté à l'assistant.",
+                    "Ajout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        //=========================================================
+        // supprimer un soin offert
+        //=========================================================
+        private void btnSupprimerSoin_Click(object sender, EventArgs e)
+        {
+            BDB56Projet1SNGDataSet.assistantRow unAssistant =
+                AssistantSelectionne();
+
+            if (unAssistant == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un assistant.",
+                    "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dgvSoinsOfferts.CurrentRow == null ||
+                dgvSoinsOfferts.CurrentRow.IsNewRow ||
+                !dgvSoinsOfferts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Veuillez sélectionner un soin.",
+                    "Suppression", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataRowView ligneSoin =
+                dgvSoinsOfferts.CurrentRow.DataBoundItem as DataRowView;
+
+            if (ligneSoin == null) return;
+
+            int idAssistant = unAssistant.id_assistant;
+            int idSoin = Convert.ToInt32(ligneSoin["id_soin"]);
+
+            try
+            {
+                BDB56Projet1SNGDataSet.planif_soinDataTable planifications =
+                    planifSoinTableAdapter.GetByAssistantSoin(idAssistant, idSoin);
+
+                if (planifications.Rows.Count > 0)
+                {
+                    MessageBox.Show(
+                        "Ce soin ne peut pas être retiré car il est planifié.",
+                        "Suppression impossible", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Impossible de vérifier les planifications.\n\n" +
+                    ex.Message, "Erreur", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
+            if (MessageBox.Show(
+                "Voulez-vous retirer ce soin de l'assistant ?",
+                "Confirmation", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            DataRow[] associations =
+                bDB56Projet1SNGDataSet.assistant_soin.Select(
+                    "id_assistant = " + idAssistant +
+                    " AND id_soin = " + idSoin);
+
+            if (associations.Length == 0)
+            {
+                MessageBox.Show("Association assistant-soin introuvable.",
+                    "Suppression", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            associations[0].Delete();
+            if (!Enregistrer(true)) return;
+
+            dataTableAssistantSoinTableAdapter.Fill(
+                bDB56Projet1SNGDataSet.DataTableAssistantSoin);
+
+            MessageBox.Show("Le soin a été retiré de l'assistant.",
+                "Suppression", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        //=========================================================
+        // actualiser les assistants et leurs soins
+        //=========================================================
+        private void btnActualiser_Click(object sender, EventArgs e)
+        {
+            // demander confirmation si des changements ne sont pas enregistres
+            if (bDB56Projet1SNGDataSet.HasChanges() &&
+                MessageBox.Show(
+                    "Des modifications locales non enregistrées seront perdues. " +
+                    "Voulez-vous actualiser les données ?",
+                    "Confirmation", MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                // vider les tables dans l'ordre des relations
+                bDB56Projet1SNGDataSet.DataTableAssistantSoin.Clear();
+                bDB56Projet1SNGDataSet.assistant_soin.Clear();
+                bDB56Projet1SNGDataSet.assistant.Clear();
+
+                // recuperer les donnees les plus recentes de sql server
+                assistantTableAdapter.Fill(bDB56Projet1SNGDataSet.assistant);
+                assistant_soinTableAdapter.Fill(
+                    bDB56Projet1SNGDataSet.assistant_soin);
+                dataTableAssistantSoinTableAdapter.Fill(
+                    bDB56Projet1SNGDataSet.DataTableAssistantSoin);
+
+                conflitAcces = false;
+
+                MessageBox.Show("Les données ont été actualisées.",
+                    "Actualisation", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Erreur lors de la suppression de l'assistant.\n\n" +
-                    ex.Message,
-                    "Erreur",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                    "Erreur lors de l'actualisation.\n\n" + ex.Message,
+                    "Erreur", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        //=========================================================
-        // Ajouter un soin à un assistant
-        //=========================================================
-
-        private void btnAjouterSoin_Click(object sender, EventArgs e)
-        {
-            // Vérifier qu'un assistant est sélectionné.
-            if (assistantBindingSource.Current == null)
-            {
-                MessageBox.Show(
-                    "Veuillez sélectionner un assistant.",
-                    "Ajout d'un soin",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-
-            // Récupérer l'assistant sélectionné.
-            DataRowView ligneSelectionnee =
-                (DataRowView)assistantBindingSource.Current;
-
-            BDB56Projet1SNGDataSet.assistantRow unAssistant =
-                (BDB56Projet1SNGDataSet.assistantRow)
-                ligneSelectionnee.Row;
-
-            int idAssistant =
-                unAssistant.id_assistant;
-
-
-            // Créer une nouvelle association assistant-soin.
-            BDB56Projet1SNGDataSet.assistant_soinRow unAssistantSoin =
-                bDB56Projet1SNGDataSet.assistant_soin
-                .Newassistant_soinRow();
-
-
-            // Ouvrir le formulaire d'ajout de soin.
-            frmAjouterSoinAssistant frmAjouter =
-                new frmAjouterSoinAssistant();
-
-            frmAjouter.idAssistant =
-                idAssistant;
-
-            frmAjouter.unAssistantSoin =
-                unAssistantSoin;
-
-            frmAjouter.ShowDialog();
-
-
-            // Ajouter seulement si l'utilisateur confirme.
-            if (frmAjouter.ajoutConfirme)
-            {
-                try
-                {
-                    int idSoin =
-                        unAssistantSoin.id_soin;
-
-
-                    // Vérifier que l'assistant n'offre pas déjà ce soin.
-                    DataRow[] lignesExistantes =
-                        bDB56Projet1SNGDataSet.assistant_soin.Select(
-                            "id_assistant = " + idAssistant +
-                            " AND id_soin = " + idSoin
-                        );
-
-                    if (lignesExistantes.Length > 0)
-                    {
-                        MessageBox.Show(
-                            "Cet assistant offre déjà ce soin.",
-                            "Ajout impossible",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning
-                        );
-
-                        return;
-                    }
-
-
-                    // Ajouter l'association dans assistant_soin.
-                    bDB56Projet1SNGDataSet.assistant_soin
-                        .Addassistant_soinRow(unAssistantSoin);
-
-                    assistant_soinBindingSource.EndEdit();
-
-
-                    // Enregistrer dans SQL Server.
-                    assistant_soinTableAdapter.Update(
-                        bDB56Projet1SNGDataSet.assistant_soin
-                    );
-
-
-                    // Actualiser la table utilisée par la grille des soins.
-                    dataTableAssistantSoinTableAdapter.Fill(
-                        bDB56Projet1SNGDataSet.DataTableAssistantSoin
-                    );
-
-
-                    MessageBox.Show(
-                        "Le soin a été ajouté à l'assistant.",
-                        "Ajout d'un soin",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Erreur lors de l'ajout du soin.\n\n" +
-                        ex.Message,
-                        "Erreur",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
-                }
-            }
-        }
-
-        private void btnSupprimerSoin_Click(object sender, EventArgs e)
-        {
-            // Vérifier qu'un assistant est sélectionné.
-            if (assistantBindingSource.Current == null)
-            {
-                MessageBox.Show(
-                    "Veuillez sélectionner un assistant.",
-                    "Suppression",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-
-            // Vérifier qu'un soin est sélectionné.
-            if (dataTableAssistantSoinBindingSource.Current == null)
-            {
-                MessageBox.Show(
-                    "Veuillez sélectionner un soin.",
-                    "Suppression",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-
-            //=========================================================
-            // Récupérer l'assistant sélectionné
-            //=========================================================
-
-            DataRowView ligneAssistant =
-                (DataRowView)assistantBindingSource.Current;
-
-            BDB56Projet1SNGDataSet.assistantRow unAssistant =
-                (BDB56Projet1SNGDataSet.assistantRow)
-                ligneAssistant.Row;
-
-            int idAssistant =
-                unAssistant.id_assistant;
-
-
-            //=========================================================
-            // Récupérer le soin sélectionné
-            //=========================================================
-
-            DataRowView ligneSoin =
-                (DataRowView)dataTableAssistantSoinBindingSource.Current;
-
-            int idSoin =
-                Convert.ToInt32(
-                    ligneSoin["id_soin"]
-                );
-
-
-            //=========================================================
-            // Vérifier si ce soin est planifié pour cet assistant
-            //=========================================================
-
-            BDB56Projet1SNGDataSet.planif_soinDataTable planifications =
-                planifSoinTableAdapter.GetByAssistantSoin(
-                    idAssistant,
-                    idSoin
-                );
-
-
-            if (planifications.Rows.Count > 0)
-            {
-                MessageBox.Show(
-                    "Ce soin ne peut pas être retiré de l'assistant " +
-                    "car il est présent dans une planification.",
-                    "Suppression impossible",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
-
-            //=========================================================
-            // Confirmation
-            //=========================================================
-
-            DialogResult reponse =
-                MessageBox.Show(
-                    "Voulez-vous vraiment retirer ce soin de l'assistant ?",
-                    "Confirmation",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question
-                );
-
-            if (reponse != DialogResult.Yes)
-            {
-                return;
-            }
-
-
-            //=========================================================
-            // Trouver l'association assistant_soin
-            //=========================================================
-
-            DataRow[] lignes =
-                bDB56Projet1SNGDataSet.assistant_soin.Select(
-                    "id_assistant = " + idAssistant +
-                    " AND id_soin = " + idSoin
-                );
-
-
-            if (lignes.Length == 0)
-            {
-                MessageBox.Show(
-                    "Association assistant-soin introuvable.",
-                    "Erreur",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-
-                return;
-            }
-
-
-            //=========================================================
-            // Supprimer l'association
-            //=========================================================
-
-            lignes[0].Delete();
-
-
-            // Sauvegarder dans SQL Server.
-            this.assistant_soinTableAdapter.Update(
-                this.bDB56Projet1SNGDataSet.assistant_soin
-            );
-
-
-            // Actualiser la grille d'affichage.
-            this.dataTableAssistantSoinTableAdapter.Fill(
-                this.bDB56Projet1SNGDataSet.DataTableAssistantSoin
-            );
-
-
-            MessageBox.Show(
-                "Le soin a été retiré de l'assistant.",
-                "Suppression",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-        }
-        //=========================================================
-        // fermer le formulaire
-        //=========================================================
         private void btnFermer_Click(object sender, EventArgs e)
         {
             Close();
-        }
-        //=========================================================
-        //enregistrées dans SQL Server cas securité
-        //=========================================================
-        private void btnEnregistrer_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.Validate();
-                this.assistantBindingSource.EndEdit();
-                this.assistant_soinBindingSource.EndEdit();
-                this.tableAdapterManager.UpdateAll(
-                    this.bDB56Projet1SNGDataSet
-                );
-
-                MessageBox.Show(
-                    "Les modifications ont été enregistrées.",
-                    "Enregistrement",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    "Erreur lors de l'enregistrement.\n\n" +
-                    ex.Message,
-                    "Erreur",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-            }
         }
     }
 }

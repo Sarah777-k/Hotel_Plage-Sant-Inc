@@ -158,9 +158,9 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(578, 12);
+            this.btnModifier.Location = new System.Drawing.Point(587, 12);
             this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(102, 31);
+            this.btnModifier.Size = new System.Drawing.Size(101, 31);
             this.btnModifier.TabIndex = 3;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
@@ -168,9 +168,9 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(686, 12);
+            this.btnSupprimer.Location = new System.Drawing.Point(703, 8);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(102, 31);
+            this.btnSupprimer.Size = new System.Drawing.Size(85, 38);
             this.btnSupprimer.TabIndex = 4;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
