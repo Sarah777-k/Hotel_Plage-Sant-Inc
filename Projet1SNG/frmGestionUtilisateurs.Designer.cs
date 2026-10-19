@@ -48,13 +48,13 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.utilisateurBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.dgUtilisateurs = new System.Windows.Forms.DataGridView();
-            this.btnAjout = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.btnSupprimer = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAjout = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.btnSupprimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingNavigator)).BeginInit();
@@ -135,8 +135,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
             // 
             // bindingNavigatorDeleteItem
@@ -221,6 +221,7 @@
             // dgUtilisateurs
             // 
             this.dgUtilisateurs.AutoGenerateColumns = false;
+            this.dgUtilisateurs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgUtilisateurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgUtilisateurs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -228,40 +229,13 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
             this.dgUtilisateurs.DataSource = this.utilisateurBindingSource;
-            this.dgUtilisateurs.Location = new System.Drawing.Point(49, 152);
+            this.dgUtilisateurs.Location = new System.Drawing.Point(61, 147);
             this.dgUtilisateurs.MultiSelect = false;
             this.dgUtilisateurs.Name = "dgUtilisateurs";
             this.dgUtilisateurs.ReadOnly = true;
             this.dgUtilisateurs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgUtilisateurs.Size = new System.Drawing.Size(551, 281);
+            this.dgUtilisateurs.Size = new System.Drawing.Size(568, 281);
             this.dgUtilisateurs.TabIndex = 1;
-            // 
-            // btnAjout
-            // 
-            this.btnAjout.Location = new System.Drawing.Point(634, 163);
-            this.btnAjout.Name = "btnAjout";
-            this.btnAjout.Size = new System.Drawing.Size(85, 38);
-            this.btnAjout.TabIndex = 2;
-            this.btnAjout.Text = "Ajouter";
-            this.btnAjout.UseVisualStyleBackColor = true;
-            // 
-            // btnModifier
-            // 
-            this.btnModifier.Location = new System.Drawing.Point(634, 207);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(85, 38);
-            this.btnModifier.TabIndex = 3;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.UseVisualStyleBackColor = true;
-            // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.Location = new System.Drawing.Point(634, 251);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(85, 38);
-            this.btnSupprimer.TabIndex = 4;
-            this.btnSupprimer.Text = "Supprimer";
-            this.btnSupprimer.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -290,6 +264,33 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Type de l\'utilisateur";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // btnAjout
+            // 
+            this.btnAjout.Location = new System.Drawing.Point(653, 147);
+            this.btnAjout.Name = "btnAjout";
+            this.btnAjout.Size = new System.Drawing.Size(85, 38);
+            this.btnAjout.TabIndex = 2;
+            this.btnAjout.Text = "Ajouter";
+            this.btnAjout.UseVisualStyleBackColor = true;
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Location = new System.Drawing.Point(653, 268);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(85, 38);
+            this.btnModifier.TabIndex = 3;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.Location = new System.Drawing.Point(653, 390);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(85, 38);
+            this.btnSupprimer.TabIndex = 4;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.UseVisualStyleBackColor = true;
             // 
             // frmGestionUtilisateurs
             // 
