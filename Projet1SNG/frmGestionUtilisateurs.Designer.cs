@@ -52,11 +52,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.typeUtilisateurTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.typeUtilisateurTableAdapter();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUtilisateurs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUtilisateurBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUtilisateurBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bDB56Projet1SNGDataSet
@@ -81,6 +86,8 @@
             this.tableAdapterManager.chambreTableAdapter = null;
             this.tableAdapterManager.clientTableAdapter = null;
             this.tableAdapterManager.inviteTableAdapter = null;
+            this.tableAdapterManager.ListeChambresRapportTableAdapter = null;
+            this.tableAdapterManager.nosEtNomsAssistantsTableAdapter = null;
             this.tableAdapterManager.planif_soinTableAdapter = null;
             this.tableAdapterManager.reservationTableAdapter = null;
             this.tableAdapterManager.soinTableAdapter = null;
@@ -102,7 +109,7 @@
             this.dgvMotDePasse,
             this.dgvTypeUtil});
             this.dgvUtilisateurs.DataSource = this.utilisateurBindingSource;
-            this.dgvUtilisateurs.Location = new System.Drawing.Point(50, 140);
+            this.dgvUtilisateurs.Location = new System.Drawing.Point(20, 52);
             this.dgvUtilisateurs.MultiSelect = false;
             this.dgvUtilisateurs.Name = "dgvUtilisateurs";
             this.dgvUtilisateurs.ReadOnly = true;
@@ -149,7 +156,7 @@
             // 
             // btnAjouter
             // 
-            this.btnAjouter.Location = new System.Drawing.Point(470, 12);
+            this.btnAjouter.Location = new System.Drawing.Point(486, 34);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(102, 31);
             this.btnAjouter.TabIndex = 2;
@@ -159,7 +166,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(587, 12);
+            this.btnModifier.Location = new System.Drawing.Point(610, 34);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(101, 31);
             this.btnModifier.TabIndex = 3;
@@ -169,9 +176,9 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(703, 8);
+            this.btnSupprimer.Location = new System.Drawing.Point(610, 15);
             this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(85, 38);
+            this.btnSupprimer.Size = new System.Drawing.Size(102, 31);
             this.btnSupprimer.TabIndex = 4;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseVisualStyleBackColor = true;
@@ -179,14 +186,14 @@
             // 
             // txtNomUtilisateur
             // 
-            this.txtNomUtilisateur.Location = new System.Drawing.Point(50, 64);
+            this.txtNomUtilisateur.Location = new System.Drawing.Point(28, 44);
             this.txtNomUtilisateur.Name = "txtNomUtilisateur";
             this.txtNomUtilisateur.Size = new System.Drawing.Size(100, 20);
             this.txtNomUtilisateur.TabIndex = 6;
             // 
             // txtMdp
             // 
-            this.txtMdp.Location = new System.Drawing.Point(165, 64);
+            this.txtMdp.Location = new System.Drawing.Point(143, 44);
             this.txtMdp.Name = "txtMdp";
             this.txtMdp.Size = new System.Drawing.Size(100, 20);
             this.txtMdp.TabIndex = 7;
@@ -196,7 +203,7 @@
             this.cmbTypeUtilisateur.DataSource = this.typeUtilisateurBindingSource1;
             this.cmbTypeUtilisateur.DisplayMember = "identification";
             this.cmbTypeUtilisateur.FormattingEnabled = true;
-            this.cmbTypeUtilisateur.Location = new System.Drawing.Point(290, 64);
+            this.cmbTypeUtilisateur.Location = new System.Drawing.Point(268, 44);
             this.cmbTypeUtilisateur.Name = "cmbTypeUtilisateur";
             this.cmbTypeUtilisateur.Size = new System.Drawing.Size(121, 21);
             this.cmbTypeUtilisateur.TabIndex = 8;
@@ -216,7 +223,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 42);
+            this.label1.Location = new System.Drawing.Point(25, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 13);
             this.label1.TabIndex = 9;
@@ -226,7 +233,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(162, 42);
+            this.label2.Location = new System.Drawing.Point(140, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 13);
             this.label2.TabIndex = 10;
@@ -236,7 +243,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(287, 42);
+            this.label3.Location = new System.Drawing.Point(265, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 13);
             this.label3.TabIndex = 11;
@@ -248,30 +255,61 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(686, 440);
+            this.button1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(348, 547);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 31);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Quitter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Fermer";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(280, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(233, 22);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Gestion des utilisateurs :";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cmbTypeUtilisateur);
+            this.panel1.Controls.Add(this.txtMdp);
+            this.panel1.Controls.Add(this.txtNomUtilisateur);
+            this.panel1.Controls.Add(this.btnModifier);
+            this.panel1.Controls.Add(this.btnAjouter);
+            this.panel1.Location = new System.Drawing.Point(30, 62);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(730, 104);
+            this.panel1.TabIndex = 14;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.btnSupprimer);
+            this.panel2.Controls.Add(this.dgvUtilisateurs);
+            this.panel2.Location = new System.Drawing.Point(30, 188);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(730, 339);
+            this.panel2.TabIndex = 15;
             // 
             // frmGestionUtilisateurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 483);
+            this.ClientSize = new System.Drawing.Size(800, 602);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbTypeUtilisateur);
-            this.Controls.Add(this.txtMdp);
-            this.Controls.Add(this.txtNomUtilisateur);
-            this.Controls.Add(this.btnSupprimer);
-            this.Controls.Add(this.btnModifier);
-            this.Controls.Add(this.btnAjouter);
-            this.Controls.Add(this.dgvUtilisateurs);
             this.Name = "frmGestionUtilisateurs";
             this.Text = "Gestion des utilisateurs";
             this.Load += new System.EventHandler(this.frmGestionUtilisateurs_Load);
@@ -280,6 +318,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUtilisateurs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUtilisateurBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeUtilisateurBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,6 +351,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMotDePasse;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTypeUtil;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

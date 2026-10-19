@@ -61,12 +61,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnSupprimerInvite = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bDB56Projet1SNGDataSet
@@ -91,6 +95,8 @@
             this.tableAdapterManager.chambreTableAdapter = null;
             this.tableAdapterManager.clientTableAdapter = this.clientTableAdapter;
             this.tableAdapterManager.inviteTableAdapter = this.inviteTableAdapter;
+            this.tableAdapterManager.ListeChambresRapportTableAdapter = null;
+            this.tableAdapterManager.nosEtNomsAssistantsTableAdapter = null;
             this.tableAdapterManager.planif_soinTableAdapter = null;
             this.tableAdapterManager.reservationTableAdapter = null;
             this.tableAdapterManager.soinTableAdapter = null;
@@ -121,7 +127,7 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dgvClient.DataSource = this.clientBindingSource;
-            this.dgvClient.Location = new System.Drawing.Point(25, 160);
+            this.dgvClient.Location = new System.Drawing.Point(26, 77);
             this.dgvClient.MultiSelect = false;
             this.dgvClient.Name = "dgvClient";
             this.dgvClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -202,7 +208,7 @@
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13});
             this.dgvInvite.DataSource = this.inviteBindingSource;
-            this.dgvInvite.Location = new System.Drawing.Point(25, 456);
+            this.dgvInvite.Location = new System.Drawing.Point(202, 72);
             this.dgvInvite.MultiSelect = false;
             this.dgvInvite.Name = "dgvInvite";
             this.dgvInvite.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -240,7 +246,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 125);
+            this.label1.Location = new System.Drawing.Point(23, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 18);
             this.label1.TabIndex = 3;
@@ -250,7 +256,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 405);
+            this.label2.Location = new System.Drawing.Point(15, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(162, 18);
             this.label2.TabIndex = 4;
@@ -258,7 +264,7 @@
             // 
             // btnAjouterClient
             // 
-            this.btnAjouterClient.Location = new System.Drawing.Point(191, 121);
+            this.btnAjouterClient.Location = new System.Drawing.Point(838, 42);
             this.btnAjouterClient.Name = "btnAjouterClient";
             this.btnAjouterClient.Size = new System.Drawing.Size(123, 29);
             this.btnAjouterClient.TabIndex = 5;
@@ -268,7 +274,7 @@
             // 
             // btnAjouterInvite
             // 
-            this.btnAjouterInvite.Location = new System.Drawing.Point(191, 401);
+            this.btnAjouterInvite.Location = new System.Drawing.Point(525, 37);
             this.btnAjouterInvite.Name = "btnAjouterInvite";
             this.btnAjouterInvite.Size = new System.Drawing.Size(123, 29);
             this.btnAjouterInvite.TabIndex = 6;
@@ -278,7 +284,7 @@
             // 
             // btnSupprimerClient
             // 
-            this.btnSupprimerClient.Location = new System.Drawing.Point(338, 121);
+            this.btnSupprimerClient.Location = new System.Drawing.Point(26, 42);
             this.btnSupprimerClient.Name = "btnSupprimerClient";
             this.btnSupprimerClient.Size = new System.Drawing.Size(172, 29);
             this.btnSupprimerClient.TabIndex = 7;
@@ -288,7 +294,7 @@
             // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Location = new System.Drawing.Point(787, 34);
+            this.btnEnregistrer.Location = new System.Drawing.Point(586, 713);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(75, 37);
             this.btnEnregistrer.TabIndex = 8;
@@ -298,7 +304,7 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(898, 34);
+            this.btnAnnuler.Location = new System.Drawing.Point(454, 713);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(75, 37);
             this.btnAnnuler.TabIndex = 9;
@@ -308,12 +314,14 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Location = new System.Drawing.Point(906, 639);
+            this.btnQuitter.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnQuitter.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnQuitter.Location = new System.Drawing.Point(318, 713);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(75, 37);
             this.btnQuitter.TabIndex = 10;
-            this.btnQuitter.Text = "Quitter";
-            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Text = "Fermer";
+            this.btnQuitter.UseVisualStyleBackColor = false;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // label3
@@ -332,7 +340,7 @@
             // 
             // btnSupprimerInvite
             // 
-            this.btnSupprimerInvite.Location = new System.Drawing.Point(338, 401);
+            this.btnSupprimerInvite.Location = new System.Drawing.Point(202, 37);
             this.btnSupprimerInvite.Name = "btnSupprimerInvite";
             this.btnSupprimerInvite.Size = new System.Drawing.Size(172, 29);
             this.btnSupprimerInvite.TabIndex = 12;
@@ -340,23 +348,41 @@
             this.btnSupprimerInvite.UseVisualStyleBackColor = true;
             this.btnSupprimerInvite.Click += new System.EventHandler(this.btnSupprimerInvite_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.btnAjouterClient);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.dgvClient);
+            this.panel1.Controls.Add(this.btnSupprimerClient);
+            this.panel1.Location = new System.Drawing.Point(16, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1016, 312);
+            this.panel1.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.Controls.Add(this.btnSupprimerInvite);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnAjouterInvite);
+            this.panel2.Controls.Add(this.dgvInvite);
+            this.panel2.Location = new System.Drawing.Point(57, 383);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(933, 324);
+            this.panel2.TabIndex = 14;
+            // 
             // frmGestionClientInvites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 688);
-            this.Controls.Add(this.btnSupprimerInvite);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(1054, 758);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnQuitter);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAnnuler);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEnregistrer);
-            this.Controls.Add(this.btnSupprimerClient);
-            this.Controls.Add(this.btnAjouterInvite);
-            this.Controls.Add(this.btnAjouterClient);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvInvite);
-            this.Controls.Add(this.dgvClient);
             this.Name = "frmGestionClientInvites";
             this.Text = "Gestion des clients et de leurs invités";
             this.Load += new System.EventHandler(this.frmGestionClientInvites_Load);
@@ -366,6 +392,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.inviteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,5 +435,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errMessage;
         private System.Windows.Forms.Button btnSupprimerInvite;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

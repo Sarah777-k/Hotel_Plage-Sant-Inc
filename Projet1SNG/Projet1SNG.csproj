@@ -57,7 +57,7 @@
     <Compile Include="frmConnexion.Designer.cs">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPlanifSoins.cs">
+	<Compile Include="frmPlanifSoins.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPlanifSoins.Designer.cs">
@@ -170,15 +170,21 @@
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
     </EmbeddedResource>
-	<Compile Include="Soins\frmGestionSoins.cs">
+	<EmbeddedResource Include="frmPlanifSoins.resx">
+      <DependentUpon>frmPlanifSoins.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Rapport\frmRapportReservationsChambres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rapport\frmRapportReservationsChambres.Designer.cs">
+      <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Soins\frmGestionSoins.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Soins\frmGestionSoins.Designer.cs">
       <DependentUpon>frmGestionSoins.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmPlanifSoins.resx">
-      <DependentUpon>frmPlanifSoins.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GestionAssistant\frmAjouterAssistant.resx">
       <DependentUpon>frmAjouterAssistant.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +245,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rapport\frmRapportReservationsChambres.resx">
+      <DependentUpon>frmRapportReservationsChambres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Soins\frmGestionSoins.resx">
       <DependentUpon>frmGestionSoins.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,9 +275,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-   <ItemGroup>
+  <ItemGroup>
     <Folder Include="Connected Services\" />
-    <Folder Include="Rapport\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

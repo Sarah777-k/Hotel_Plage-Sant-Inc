@@ -138,5 +138,6 @@ namespace Projet1SNG
             bDB56Projet1SNGDataSet.planif_soin.RejectChanges();
             planif_soinBindingSource.ResetBindings(false);
         }
+
     }
 }
