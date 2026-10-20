@@ -249,6 +249,7 @@
             this.btnRapportSoinsAssistant.TabIndex = 37;
             this.btnRapportSoinsAssistant.Text = "Rapport des soins journalier des assistants";
             this.btnRapportSoinsAssistant.UseVisualStyleBackColor = false;
+            this.btnRapportSoinsAssistant.Click += new System.EventHandler(this.btnRapportSoinsAssistant_Click);
             // 
             // label11
             // 

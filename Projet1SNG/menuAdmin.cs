@@ -115,5 +115,12 @@ namespace Projet1SNG
             );
             frmRapportSoins.Show();
         }
+
+        private void btnRapportSoinsAssistant_Click(object sender, EventArgs e)
+        {
+
+            frmRapportSoinsJournaliersAssistant frmCo = new frmRapportSoinsJournaliersAssistant();
+            frmCo.Show();
+        }
     }
 }
