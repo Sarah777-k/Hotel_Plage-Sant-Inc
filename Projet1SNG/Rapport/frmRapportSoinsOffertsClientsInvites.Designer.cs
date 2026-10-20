@@ -32,30 +32,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnQuitter = new System.Windows.Forms.Button();
             this.cmbPersonne = new System.Windows.Forms.ComboBox();
+            this.nosEtNomsPersonnesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dggvSoinsOfferts = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soinsOffertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.bDB56Projet1SNGDataSet = new Projet1SNG.BDB56Projet1SNGDataSet();
             this.tableAdapterManager = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager();
-            this.soinsOffertsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.soinsOffertsTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.soinsOffertsTableAdapter();
-            this.dggvSoinsOfferts = new System.Windows.Forms.DataGridView();
-            this.nosEtNomsPersonnesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nosEtNomsPersonnesTableAdapter = new Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.nosEtNomsPersonnesTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsPersonnesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dggvSoinsOfferts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soinsOffertsBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.soinsOffertsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dggvSoinsOfferts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsPersonnesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -93,6 +93,16 @@
             this.cmbPersonne.ValueMember = "id_personne";
             this.cmbPersonne.SelectedIndexChanged += new System.EventHandler(this.cmbPersonne_SelectedIndexChanged);
             // 
+            // nosEtNomsPersonnesBindingSource
+            // 
+            this.nosEtNomsPersonnesBindingSource.DataMember = "nosEtNomsPersonnes";
+            this.nosEtNomsPersonnesBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
+            // 
+            // bDB56Projet1SNGDataSet
+            // 
+            this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
+            this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -101,6 +111,58 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(674, 324);
             this.panel1.TabIndex = 4;
+            // 
+            // dggvSoinsOfferts
+            // 
+            this.dggvSoinsOfferts.AllowUserToAddRows = false;
+            this.dggvSoinsOfferts.AllowUserToDeleteRows = false;
+            this.dggvSoinsOfferts.AutoGenerateColumns = false;
+            this.dggvSoinsOfferts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dggvSoinsOfferts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dggvSoinsOfferts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dggvSoinsOfferts.DataSource = this.soinsOffertsBindingSource;
+            this.dggvSoinsOfferts.Location = new System.Drawing.Point(69, 66);
+            this.dggvSoinsOfferts.Name = "dggvSoinsOfferts";
+            this.dggvSoinsOfferts.ReadOnly = true;
+            this.dggvSoinsOfferts.Size = new System.Drawing.Size(523, 236);
+            this.dggvSoinsOfferts.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "description";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "dateHeure";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Date et heure";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "prix";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Prix";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "nomAssistant";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Assistant";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // soinsOffertsBindingSource
+            // 
+            this.soinsOffertsBindingSource.DataMember = "soinsOfferts";
+            this.soinsOffertsBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
             // 
             // label2
             // 
@@ -148,11 +210,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Client ou invité: ";
             // 
-            // bDB56Projet1SNGDataSet
-            // 
-            this.bDB56Projet1SNGDataSet.DataSetName = "BDB56Projet1SNGDataSet";
-            this.bDB56Projet1SNGDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.assistant_soinTableAdapter = null;
@@ -160,80 +217,26 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.chambreTableAdapter = null;
             this.tableAdapterManager.clientTableAdapter = null;
+            this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.inviteTableAdapter = null;
             this.tableAdapterManager.ListeChambresRapportTableAdapter = null;
             this.tableAdapterManager.nosEtNomsAssistantsTableAdapter = null;
             this.tableAdapterManager.planif_soinTableAdapter = null;
             this.tableAdapterManager.reservationTableAdapter = null;
+            this.tableAdapterManager.soinTableAdapter = null;
             this.tableAdapterManager.type_chambreTableAdapter = null;
             this.tableAdapterManager.type_soinTableAdapter = null;
             this.tableAdapterManager.typeUtilisateurTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Projet1SNG.BDB56Projet1SNGDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.utilisateurTableAdapter = null;
             // 
-            // soinsOffertsBindingSource
-            // 
-            this.soinsOffertsBindingSource.DataMember = "soinsOfferts";
-            this.soinsOffertsBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
             // soinsOffertsTableAdapter
             // 
             this.soinsOffertsTableAdapter.ClearBeforeFill = true;
             // 
-            // dggvSoinsOfferts
-            // 
-            this.dggvSoinsOfferts.AllowUserToAddRows = false;
-            this.dggvSoinsOfferts.AllowUserToDeleteRows = false;
-            this.dggvSoinsOfferts.AutoGenerateColumns = false;
-            this.dggvSoinsOfferts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dggvSoinsOfferts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dggvSoinsOfferts.DataSource = this.soinsOffertsBindingSource;
-            this.dggvSoinsOfferts.Location = new System.Drawing.Point(69, 66);
-            this.dggvSoinsOfferts.Name = "dggvSoinsOfferts";
-            this.dggvSoinsOfferts.ReadOnly = true;
-            this.dggvSoinsOfferts.Size = new System.Drawing.Size(523, 236);
-            this.dggvSoinsOfferts.TabIndex = 0;
-            // 
-            // nosEtNomsPersonnesBindingSource
-            // 
-            this.nosEtNomsPersonnesBindingSource.DataMember = "nosEtNomsPersonnes";
-            this.nosEtNomsPersonnesBindingSource.DataSource = this.bDB56Projet1SNGDataSet;
-            // 
             // nosEtNomsPersonnesTableAdapter
             // 
             this.nosEtNomsPersonnesTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "description";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "dateHeure";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Date et heure";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "prix";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Prix";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "nomAssistant";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Assistant";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // frmRapportSoinsOffertsClientsInvites
             // 
@@ -248,15 +251,15 @@
             this.Name = "frmRapportSoinsOffertsClientsInvites";
             this.Text = "Rapport des soins offerts aux clients et aux invités";
             this.Load += new System.EventHandler(this.frmRapportSoinsOffertsClientsInvites_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsPersonnesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dggvSoinsOfferts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soinsOffertsBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bDB56Projet1SNGDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.soinsOffertsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dggvSoinsOfferts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nosEtNomsPersonnesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
